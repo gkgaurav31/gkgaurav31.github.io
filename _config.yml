@@ -16,7 +16,7 @@ timezone: Asia/Kolkata
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: gauk                          # the main title
+title: code                          # the main title
 
 tagline: A place to code   # it will display as the sub-title
 
