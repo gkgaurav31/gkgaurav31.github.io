@@ -171,3 +171,4 @@ jekyll-archives:
 
 plugins:
   - jekyll-remote-theme
+  - jemoji
