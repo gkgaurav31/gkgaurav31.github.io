@@ -19,7 +19,7 @@ Brute Force: Loop through all the numbers till N and check if there is any numbe
 
 ### Second approach - Binary Search
 
-Binary Search Approach: Pick up the middle element. Check if it is the required root. If not, check if that number i*i is greater than N. If ixi is greater than N, it means that we can ignore all the numbers which are right to i.
+Binary Search Approach: Pick up the middle element. Check if it is the required root. If not, check if that number (ixi) is greater than N. If (ixi) is greater than N, it means that we can ignore all the numbers which are right to i.
 
 ```java
 package com.test;
