@@ -3,7 +3,7 @@ layout: post
 title: Binary Search Tree - Insert
 date: 2021-04-09 00:13 +0530
 author: "Gaurav Kumar"
-tags: "java"
+tags: "java BST"
 categories: "geeksforgeeks"
 ---
 

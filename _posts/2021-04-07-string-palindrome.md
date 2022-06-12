@@ -2,7 +2,7 @@
 layout: post
 title: String Palindrome
 author: "Gaurav Kumar"
-tags: "java"
+tags: "java strings"
 categories: "interviewbit"
 
 ---

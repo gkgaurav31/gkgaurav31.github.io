@@ -2,7 +2,7 @@
 layout: post
 title: Find Square Root
 author: "Gaurav Kumar"
-tags: "java"
+tags: "java miscelleneous"
 categories: "miscelleneous"
 
 ---

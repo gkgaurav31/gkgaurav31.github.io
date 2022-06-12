@@ -2,7 +2,7 @@
 layout: post
 title: Reverse an Array
 author: "Gaurav Kumar"
-tags: "java"
+tags: "java, arrays"
 categories: "arrays"
 
 ---
