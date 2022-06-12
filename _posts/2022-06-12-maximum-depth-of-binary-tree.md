@@ -3,7 +3,7 @@ layout: post
 title: Maximum Depth of Binary Tree
 date: 2022-06-12 23:31 +0530
 tags: "java BST"
-categories: "LeetCode"
+categories: "leetcode"
 ---
 
 ## Problem Description:  [Maximum Depth of Binary Tree](https://leetcode.com/explore/learn/card/data-structure-tree/17/solve-problems-recursively/535/)

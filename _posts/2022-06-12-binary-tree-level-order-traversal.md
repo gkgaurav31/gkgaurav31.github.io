@@ -3,7 +3,7 @@ layout: post
 title: Binary Tree Level Order Traversal
 date: 2022-06-12 22:59 +0530
 tags: "java BST"
-categories: "LeetCode"
+categories: "leetcode"
 ---
 
 ## Problem Description:  [Binary Tree Level Order Traversal](https://leetcode.com/explore/learn/card/data-structure-tree/134/traverse-a-tree/931/)
