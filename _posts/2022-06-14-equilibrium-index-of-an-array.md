@@ -3,7 +3,7 @@ layout: post
 title: Equilibrium Index of an Array
 date: 2022-06-14 11:44 +0530
 author: "Gaurav Kumar"
-tags: "java, arrays, geeksforgeeks"
+tags: "java arrays geeksforgeeks"
 categories: "arrays"
 ---
 

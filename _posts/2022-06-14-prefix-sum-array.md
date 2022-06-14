@@ -3,7 +3,7 @@ layout: post
 title: Prefix Sum Array
 date: 2022-06-14 01:17 +0530
 author: "Gaurav Kumar"
-tags: "java, arrays, geeksforgeeks"
+tags: "java arrays geeksforgeeks"
 categories: "arrays"
 ---
 

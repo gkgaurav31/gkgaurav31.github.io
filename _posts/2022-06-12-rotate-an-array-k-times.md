@@ -2,7 +2,7 @@
 layout: post
 title: Rotate an Array k times
 author: "Gaurav Kumar"
-tags: "java, arrays"
+tags: "java arrays"
 categories: "arrays"
 
 ---

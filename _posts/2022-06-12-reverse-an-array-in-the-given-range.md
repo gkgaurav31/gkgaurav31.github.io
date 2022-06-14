@@ -2,7 +2,7 @@
 layout: post
 title: Reverse an Array in the given Range
 author: "Gaurav Kumar"
-tags: "java, arrays"
+tags: "java arrays"
 categories: "arrays"
 
 ---
