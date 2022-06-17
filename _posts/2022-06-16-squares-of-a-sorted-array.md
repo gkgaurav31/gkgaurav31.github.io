@@ -3,8 +3,8 @@ layout: post
 title: Squares of a Sorted Array
 date: 2022-06-16 23:50 +0530
 author: "Gaurav Kumar"
-tags: "java arrays leetcode"
-categories: "arrays"
+tags: "java arrays"
+categories: "leetcode"
 ---
 
 ## Problem Description
