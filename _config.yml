@@ -172,3 +172,4 @@ jekyll-archives:
 plugins:
   - jekyll-remote-theme
   - jemoji
+  - jekyll-pdf-embed

@@ -20,3 +20,7 @@ gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 gem "jekyll-remote-theme"
 gem 'jekyll-compose', group: [:jekyll_plugins]
 gem "jemoji"
+
+group :jekyll_plugins do
+  gem "jekyll-pdf-embed"
+end
