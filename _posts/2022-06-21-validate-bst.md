@@ -3,7 +3,7 @@ layout: post
 title: Validate BST
 date: 2022-06-21 20:08 +0530
 author: "Gaurav Kumar"
-tags: "java linkedlist"
+tags: "java BST"
 categories: "algoexpert"
 ---
 

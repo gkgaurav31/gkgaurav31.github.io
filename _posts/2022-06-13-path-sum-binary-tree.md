@@ -2,7 +2,7 @@
 layout: post
 title: Path Sum - Binary Tree
 date: 2022-06-13 02:25 +0530
-tags: "java BST"
+tags: "java binarytree"
 categories: "leetcode"
 ---
 

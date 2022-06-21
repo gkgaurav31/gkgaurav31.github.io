@@ -3,7 +3,7 @@ layout: post
 title: Find kth Largest Value in BST
 date: 2022-06-21 15:04 +0530
 author: "Gaurav Kumar"
-tags: "java linkedlist important"
+tags: "java BST important"
 categories: "algoexpert"
 ---
 

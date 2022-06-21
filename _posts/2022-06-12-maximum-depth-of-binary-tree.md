@@ -2,7 +2,7 @@
 layout: post
 title: Maximum Depth of Binary Tree
 date: 2022-06-12 23:31 +0530
-tags: "java BST"
+tags: "java binarytree"
 categories: "leetcode"
 ---
 

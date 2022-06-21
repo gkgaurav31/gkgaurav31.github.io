@@ -3,7 +3,7 @@ layout: post
 title: Symmetric Binary Tree
 date: 2022-06-13 00:46 +0530
 author: "Gaurav Kumar"
-tags: "java BST"
+tags: "java binarytree"
 categories: "leetcode"
 ---
 
