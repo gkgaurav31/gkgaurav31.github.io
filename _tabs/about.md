@@ -38,6 +38,7 @@ A software developer by profession, and an artist at heart. Always willing to le
 
 - [GitHub Page/Personal Tech Blog](https://gkgaurav31.github.io/blog/)
 - [Algorithms/Code Blog](https://gkgaurav31.github.io/)
+- [Azure Spring Apps Blog](https://gkgaurav31.github.io/azure-spring-cloud/)
 
 ### :newspaper: Projects
 
