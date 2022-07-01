@@ -10,7 +10,7 @@ Return the total sum of all sub-arrays of the given array.
 
 ### Solution
 
-### BRUTE-FORCE
+#### BRUTE-FORCE
 
 The brute force method is to check all sub-array, calculate its sum and add that to the total sum.
 
@@ -36,14 +36,14 @@ public static int totalSumSubArrayBruteForce(ArrayList<Integer> A) {
 }
 ```
 
-### OPTIMIZATION
+#### OPTIMIZATION
 
 We can optimize it to O(N) with a few observations:  
 
 > [1, 2, 3, 4]  
 > 0  1  2  3
 
-Let's say, we need to find our __"How many sub-arrays are there, which contain the index "2".__
+Let's say, we need to find out __"How many sub-arrays are there, which contain the index "2".__
 
 ![snapshot]({{ site.baseurl }}/assets/img/index_in_subarray.jpg)
 
@@ -52,7 +52,7 @@ Similarly, we can say that the sub-array which contains index 2 must have an end
 
 So, total number of sub-arrays which contains index 2 are:  
 
-3 x 2 = 6 (number of indices on left multiplies by number of indices on the right)  
+3 x 2 = 6 (number of indices on left multiplied by number of indices on the right)  
 
 > We can now say that, index 2, which has the element 3 is present in 6 sub-arrays :heavy_check_mark:
 
