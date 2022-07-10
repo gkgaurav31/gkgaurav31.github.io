@@ -24,3 +24,5 @@ gem "jemoji"
 group :jekyll_plugins do
   gem "jekyll-pdf-embed"
 end
+
+gem "webrick", "~> 1.7"
