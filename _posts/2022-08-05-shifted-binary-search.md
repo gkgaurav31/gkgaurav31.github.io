@@ -3,8 +3,8 @@ layout: post
 title: Shifted Binary Search
 date: 2022-08-05 00:58 +0530
 author: "Gaurav Kumar"
-tags: "java arrays sorting important"
-categories: "sorting"
+tags: "java arrays search important"
+categories: "search"
 
 ---
 
