@@ -14,6 +14,8 @@ Note: A number is said to be magical, if it's divisible by B or C.
 
 ### Solution
 
+![snapshot]({{ site.baseurl }}/assets/img/magic_number.jpg)
+
 ```java
 package com.gauk;
 
