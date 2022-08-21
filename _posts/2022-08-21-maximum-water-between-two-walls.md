@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Maximum Water between Two Walls"
+title: Maximum Water between Two Walls
 date: 2022-08-21 16:14 +0530
 author: "Gaurav Kumar"
 tags: "java arrays two_pointers"
