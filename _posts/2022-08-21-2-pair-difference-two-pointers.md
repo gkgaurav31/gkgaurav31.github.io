@@ -18,6 +18,8 @@ Two important thing in question is to figure out where to initilize the two poin
 If we keep i=0, j=n-1:  
 diff = A[j] - A[i]. Let's say that the diff is smaller than k. If we move i to right, the difference will be smaller. If we move j to the left, we have the same problem. So, we cannot make a decision using this appraoch. To address this problem, we can initialize the i and j to 0 and 1 respectively.
 
+:exclamation: If k is negative, we can simply take mod(k) and do the same thing.
+
 ```java
 package com.gauk;
 
