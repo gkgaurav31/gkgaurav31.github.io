@@ -1,10 +1,10 @@
 ---
 layout: post
-title: BST Level Order Traversal II
+title: Binary Tree - Level Order Traversal II
 date: 2022-09-23 23:38 +0530
 author: "Gaurav Kumar"
-tags: "java BST important leetcode"
-categories: "BST"
+tags: "java binarytree important leetcode"
+categories: "binarytree"
 ---
 
 ### PROBLEM DESCRIPTION

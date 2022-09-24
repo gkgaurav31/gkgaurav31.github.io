@@ -3,8 +3,8 @@ layout: post
 title: Height of a Binary Search Tree
 date: 2022-09-23 00:03 +0530
 author: "Gaurav Kumar"
-tags: "java BST"
-categories: "BST"
+tags: "java binarytree"
+categories: "binarytree"
 ---
 
 ### PROBLEM DESCRIPTION
