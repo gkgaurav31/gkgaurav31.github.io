@@ -41,3 +41,27 @@ class Program {
   }
 }
 ```
+
+### Another way to code
+
+```java
+import java.util.*;
+
+class Program {
+  public static void invertBinaryTree(BinaryTree tree) {
+    invertHelper(tree);
+  }
+
+  public static BinaryTree invertHelper(BinaryTree tree){
+    
+    if(tree == null) return null;
+
+    BinaryTree temp = tree.left;
+    
+    tree.left = invertHelper(tree.right);
+    tree.right = invertHelper(temp);
+
+    return tree;
+  }
+}
+```
