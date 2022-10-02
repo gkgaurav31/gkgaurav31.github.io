@@ -43,3 +43,29 @@ class Program {
   }
 }
 ```
+
+### SECOND APPROACH
+
+```java
+public class Solution {
+
+    int maxDiameter = Integer.MIN_VALUE;
+
+    public int solve(TreeNode A) {
+        if(A == null) return 0;
+        height(A);
+        return maxDiameter;
+    }
+
+    int height(TreeNode node) 
+    {
+        if(node == null) return -1;
+        
+        int h1 = height(node.left);
+        int h2 = height(node.right);
+        maxDiameter = Math.max(maxDiameter, h1 + h2 + 2);
+        return 1 + Math.max(h1, h2);
+    }
+
+}
+```
