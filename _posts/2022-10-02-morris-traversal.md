@@ -9,7 +9,7 @@ categories: "binarytree"
 
 ### PROBLEM DESCRIPTION
 
-Two elements of a binary search tree (BST), represented by root A are swapped by mistake. Tell us the 2 values swapping which the tree will be restored.    
+Binary Tree traversal using Morris Algorithm. Iterative approach, no stack required - O(1) space complexity.
 [geeksforgeeks](https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/)
 
 ### SOLUTION
