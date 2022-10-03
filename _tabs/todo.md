@@ -9,4 +9,6 @@ order: 4
 :wavy_dash: [Count Univalue Subtrees](https://leetcode.com/explore/learn/card/data-structure-tree/17/solve-problems-recursively/538/)  
 :wavy_dash: Depth First Search  
 :wavy_dash: Breadth First Search  
-:wavy_dash: [Deep Copy of Linked List O(1) space solution](https://leetcode.com/problems/copy-list-with-random-pointer/)  
+:wavy_dash: Compare Leaf Traversal of two binary trees  
+:wavy_dash: Design HashMap  
+:wavy_dash: LRU Cache  
