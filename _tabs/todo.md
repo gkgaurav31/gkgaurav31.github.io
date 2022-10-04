@@ -12,3 +12,4 @@ order: 4
 :wavy_dash: Compare Leaf Traversal of two binary trees  
 :wavy_dash: Design HashMap  
 :wavy_dash: LRU Cache  
+:wavy_dash: [Right Sibling Tree](https://www.algoexpert.io/questions/right-sibling-tree)  
