@@ -12,6 +12,10 @@ categories: "trie"
 
 ![snapshot]({{ site.baseurl }}/assets/img/trie_2.png)
 
+### Implementation
+
+[leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/)
+
 ```java
 public class Trie {
     
@@ -105,7 +109,3 @@ public class Trie {
     }
 }
 ```
-
-### Implementation
-
-[leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/)
