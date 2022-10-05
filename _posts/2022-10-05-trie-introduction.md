@@ -9,7 +9,3 @@ categories: "trie"
 ### INTRODUCTION TO TRIE - PART 1
 
 ![snapshot]({{ site.baseurl }}/assets/img/trie_1.png)
-
-### Implementation
-
-[leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/)

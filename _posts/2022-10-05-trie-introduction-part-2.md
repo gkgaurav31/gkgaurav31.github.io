@@ -105,3 +105,7 @@ public class Trie {
     }
 }
 ```
+
+### Implementation
+
+[leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/)
