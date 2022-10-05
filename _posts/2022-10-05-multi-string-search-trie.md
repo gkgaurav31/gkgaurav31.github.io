@@ -1,24 +1,44 @@
 ---
 layout: post
-title: Trie - Introduction - Part 2
-date: 2022-10-05 17:38 +0530
+title: Multi String Search (Trie)
+date: 2022-10-05 19:54 +0530
 author: "Gaurav Kumar"
-tags: "java trie"
-categories: "trie"
+tags: "java binarytree"
+categories: "binarytree"
 ---
 
-### INTRODUCTION TO TRIE - PART 2
+### PROBLEM DESCRIPTION
 
-[Trie Introduction: Part 1]({% post_url 2022-10-05-trie-introduction %})
+You are given a Big String and an array of small strings.
+You need to check whether each small string is present in the big string. Do not use any in-built method.
 
-![snapshot]({{ site.baseurl }}/assets/img/trie_2.png)
+### SOLUTION
 
-### Implementation
-
-[leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/)
+We can make use of Trie to solve this problem. We loop through the bigstring and keep adding the subarrays [0,n-1] [1,n-1], [2,n-1] and so on. Then, all we need is to check whether the smallstring is present in the Trie as a prefix.  
 
 ```java
-public class Trie {
+import java.util.*;
+
+class Program {
+  
+  public static List<Boolean> multiStringSearch(String bigString, String[] smallStrings) {
+
+        Trie trie = new Trie();
+        for(int i=0; i<bigString.length(); i++){
+            trie.insert(bigString.substring(i));
+        }
+
+        List<Boolean> list = new ArrayList<>();
+        for(int i=0; i<smallStrings.length; i++){
+            list.add(i, trie.startsWith(smallStrings[i]));
+        }
+
+        return list;
+    
+  }
+}
+
+class Trie {
     
     Node root;
     
@@ -40,23 +60,17 @@ public class Trie {
         
         Node temp = root;
         
-        //Loop through the string
         for(int i=0; i<n; i++){
             
-            //Get the current character
             Character c = Character.valueOf(word.charAt(i));
             
-            //Check if the current Node's hashmap contains that character
             if(temp.hm.containsKey(c)){
-                //If it contains the character already, go to the next Node. 
-                //We need to go to the corresponding Node for the current character which we can get from the HashMap.
                 temp = temp.hm.get(c);
             }else{
-                //If the character is not present in the HashMap, new a new Node which will act like the next one for the current character.
                 temp.hm.put(c, new Node(new HashMap<>()));
-                //Once that's is set, go to the next node
                 temp = temp.hm.get(c);
             }
+            
             
         }
         
@@ -64,16 +78,15 @@ public class Trie {
         
     }
     
+    //Return true if complete match is found
     public boolean search(String word) {
         
         int n = word.length();
         
         Node temp = root;
         
-        //Loop through the word
         for(int i=0; i<n; i++){
             
-            //Get the current character
             Character c = Character.valueOf(word.charAt(i));
             
             if(!temp.hm.containsKey(c)){
@@ -83,13 +96,13 @@ public class Trie {
             }
             
         }
-        //Since we need a complete match and not just prefix, we need to check if isEnd on the current node is true.
+        
         return temp.isEnd;
 
     }
     
+    //Returns true is the input string is found (can be a prefix) 
     public boolean startsWith(String prefix) {
-
         int n = prefix.length();
         
         Node temp = root;

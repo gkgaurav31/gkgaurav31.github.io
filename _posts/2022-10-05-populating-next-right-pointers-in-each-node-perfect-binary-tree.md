@@ -2,6 +2,7 @@
 layout: post
 title: Populating Next Right Pointers in Each Node - Perfect Binary Tree
 date: 2022-10-05 00:44 +0530
+author: "Gaurav Kumar"
 tags: "java binarytree"
 categories: "binarytree"
 ---
