@@ -3,11 +3,11 @@ layout: post
 title: Top K Frequent Elements
 date: 2022-10-09 15:23 +0530
 author: "Gaurav Kumar"
-tags: "java neet150"
-categories: "neet150"
+tags: "java neetcode150"
+categories: "neetcode150"
 ---
 
-This question is part of [Neet150 series](https://neetcode.io/practice).  
+This question is part of [NeetCode150 series](https://neetcode.io/practice).  
 
 ## Problem Description
 
@@ -79,9 +79,4 @@ class Solution {
     }
     
 }
-```
-
-### APPROACH 2
-
-```java
 ```
