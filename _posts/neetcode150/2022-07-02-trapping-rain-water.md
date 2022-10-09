@@ -3,11 +3,11 @@ layout: post
 title: Trapping Rain Water
 date: 2022-07-02 00:35 +0530
 author: "Gaurav Kumar"
-tags: "java arrays arrays neet150"
-categories: "neet150"
+tags: "java arrays arrays neetcode150"
+categories: "neetcode150"
 ---
 
-This question is part of [Neet150 series](https://neetcode.io/practice).  
+This question is part of [NeetCode150 series](https://neetcode.io/practice).  
 
 ## Problem Description
 
