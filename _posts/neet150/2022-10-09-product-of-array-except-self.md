@@ -70,3 +70,38 @@ class Solution {
     }
 }
 ```
+
+### APPROACH 2
+
+It's based on the previous approach, but instead we can calculate the ans on the fly without using any extra space.
+
+```java
+class Solution {
+    
+    public int[] productExceptSelf(int[] nums) {
+        
+        int n = nums.length;
+        
+        int[] ans = new int[n];
+        
+        //Create left prefix product in the ans array itself
+        ans[0] = 1;
+        
+        for(int i=1; i<n; i++){
+            ans[i] = ans[i-1] * nums[i-1];
+        }
+            
+        //To save space, we will maintain product from right using this variable
+        int r_current = 1;
+        
+        for(int i=n-2; i>=0; i--){
+            r_current = r_current * nums[i+1];
+            ans[i] = ans[i] * r_current;
+        }
+        
+        return ans;
+        
+    }
+    
+}
+```
