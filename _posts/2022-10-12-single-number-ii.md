@@ -57,3 +57,43 @@ class Solution {
     }
 }
 ```
+
+### Another way to code
+
+```java
+class Solution {
+    
+    public int singleNumber(int[] nums) {
+        
+        int ans = 0;
+        
+        for(int i=0; i<=31; i++){
+            int count = countSetAtPosition(nums, i);
+            if(count%3 != 0){
+              ans = ans|(1<<i); //1<<i is equivalent of 2^i. We are basically setting the bit at ith position
+            } 
+            
+        }
+    
+        return ans;        
+    }
+    
+    public int countSetAtPosition(int[] nums, int position){
+        
+        int c=0;
+        
+        for(int i=0; i<nums.length; i++){
+            if(checkSetAtPosition(nums[i], position)) c++;
+        }
+        
+        return c;
+        
+    }
+    
+    public boolean checkSetAtPosition(int n, int i){
+        n = n>>i;
+        return (n&1)==1;
+    }
+    
+}
+```
