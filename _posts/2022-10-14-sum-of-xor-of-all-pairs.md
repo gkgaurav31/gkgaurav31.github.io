@@ -9,7 +9,7 @@ categories: "bit_manipulation"
 
 ## Problem Description
 
-Given an array of N integers, find the sum of xor of all pairs of numbers in the array.
+Given an array of N integers, find the sum of xor of all pairs of numbers in the array.  
 [geeksforgeeks](https://practice.geeksforgeeks.org/problems/sum-of-xor-of-all-pairs0723/1)
 
 ### Solution
