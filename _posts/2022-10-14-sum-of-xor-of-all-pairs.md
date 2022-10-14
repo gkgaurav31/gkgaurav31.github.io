@@ -44,6 +44,5 @@ class Solution{
         return (n&1)==1;
     }
     
-    
 }
 ```
