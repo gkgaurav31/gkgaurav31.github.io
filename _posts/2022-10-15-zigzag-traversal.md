@@ -103,3 +103,80 @@ class Program {
   
 }
 ```
+
+### If the first move is upwards
+
+The only real change is the initial direction! That's all.
+
+```java
+class Solution {
+    
+    public int[] findDiagonalOrder(int[][] mat) {
+        
+        int[] ans = new int[mat.length*mat[0].length];
+        
+        int idx=0;
+        
+        boolean goingDown = false; //Since we start moving upwards first, we set this to false
+        
+        int height = mat.length-1;
+        int width = mat[0].length-1;
+        
+        int row=0;
+        int col=0;
+        
+        while(isInbound(row, col, height, width)){
+            
+            ans[idx++] = mat[row][col];
+            
+            if(goingDown){
+                
+                if(row == height || col == 0){
+                    
+                    goingDown = false;
+                    
+                    if(row == height){
+                        col++;
+                    }else{
+                        row++;
+                    }
+                }else{
+                    col--;
+                    row++;
+                }
+                
+            }else{
+                
+                if(row == 0 || col == width){
+                    
+                    goingDown = true;
+                    
+                    if(col == width){
+                        row++;
+                    }else{
+                        col++;
+                    }
+                    
+                }else{
+                    
+                    col++;
+                    row--;
+                    
+                }
+                
+            }
+            
+        }
+        
+        return ans;
+            
+    }
+    
+    public static boolean isInbound(int row, int col, int h, int w){
+        if(row < 0 || row > h || col < 0 || col > w) return false;
+        return true;
+    }
+
+}
+```
+
