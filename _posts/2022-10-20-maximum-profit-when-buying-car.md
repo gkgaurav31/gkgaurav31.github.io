@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Maximum profit when buying car
+title: Maximum Profit When Buying a Car
 date: 2022-10-20 23:22 +0530
 author: "Gaurav Kumar"
 tags: "java heap greedy important"
