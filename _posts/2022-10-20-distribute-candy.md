@@ -3,7 +3,7 @@ layout: post
 title: Distribute Candy
 date: 2022-10-20 22:51 +0530
 author: "Gaurav Kumar"
-tags: "java heap greedy leetcode important"
+tags: "java greedy leetcode important"
 categories: "greedy"
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: Finish Maximum Jobs
 date: 2022-10-20 19:05 +0530
 author: "Gaurav Kumar"
-tags: "java heap greedy important"
+tags: "java greedy important"
 categories: "greedy"
 ---
 
