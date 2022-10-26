@@ -3,9 +3,11 @@ layout: post
 title: All Subsets
 date: 2022-10-25 22:02 +0530
 author: "Gaurav Kumar"
-tags: "java recursion backtracking leetcode"
-categories: "backtracking"
+tags: "java neetcode150"
+categories: "neetcode150"
 ---
+
+This question is part of [NeetCode150 series](https://neetcode.io/practice).
 
 ## Problem Description
 
