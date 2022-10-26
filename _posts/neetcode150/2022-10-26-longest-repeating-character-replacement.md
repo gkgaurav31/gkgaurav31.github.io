@@ -69,7 +69,7 @@ class Solution {
                 start++;
             }
             
-            //If diff is <= k, we move the right end of the window and update max length
+            //Update max length. Right of the windows will increase due to the for loop condition which is what we want
             maxLength = Math.max(maxLength, end-start+1);
             
         }
