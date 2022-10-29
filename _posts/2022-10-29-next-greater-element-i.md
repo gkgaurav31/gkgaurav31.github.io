@@ -3,8 +3,8 @@ layout: post
 title: Next Greater Element I
 date: 2022-10-29 23:28 +0530
 author: "Gaurav Kumar"
-tags: "java search"
-categories: "search"
+tags: "java stack"
+categories: "stack"
 ---
 
 ## Problem Description
