@@ -14,6 +14,8 @@ Write an efficient algorithm that searches for a value target in an m x n intege
 - Integers in each row are sorted from left to right.
 - The first integer of each row is greater than the last integer of the previous row.
 
+[leetcode](https://leetcode.com/problems/search-a-2d-matrix/)
+
 ### Solution
 
 ![snapshot]({{ site.baseurl }}/assets/img/matrix_binary_search_1.png)
