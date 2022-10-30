@@ -146,3 +146,24 @@ class Solution {
     
 }
 ```
+
+### ANOTHER WAY TO CODE
+
+We can further optimize the above approach by making use of previous calculated result. The idea is - Let's say I have any number N. I can unset the right most set bit by doiing: N&(N-1). So, N will have 1 more set bit than the number of set bits of N&(N-1).  
+
+Initialize ans[0]=0. We start iterating from 1. We can the number of set bits for N&(N-1) and add 1 to it. We keep doing this for subsequent numbers.  
+
+```java
+class Solution {
+    public int[] countBits(int n) {
+        int[] ans = new int[n+1];
+        ans[0] = 0;
+        for(int i=1; i<=n; i++){
+            ans[i] = ans[i&(i-1)] + 1;
+        }
+        
+        return ans;
+        
+    }  
+}
+```
