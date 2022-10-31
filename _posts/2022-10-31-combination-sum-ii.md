@@ -19,7 +19,7 @@ Note: The solution set must not contain duplicate combinations.
 
 ### Solution
 
-The solution is based on [Subset I]({% post_url 2022-10-31-combination-sum %})
+The solution is based on [Combination Sum I]({% post_url 2022-10-31-combination-sum %})
 
 ```java
 class Solution {
