@@ -9,17 +9,13 @@ categories: "dynamic_programming"
 
 ## Problem Description
 
-You are climbing a staircase and it takes A steps to reach the top.  
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?  
-Return the number of distinct ways modulo 1000000007  
-
-### Solution
-
 Given a positive integer A, write a program to find the Ath Fibonacci number.
 
 In a Fibonacci series, each term is the sum of the previous two terms and the first two terms of the series are 0 and 1. i.e. f(0) = 0 and f(1) = 1. Hence, f(2) = 1, f(3) = 2, f(4) = 3 and so on.
 
 NOTE: 0th term is 0. 1th term is 1 and so on.
+
+### Solution
 
 ```java
 import java.lang.*;
