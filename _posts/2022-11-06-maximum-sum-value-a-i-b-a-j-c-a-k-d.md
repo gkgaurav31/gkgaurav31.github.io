@@ -42,7 +42,7 @@ public class Solution {
 }
 ```
 
-### ANOTHER WAY TO CODE
+### Another way to code
 
 ```java
 public class Solution {
