@@ -3,8 +3,8 @@ layout: post
 title: Max Product Subarray
 date: 2022-11-04 18:26 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode dynamic_programming"
-categories: "dynamic_programming"
+tags: "java leetcode dynamic_programming neetcode150 important"
+categories: "neetcode150"
 ---
 
 ## Problem Description
