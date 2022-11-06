@@ -50,7 +50,7 @@ class Solution {
         for(int i=2; i<=n; i++){
             
             int c = A.charAt(i-1)-'0';
-
+            
             if(c >= 1 && c<=9){
                 dp[i] = dp[i-1];
             }
