@@ -21,6 +21,8 @@ Return the minimum cost to paint all houses.
 
 ### Solution
 
+![snapshot]({{ site.baseurl }}/assets/img/paint_house.png)
+
 ```java
 class Solution {
     
