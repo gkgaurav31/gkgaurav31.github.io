@@ -19,6 +19,8 @@ Return the number of possible unique paths that the robot can take to reach the 
 
 ### Solution
 
+![snapshot]({{ site.baseurl }}/assets/img/unique_paths_2.png)
+
 ```java
 class Solution {
 
