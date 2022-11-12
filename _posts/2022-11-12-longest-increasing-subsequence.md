@@ -55,3 +55,5 @@ class Solution {
     }
 }
 ```
+
+The above algorithm is O(N^2) time complexity. We can further optimize the solution by using DP + Binary Search.
