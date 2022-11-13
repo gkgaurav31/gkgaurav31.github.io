@@ -22,6 +22,7 @@ You have the following three operations permitted on a word:
 
 ```java
 class Solution {
+    
     public int minDistance(String str1, String str2) {
 
         int[][] dp = new int[str1.length()][str2.length()];
