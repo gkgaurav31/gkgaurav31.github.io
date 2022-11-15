@@ -16,7 +16,7 @@ For each step, you may move to an adjacent number of the row below. More formall
 
 ### Solution
 
-We can solve this problem in a similar way as we solve [Paint House]({% post_url 2022-11-07-paint-house %}).
+We can solve this problem in a similar way as we solved [Paint House]({% post_url 2022-11-07-paint-house %}).
 
 The first row has only one element, and that's the minimum sum possible till row 0.
 For row 1, if we pick the first element, we can choose between the element right above it or the one before it. We can consider them one by one and take the minimum. So now we have the minimum sum possible till row 1. In the same way, we calculate the min sum for row 2 onwards. The final answer is the minimum number in the last row of the dp.
