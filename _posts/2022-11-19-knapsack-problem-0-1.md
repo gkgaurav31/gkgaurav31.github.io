@@ -3,7 +3,7 @@ layout: post
 title: Knapsack Problem (0/1)
 date: 2022-11-19 21:14 +0530
 author: "Gaurav Kumar"
-tags: "java geeksforgeeks dynamic_programming"
+tags: "java geeksforgeeks dynamic_programming important"
 categories: "dynamic_programming"
 ---
 
@@ -60,6 +60,76 @@ class Solution
         return dp[i][j];
 
     }
+    
+}
+```
+
+### ITERATIVE SOLUTION
+
+![snapshot]({{ site.baseurl }}/assets/img/knapsach_01_iterative.png)
+
+```java
+class Solution 
+{ 
+    //Function to return max value that can be put in knapsack of capacity W.
+    static int knapSack(int k, int w[], int v[], int n) 
+    { 
+        //dp table
+        int[][] dp = new int[n+1][k+1];
+        
+        //i=0 => no item selected, so value will be 0, which is already there by default.
+        
+        for(int i=1; i<=n; i++){
+            
+            for(int j=0; j<=k; j++){
+                
+                //leave
+                int x = dp[i-1][j];
+                
+                //pick
+                if(j >= w[i-1])
+                    x = Math.max(x, dp[i-1][j-w[i-1]] + v[i-1]);
+                
+                dp[i][j] = x;
+                
+            }
+        }
+
+        return dp[n][k];
+    } 
+    
+}
+```
+
+### SPACE OPTIMIZATION
+
+At any given time, we just need two rows, since we are looking into the previous row and updating the current row. We can use mod by 2 to just make use of 2 rows.
+
+```java
+class Solution 
+{ 
+    static int knapSack(int k, int w[], int v[], int n) 
+    { 
+        int[][] dp = new int[2][k+1];
+        
+        for(int i=1; i<=n; i++){
+            
+            for(int j=0; j<=k; j++){
+                
+                //leave
+                int x = dp[(i-1)%2][j];
+                
+                //pick
+                if(j >= w[i-1])
+                    x = Math.max(x, dp[(i-1)%2][j-w[i-1]] + v[i-1]);
+                
+                dp[i%2][j] = x;
+                
+            }
+        }
+
+        return dp[n%2][k];
+    } 
     
 }
 ```
