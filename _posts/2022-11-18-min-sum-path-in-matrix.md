@@ -2,6 +2,7 @@
 layout: post
 title: Min Sum Path in Matrix
 date: 2022-11-18 23:26 +0530
+author: "Gaurav Kumar"
 tags: "java dynamic_programming"
 categories: "dynamic_programming"
 ---

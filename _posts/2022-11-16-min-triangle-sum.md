@@ -2,6 +2,7 @@
 layout: post
 title: Min Triangle Sum
 date: 2022-11-16 00:05 +0530
+author: "Gaurav Kumar"
 tags: "java leetcode dynamic_programming"
 categories: "dynamic_programming"
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: N digit numbers with digit sum S
 date: 2022-11-13 19:19 +0530
+author: "Gaurav Kumar"
 tags: "java interviewbit dynamic_programming"
 categories: "dynamic_programming"
 ---
