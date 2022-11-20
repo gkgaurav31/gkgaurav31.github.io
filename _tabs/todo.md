@@ -13,10 +13,3 @@ order: 4
 :wavy_dash: Design HashMap  
 :wavy_dash: LRU Cache  
 :wavy_dash: Quickselect approach to get Kth largest element  
-
-> Revise:  
-
-:bookmark_tabs: [Combination Sum](https://leetcode.com/problems/combination-sum/) | Target: 3/11  
-:bookmark_tabs: [Combination Sum II](https://leetcode.com/problems/combination-sum/) | Target: 3/11  
-:bookmark_tabs: [Subsets II](https://leetcode.com/problems/subsets-ii/) | Target: 3/11  
-:bookmark_tabs: [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) - one pass solution  
