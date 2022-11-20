@@ -3,8 +3,8 @@ layout: post
 title: Rabin Karp
 date: 2022-09-03 02:38 +0530
 author: "Gaurav Kumar"
-tags: "java arrays hashing string geeksforgeeks"
-categories: "string"
+tags: "java arrays hashing strings geeksforgeeks"
+categories: "strings"
 ---
 
 ## Problem Description

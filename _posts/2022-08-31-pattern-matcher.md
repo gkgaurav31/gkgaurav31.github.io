@@ -3,8 +3,8 @@ layout: post
 title: Pattern Matcher
 date: 2022-08-31 10:01 +0530
 author: "Gaurav Kumar"
-tags: "java arrays hashing string geeksforgeeks"
-categories: "string"
+tags: "java arrays hashing strings geeksforgeeks"
+categories: "strings"
 ---
 
 ## Problem Description
