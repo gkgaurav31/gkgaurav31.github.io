@@ -3,7 +3,7 @@ layout: post
 title: Design Add and Search Words Data Structure
 date: 2022-10-09 19:47 +0530
 author: "Gaurav Kumar"
-tags: "java neetcode150"
+tags: "java trie neetcode150"
 categories: "neetcode150"
 ---
 
