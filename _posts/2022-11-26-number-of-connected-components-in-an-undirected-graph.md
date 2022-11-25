@@ -13,6 +13,8 @@ You have a graph of n nodes. You are given an integer n and an array edges where
 
 Return the number of connected components in the graph.
 
+[geeksforgeeks](https://www.geeksforgeeks.org/connected-components-in-an-undirected-graph/)
+
 ### Solution
 
 The idea is that if we apply DFS/BFS to any node in certain connected component, then all connected nodes will be visited. So means that to cover all the Nodes, we will have to apply DFS/BFS multiple times and that will be equal to the number of connected components in the graph. So, to solve this, we can iterate through all the nodes one by one and apply DFS/BFS whenever we get a non-visited node. Each time when we apply BFS/DFS, we increase the countOfConnectedComponents by 1. If the node is already visited (from previous BFS/DFS which you would have done) then simply skip it.
