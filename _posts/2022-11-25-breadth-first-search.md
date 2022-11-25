@@ -7,7 +7,7 @@ tags: "java geeksforgeeks graphs"
 categories: "graphs"
 ---
 
-## Problem Description
+### Problem Description
 
 Given a directed graph. The task is to do Breadth First Traversal of this graph starting from 0.  
 
