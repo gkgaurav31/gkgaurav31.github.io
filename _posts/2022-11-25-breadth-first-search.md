@@ -9,7 +9,9 @@ categories: "graphs"
 
 ## Problem Description
 
-Given a directed graph. The task is to do Breadth First Traversal of this graph starting from 0.
+Given a directed graph. The task is to do Breadth First Traversal of this graph starting from 0.  
+
+[geeksforgeeks](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
 
 ### Solution
 
