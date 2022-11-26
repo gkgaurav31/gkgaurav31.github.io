@@ -16,3 +16,4 @@ package-lock.json
 
 #test script
 start.bat
+.jekyll-cache

@@ -159,6 +159,7 @@ exclude:
   - node_modules
   - package.json
   - package-lock.json
+  - .jekyll-cache
 
 jekyll-archives:
   enabled: [categories, tags]
@@ -173,3 +174,4 @@ plugins:
   - jekyll-remote-theme
   - jemoji
   - jekyll-pdf-embed
+
