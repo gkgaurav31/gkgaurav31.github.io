@@ -12,7 +12,7 @@ categories: "graphs"
 Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
 
 An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
-[leetcode](https://leetcode.com/problems/number-of-islands/description//)
+[leetcode](https://leetcode.com/problems/number-of-islands/description/)
 
 ### Solution
 
@@ -46,6 +46,7 @@ class Solution {
     public void dfs(int i, int j, char[][] grid){
 
         //We will use this for the 4 direction in which we can go from grid[i][j]
+        //[i][j-1], [i][j+1], [i-1][j], [i+1][j]
         int[] x = {0, 0, 1, -1};
         int[] y = {-1, 1, 0, 0};
 
@@ -67,6 +68,25 @@ class Solution {
 
         }
 
+    }
+
+}
+```
+
+### Another way to code
+
+```java
+public void dfs(int i, int j, char[][] grid){
+
+    if(i<0 || j<0 || i>=grid.length || j>=grid[0].length || grid[i][j] == '0') return;
+
+    int[] x = {0, 0, 1, -1};
+    int[] y = {-1, 1, 0, 0};
+
+    grid[i][j] = '0';
+
+    for(int k=0; k<4; k++){
+        dfs(i+x[k], j+y[k], grid);   
     }
 
 }
