@@ -19,6 +19,15 @@ A region is captured by flipping all 'O's into 'X's in that surrounded region.
 
 The key observation in this problem is that if there is any 'O' in the bordering row or columns, it will impact all connected cells. (Since the 'O' at the border cannot be flipped to 'X' as it's cannot be surrounded by water on all 4 sides). Which means, it will impact all its neighboring cells as well, if they are not already 'X'. This will continue like a "chain reaction". So, what we can is, for each bordering cell, use BFS/DFS and mark all connected/impacted cells. We are setting those cells with '#' to avoid visiting them again, which is possible from some other cell.
 
+Main steps:
+
+- Iterated over the boundard and find O's
+- Every time we find an O, perform DFS from that position
+- In DFS convert all 'O' to '#' (So that we can differentiate which 'O' can be flipped and which cannot be)
+- After all DFSs have been performed, board contains three elements,#, O and X
+- 'O' are left over elements which are not connected to any boundary O, so flip them to 'X'
+- '#' are elements which cannot be flipped to 'X', so flip them back to 'O'
+
 ```java
 class Solution {
     
