@@ -19,7 +19,7 @@ Return the ordering of courses you should take to finish all courses. If there a
 
 ### Solution
 
-Refer to the following solution to understand the main idea: [Course Schedule]({% 2022-11-27-course-schedule %})
+Refer to the following solution to understand the main idea: [Course Schedule]({% post_url 2022-11-27-course-schedule %})
 
 ```java
 class Solution {
