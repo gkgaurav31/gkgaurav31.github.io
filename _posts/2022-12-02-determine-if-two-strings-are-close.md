@@ -26,7 +26,7 @@ Given two strings, word1 and word2, return true if word1 and word2 are close, an
 
 ```java
 class Solution {
-    
+
     public boolean closeStrings(String word1, String word2) {
         
         //If length of words are different, then they are not "close"
@@ -40,6 +40,7 @@ class Solution {
         Map<Character, Integer> f1 = new HashMap<>();
         Map<Character, Integer> f2 = new HashMap<>();
 
+        //Track frequency of each chracter in word 1
         for(int i=0; i<word1.length(); i++){
             Character c = word1.charAt(i);
             if(f1.containsKey(c)){
@@ -49,6 +50,7 @@ class Solution {
             }
         }
 
+        //Track frequency of each chracter in word 2
         for(int i=0; i<word2.length(); i++){
             Character c = word2.charAt(i);
             if(f2.containsKey(c)){
@@ -58,7 +60,10 @@ class Solution {
             }
         }
 
+        //Number of characters with frequency X in f1
         Map<Integer, Integer> f1count = new HashMap<>();
+
+        //Number of characters with frequency X in f2
         Map<Integer, Integer> f2count = new HashMap<>();
         
         for(java.util.Map.Entry e: f1.entrySet()){
@@ -77,6 +82,7 @@ class Solution {
             }
         }
 
+        //If number of characters with frequency X in map1 != number of characters with frequency X in map2, return false
         for(java.util.Map.Entry e: f1count.entrySet()){
 
             //Count of current frequency
