@@ -3,8 +3,8 @@ layout: post
 title: Evaluate Reverse Polish Notation
 date: 2022-12-01 22:32 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode stack"
-categories: "stack"
+tags: "java leetcode neetcode stack"
+categories: "neetcode"
 ---
 
 ### Problem Description
