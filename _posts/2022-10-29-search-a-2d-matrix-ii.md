@@ -3,7 +3,7 @@ layout: post
 title: Search a 2D Matrix II
 date: 2022-10-29 22:54 +0530
 author: "Gaurav Kumar"
-tags: "java search"
+tags: "java  binary_search search"
 categories: "search"
 ---
 
