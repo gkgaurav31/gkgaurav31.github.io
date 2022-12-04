@@ -3,7 +3,7 @@ layout: post
 title: Time Based Key-Value Store
 date: 2022-12-04 15:01 +0530
 author: "Gaurav Kumar"
-tags: "java binary_search neetcode150"
+tags: "java binary_search search neetcode150"
 categories: "neetcode150"
 ---
 
@@ -72,7 +72,7 @@ class TimeMap {
  */
 ```
 
-### Approach 2: HashMap<String, ArrayList<Pair<Integer, String>>> map
+### Approach 2: HashMap<Key, ArrayList<Pair<Timestamp, Value>>> map
 
 ```java
 class TimeMap {
