@@ -21,6 +21,8 @@ Implement the TimeMap class:
 
 ### Solution
 
+### Approach 1: Using HashMap<Key, TreeMap<Timestamp, Value>>
+
 A single way to implement this is by using: ```Map<Key, Map<Timestamp, Value>> map;```. While searching for the value at a specific timestamp for a key, we would need to iterate through the timestamp till 1 to see which is nearest timestamp (which has a value set before) and return that. This will lead to TLE. To optimize it, we can use Sorted HashMap for storing timestamp and its value: ```Map<String, TreeMap<Integer, String>> map;```. Then, all we need to find is the nearest timestamp for the input timestamp which is set. This can be done using an in-built method in Java - Integer floorKey = map.get(key).floorKey(timestamp);.
 
 ```java
@@ -60,6 +62,79 @@ class TimeMap {
         return "";
 
     }
+}
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * TimeMap obj = new TimeMap();
+ * obj.set(key,value,timestamp);
+ * String param_2 = obj.get(key,timestamp);
+ */
+```
+
+### Approach 2: HashMap<String, ArrayList<Pair<Integer, String>>> map
+
+```java
+class TimeMap {
+
+    HashMap<String, ArrayList<Pair<Integer, String>>> map;
+    
+    public TimeMap() {
+        map = new HashMap<>();
+    }
+    
+    public void set(String key, String value, int timestamp) {
+        if(!map.containsKey(key)){
+            ArrayList<Pair<Integer, String>> t = new ArrayList<>();
+            t.add(new Pair(timestamp, value));
+            map.put(key, t);
+        }else{
+            ArrayList<Pair<Integer, String>> t = map.get(key);
+            t.add(new Pair(timestamp, value));
+        }
+    }
+    
+    //apply binary search on ArrayList<> for the corresponding key
+    public String get(String key, int timestamp) {
+
+        //if key is not present in the hashmap, return ""
+        if(!map.containsKey(key)) return "";
+
+        //init for binary search
+        //start from 0th index of arraylist to its length-1
+        int l=0;
+        int r=map.get(key).size()-1;
+
+        //to store the ans
+        String v = "";
+
+        while(l<=r){
+
+            //find mid
+            int mid = (l+r)/2;
+
+            //if the current timestamp is exactly the same, return the corresponding string in the Pair
+            if(map.get(key).get(mid).getKey() == timestamp){
+                return map.get(key).get(mid).getValue();
+            }
+
+            //if the current timestamp is lesser than the input timestamp, this is a possible answer
+            //store it and look for better answer towards right
+            if(map.get(key).get(mid).getKey() < timestamp){
+                v = map.get(key).get(mid).getValue();
+                l = mid+1;
+            //if the current timestamp is greater than the input timestamp, it cannot be the answer
+            //look for lower timestamp on the left side
+            }else{
+                r = mid-1;
+            }
+
+        }
+
+        return v;
+
+    }
+
 }
 
 /**
