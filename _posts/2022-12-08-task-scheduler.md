@@ -60,3 +60,76 @@ class Solution {
 
 }
 ```
+
+### Using Max Heap & Queue
+
+```java
+class Solution {
+
+    public int leastInterval(char[] tasks, int n) {
+
+        PriorityQueue<Integer> heap = new PriorityQueue<>(Collections.reverseOrder());
+
+        Map<Character, Integer> frequency = new HashMap<>();
+        for(int i=0; i<tasks.length; i++){
+            Character c = tasks[i];
+            if(frequency.containsKey(c)){
+                frequency.put(c, frequency.get(c)+1);
+            }else{
+                frequency.put(c, 1);
+            }
+        }
+
+        //insert the frequencies to max heap
+        for(java.util.Map.Entry e: frequency.entrySet()){
+            heap.add((int)e.getValue());
+        }
+        
+        //to keep a track of when this task can be executed next time
+        Queue<Pair> queue = new LinkedList<>();
+
+        //current time starts from 0
+        int time = 0;
+
+        //while the heap and queue are not empty
+        while(!heap.isEmpty() || queue.size() > 0){
+            
+            //pick up the highest frequency element
+            if(!heap.isEmpty()){
+
+                //get its frequency
+                int f = heap.poll();
+                
+                //if the frequency is 1, we don't need to execute it again in the future obviously
+                //but it it's more than 1, put that to the queue and set the nextTime as (currentTime + minIdleRequiredN)
+                if(f > 1)
+                    queue.add(new Pair(f-1, time+n));
+
+            }
+            
+            //While there are tasks in the queue which can now be executed, put them back to the queue
+            while(!queue.isEmpty() && queue.peek().nextTime <= time){
+                heap.add(queue.poll().frequency);
+            }
+
+            //increase current time by 1
+            time++;
+            
+        }
+
+        return time;
+
+    }
+}
+
+class Pair{
+
+    int frequency;
+    int nextTime;
+
+    Pair(int f, int t){
+        this.frequency = f;
+        this.nextTime = t;
+    }
+}
+```
