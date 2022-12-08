@@ -75,3 +75,42 @@ class Pair implements Comparable<Pair>{
 
 }
 ```
+
+### Another way to code
+
+```java
+class Solution {
+
+    public int distance(int x, int y){
+        return x*x + y*y; //we don't necessarily need square root here since all we need to do is sort. Math.sqrt() will also work.
+    }
+
+    public int[][] kClosest(int[][] points, int k) {
+        
+        //Compare two arrays based on their first element at 0th index.
+        PriorityQueue<Integer[]> pq = new PriorityQueue<>((a,b) -> a[0]-b[0]);
+
+        for(int i=0; i<points.length; i++){
+
+            Integer x = points[i][0];
+            Integer y = points[i][1];
+            
+            pq.add(new Integer[]{distance(x,y), x, y});
+
+        }
+
+        int[][] ans = new int[k][2];
+
+        for(int i=0; i<k; i++){
+
+            Integer[] p = pq.poll();
+
+            ans[i] = new int[]{p[1], p[2]};
+        }
+
+        return ans;
+
+    }
+
+}
+```
