@@ -101,13 +101,13 @@ class Solution {
                 int f = heap.poll();
                 
                 //if the frequency is 1, we don't need to execute it again in the future obviously
-                //but it it's more than 1, put that to the queue and set the nextTime as (currentTime + minIdleRequiredN)
+                //but it it's more than 1, put that to the queue and set the nextTime as (currentTime + minIdleRequired which is n)
                 if(f > 1)
                     queue.add(new Pair(f-1, time+n));
 
             }
             
-            //While there are tasks in the queue which can now be executed, put them back to the queue
+            //While there are tasks in the queue which can now be executed, put them back to the heap
             while(!queue.isEmpty() && queue.peek().nextTime <= time){
                 heap.add(queue.poll().frequency);
             }
