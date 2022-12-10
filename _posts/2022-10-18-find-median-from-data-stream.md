@@ -24,11 +24,13 @@ Implement the MedianFinder class:
 
 ### Solution
 
+![snapshot]({{ site.baseurl }}/assets/img/median_stream.png)
+
 ```java
 class MedianFinder {
 
-    PriorityQueue<Integer> maxHeap;
-    PriorityQueue<Integer> minHeap;
+    PriorityQueue<Integer> maxHeap; //first half
+    PriorityQueue<Integer> minHeap; //second half
     
     public MedianFinder() {
         maxHeap = new PriorityQueue<>(Collections.reverseOrder());
@@ -37,6 +39,7 @@ class MedianFinder {
     
     public void addNum(int num) {
         
+        //if both are empty, add to maxHeap (because we want to ensure size(maxHeap)-size(minHeap) is 0 or 1)
         if(minHeap.size() == 0 && maxHeap.size() == 0){
             maxHeap.add(num);
             return;
@@ -44,17 +47,22 @@ class MedianFinder {
         
         int max = maxHeap.peek();
         
+        //if the current number is less than max in left half, add to maxHeap
         if(num > max){
             minHeap.add(num);
+        //else add to minHeap (second Half)
         }else{
             maxHeap.add(num);
         }
         
+        //left half has 1 extra number, so move the largest on to minHeap
+        //we want to ensure that all numbers in second half is more than all numbers in left half
         if(maxHeap.size() - minHeap.size() > 1){
             minHeap.add(maxHeap.poll());
             return;
         }
 
+        //if second half has more numbers, move the minimum in second half to first half
         if(maxHeap.size() - minHeap.size() < 0){
             maxHeap.add(minHeap.poll());
             return;
