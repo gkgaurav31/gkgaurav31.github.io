@@ -56,3 +56,36 @@ public static Node mergeSortedLinkedList(Node h1, Node h2){
     return h3;
 }
 ```
+
+### RECURSIVE SOLUTION
+
+```java
+class Solution {
+
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        if(list1 == null && list2 == null) return null;
+        if(list1 == null) return list2;
+        if(list2 == null) return list1;
+
+        ListNode h1=list1;
+        ListNode h2=list2;
+
+        ListNode h3;
+        
+        if(h1.val <= h2.val){
+            h3=h1;
+            ListNode t = h1.next;
+            h1.next = mergeTwoLists(t, h2);
+        }else{
+            h3=h2;
+            ListNode t = h2.next;
+            h2.next = mergeTwoLists(h1, t);
+        }
+
+        return h3;
+        
+    }
+    
+}
+```
