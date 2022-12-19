@@ -3,7 +3,7 @@ layout: post
 title: Sum of Linked Lists
 date: 2022-06-29 15:04 +0530
 author: "Gaurav Kumar"
-tags: "java linkedlist"
+tags: "java leetcode linkedlist"
 categories: "linkedlist"
 ---
 
@@ -19,6 +19,8 @@ Given two numbers as LinkedList in reverseOrder (most significant digit as the r
 > Output:
 > 1 -> 9 -> 2 -> 2  
 > 1742 + 946 = 2291
+
+[leetcode](https://leetcode.com/problems/add-two-numbers/description/)
 
 ### SOLUTION
 
@@ -92,5 +94,40 @@ class Program {
     return ans;
     
   }
+}
+```
+
+### Another Way to Code
+
+```java
+class Solution {
+    
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+        ListNode dummyHead = new ListNode(0);
+        ListNode tail = dummyHead;
+
+        int carry = 0;
+
+        while(l1 != null || l2 != null || carry != 0){
+            
+            int x = (l1==null?0:l1.val);
+            int y = (l2==null?0:l2.val);
+
+            int total = x+y+carry;
+
+            tail.next = new ListNode(total%10);
+            tail = tail.next;
+
+            carry = total/10;
+
+            if(l1 != null) l1 = l1.next;
+            if(l2 != null) l2 = l2.next;
+
+        }
+
+        return dummyHead.next;
+
+    }
 }
 ```
