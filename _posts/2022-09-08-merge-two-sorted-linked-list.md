@@ -4,7 +4,7 @@ title: Merge Two Sorted Linked List - 2
 date: 2022-09-08 23:10 +0530
 author: "Gaurav Kumar"
 tags: "java leetcode linkedlist"
-
+categories: "linkedlist"
 ---
 
 ### PROBLEM DESCRIPTION
