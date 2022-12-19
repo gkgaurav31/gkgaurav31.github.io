@@ -3,12 +3,15 @@ layout: post
 title: Merge Two Sorted Linked List - 2
 date: 2022-09-08 23:10 +0530
 author: "Gaurav Kumar"
-tags: "java linkedlist"
+tags: "java leetcode linkedlist"
+
 ---
 
 ### PROBLEM DESCRIPTION
 
 Merge two sorted Linked List.
+
+[leetcode](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 
 ### SOLUTION
 
@@ -84,6 +87,47 @@ class Solution {
         }
 
         return h3;
+        
+    }
+    
+}
+```
+
+### ANOTHER WAY TO CODE USING DUMMY HEAD
+
+```java
+class Solution {
+
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        ListNode dummyHead = new ListNode(0);
+        
+        ListNode temp = dummyHead;
+
+        while(list1 != null && list2 != null){
+            
+            int x = list1.val;
+            int y = list2.val;
+
+            if(x<y){
+                temp.next = list1;
+                list1 = list1.next;
+            }else{
+                temp.next = list2;
+                list2 = list2.next;
+            }
+
+            temp = temp.next;
+
+        }
+
+        if(list1 != null){
+            temp.next = list1;
+        }else{
+            temp.next = list2;
+        }
+
+        return dummyHead.next;
         
     }
     
