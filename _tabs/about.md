@@ -17,7 +17,7 @@ A software developer by profession, and an artist at heart. Always willing to le
 - As part of the Azure App Services team, the responsibilities included working directly with our customers to provide support for any issues they encountered related to App Service.
 - Supported our customers on any issues related to Azure Spring Cloud (managed offering for running Spring Boot microservices, leverages Azure Kubernetes Services).
 - Developing internal diagnostic tools to make troubleshooting efficient. (mostly using an internal tool based on C#)
-- Awarded "Ace Award" 3 times (2 individual, 1 team level) for the impact/contributions.
+- Awarded "Ace Award" 4 times (2 individual, 2 team level) for the impact/contributions.
 
 **Senior Systems Engineer**   @[Infosys Ltd.](https://www.infosys.com/) _(December 2015 - June 2018)_
 
@@ -42,6 +42,8 @@ A software developer by profession, and an artist at heart. Always willing to le
 
 ### :newspaper: Projects
 
+- "OSSum Templates": Edge/Chrome Extension: A browser extension which generates common templates we use while working with the customers - specifically for the "Initial Response" e-mail and other follow-up e-mails. It also includes quick access to other useful tools which can make life of the Engineer easier, such as - shortcut to open diagnostic tools, directly open team to contact the customer and a direct link for softphone. _(Oct 2022)_
+- Cases Automation: Developed a Azure Function App which shares a list of cases which need attention to a Teams Channel. _(Nov 2022)_
 - [Get Case ID](https://getcaseid.azurewebsites.net/) Simple web app to extract a case ID using regex. (Using Spring Boot and thymeleaf) _(Jan 2021)_
 - Static Website using Lambda in AWS: This mini-project consists of a highly scalable static website created using Lambda Service in AWS. The website uses a trigger driven procedure to simulate a To-do list. In the back-end, data is sent/received to/from Dynamo DB.
 
@@ -52,7 +54,7 @@ Government College of Engineering & Leather Technology (WBUT) - Kolkata, West Be
 
 ### :musical_score: INTERESTS
 
-- I enjoy singing. I have pursued Senior Diploma in Vocal Music. My team was the winner at zonal-level inter-DPS Indian Semi-Classical Vocal Music Competition in 2010.
+- I enjoy singing. I have pursued Senior Diploma in Vocal Music. My team was the winner at zonal-level inter-DPS Indian Semi-Classical Vocal Music Competition in 2010. Here's my playlist on [YouTube](https://www.youtube.com/playlist?list=PLcxMc9zuTCJYXqhsFkTwp89zqV0yMhSii).
 - I am also into photo editing (using Adobe Photoshop).  
 ![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)
 [The Third Eye Creations](https://www.facebook.com/thethirdeyecreations)  
