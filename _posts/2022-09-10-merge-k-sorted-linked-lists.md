@@ -140,3 +140,49 @@ class Solution {
     
 }
 ```
+
+### BETTER CODE
+
+```java
+class Solution {
+   
+    public ListNode mergeKLists(ListNode[] lists) {
+        return mergeKListsHelper(lists, 0, lists.length-1);
+    }
+
+    public ListNode mergeKListsHelper(ListNode[] lists, int i, int j) {
+
+        if(j<i) return null;
+        if(i==j) return lists[i];
+
+        int m = (i+j)/2;
+
+        ListNode h1 = mergeKListsHelper(lists, i, m);
+        ListNode h2 = mergeKListsHelper(lists, m+1, j);
+        
+        return mergeSortedList(h1, h2);
+
+    }
+
+    public ListNode mergeSortedList(ListNode list1, ListNode list2){
+
+        if(list1 == null && list2 == null) return null;
+        if(list1 == null) return list2;
+        if(list2 == null) return list1;
+
+        ListNode h3 = null;
+
+        if(list1.val <= list2.val){
+            h3 = list1;
+            list1.next = mergeSortedList(list1.next, list2);
+        }else{
+            h3 = list2;
+            list2.next = mergeSortedList(list1, list2.next);
+        }
+
+        return h3;
+
+    }
+
+}
+```
