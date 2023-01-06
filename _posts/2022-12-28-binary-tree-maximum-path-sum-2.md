@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Binary Tree Maximum Path Sum
+title: Binary Tree Maximum Path Sum 2
 date: 2022-12-28 23:05 +0530
 author: "Gaurav Kumar"
 tags: "java binarytree important leetcode neetcode150"

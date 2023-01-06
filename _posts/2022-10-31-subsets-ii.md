@@ -55,3 +55,63 @@ class Solution {
     }
 }
 ```
+
+### ANOTHER APPROACH
+
+This is less optimal than the previous approach, but more intuitive. We can maintain a HashMap to check if the current subset was already included. Instead of storing the List in the HashSet, we can convert the list as a String delimeted with $ and store that in the HashSet. In the current problem, there are only 10 elements, so the time taken for each conversion is not much. This solution is also acceptable on leetcode:
+
+```java
+class Solution {
+
+    private static final String D = "$";
+
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        subsetHelper(nums, 0, new ArrayList<>());
+        return ans;
+    }
+
+    List<List<Integer>> ans = new ArrayList<>();
+    Set<String> set = new HashSet<>();
+
+    public void subsetHelper(int[] nums, int idx, List<Integer> subset){
+
+        if(idx == nums.length){
+
+            List<Integer> temp = new ArrayList<>(subset);
+            Collections.sort(temp);
+            String current = convertToString(temp);
+
+            if(!set.contains(current)){
+                ans.add(new ArrayList<>(temp));
+                set.add(current);
+            }
+
+            return;
+
+        }
+
+        //pick
+        subset.add(nums[idx]);
+        subsetHelper(nums, idx+1, subset);
+
+        //backtrack
+        subset.remove(subset.size()-1);
+
+        //leave
+        subsetHelper(nums, idx+1, subset);
+
+    }
+
+    public String convertToString(List<Integer> list){
+
+        StringBuilder sb = new StringBuilder();
+
+        for(int i=0; i<list.size(); i++){
+            sb.append(list.get(i) + D);
+        }
+        
+        return sb.toString();
+    }
+
+}
+```
