@@ -43,3 +43,32 @@ class Solution {
     }
 }
 ```
+
+### TOP DOWN APPROACH (RECURSION)
+
+```java
+class Solution {
+
+    public int minCostClimbingStairs(int[] cost) {
+        
+        int[] dp = new int[cost.length+1];
+        Arrays.fill(dp, -1);
+
+        return climbStairsHelper(cost.length, dp, cost);
+
+    }
+
+    public int climbStairsHelper(int n, int[] dp, int[] cost){
+
+        if(n == 0 || n == 1) return 0;
+
+        if(dp[n] == -1){
+            dp[n] = Math.min(cost[n-1] + climbStairsHelper(n-1, dp, cost), cost[n-2] + climbStairsHelper(n-2, dp, cost)); 
+        }
+
+        return dp[n];
+
+    }
+
+}
+```
