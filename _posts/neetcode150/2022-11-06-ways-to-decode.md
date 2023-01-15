@@ -68,3 +68,85 @@ class Solution {
     }
 }
 ```
+
+### RECURSIVE SOLUTION (TLE)
+
+```java
+class Solution {
+    
+    public int numDecodings(String s) {
+
+        if(s.length() == 0 || s.charAt(0) == '0') return 0;
+
+        return countHelper(s, 0);
+    }
+
+    public int countHelper(String s, int i){
+
+        if(i == s.length()) return 1;
+        if(s.charAt(i) == '0') return 0;
+
+        int o1 = countHelper(s, i+1);
+
+        int o2 = 0;
+        if(i < s.length()-1){
+            int x = Integer.parseInt(s.substring(i, i+2));
+            if(x >= 10 && x <= 26){
+                o1 += countHelper(s, i+2);
+            }
+        }
+
+        return o1 + o2;
+        
+    }
+}
+```
+
+### TOP-DOWN APPROACH WITH DP (RECURSIVE)
+
+```java
+class Solution {
+
+    public int numDecodings(String s) {
+
+        //init dp array
+        int[] dp = new int[s.length()];
+        Arrays.fill(dp, -1);
+
+        return countHelper(s, 0, dp);
+    }
+
+    public int countHelper(String s, int i, int[] dp){
+
+        //if i is equal to length of string, we have found 1 way
+        if(i == s.length()) return 1;
+
+        //if current char is 0, we don't have any way to decode that string
+        if(s.charAt(i) == '0') return 0;
+
+        //if we have not processed string from index i yet
+        if(dp[i] == -1){
+
+        //option 1 is to take the current character only
+        //we have already checked that it's not 0.
+        int o1 = countHelper(s, i+1, dp);
+
+        //option 2 is to take current and next string only if it's between [10-26]
+        int o2 = 0;
+        if(i < s.length()-1){
+            int x = Integer.parseInt(s.substring(i, i+2));
+            if(x >= 10 && x <= 26){
+                o1 += countHelper(s, i+2, dp);
+            }
+        }
+
+        //save in the dp array
+        dp[i] = o1 + o2;
+
+        }
+
+        return dp[i];
+        
+    }
+}
+```
