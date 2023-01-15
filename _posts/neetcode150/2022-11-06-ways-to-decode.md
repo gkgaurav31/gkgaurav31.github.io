@@ -75,9 +75,6 @@ class Solution {
 class Solution {
     
     public int numDecodings(String s) {
-
-        if(s.length() == 0 || s.charAt(0) == '0') return 0;
-
         return countHelper(s, 0);
     }
 
