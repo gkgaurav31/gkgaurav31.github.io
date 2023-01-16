@@ -16,7 +16,7 @@ Note that the same word in the dictionary may be reused multiple times in the se
 
 ### SOLUTION
 
-### BRUTE-FORCE (RECURSION)
+### BRUTE-FORCE (RECURSION) - TLE
 
 ```java
 class Solution {
