@@ -68,3 +68,45 @@ class Solution {
 
 }
 ```
+
+### SECOND APPROACH (SIMPLIFIED BFS)
+
+[NeetCode YouTube](https://www.youtube.com/watch?v=dJ7sWiOoK7g)
+
+```java
+class Solution {
+
+    public int jump(int[] nums) {
+
+        int n = nums.length;
+        int jumps = 0;
+
+        //window start to end to store the start and end of a "level/window".
+        int l=0, r=0;
+
+        //until we are at end index, keep updating L and R (next level indices)
+        while(r<n-1){
+
+            //since we've not reached the destination yet, at least one more jump is needed
+            jumps++;    
+
+            //init
+            int maxJumpPossible = r+1;
+
+            //check the max jump possible for the current windows
+            for(int i=l; i<=r; i++){
+                maxJumpPossible = Math.max(maxJumpPossible, i+nums[i]);
+            }
+
+            //next window/level will start from (R+1) to (maxJumpPossible from the previous level)
+            l=r+1;
+            r = maxJumpPossible;
+
+        }
+
+        return jumps;
+
+    }
+
+}
+```
