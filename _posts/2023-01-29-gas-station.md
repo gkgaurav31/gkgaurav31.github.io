@@ -17,8 +17,6 @@ Given two integer arrays gas and cost, return the starting gas station's index i
 
 [leetcode](https://leetcode.com/problems/gas-station/description/)
 
-### SOLUTION
-
 ### INTUITION
 
 > A -- x -- x --- x --- x -- B
@@ -34,6 +32,10 @@ When we started from A we had enough fuel to get from A to C and then from C to 
 > *C --- x -- B
 
 Now if we were to start at C with 0 capacity, we would not be any better in terms of fuel reserves than a trip that started at A. It's guaranteed that we'd fail to make it to B. Hence we start our search at i+1'th index.
+
+[https://leetcode.com/problems/gas-station/solutions/254194/gas-station/comments/1481774](https://leetcode.com/problems/gas-station/solutions/254194/gas-station/comments/1481774)
+
+### SOLUTION
 
 ```java
 class Solution {
