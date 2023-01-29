@@ -19,6 +19,22 @@ Given two integer arrays gas and cost, return the starting gas station's index i
 
 ### SOLUTION
 
+### INTUITION
+
+> A -- x -- x --- x --- x -- B
+
+The proof says, let's say we start at A and B is the first station we can not reach. Then we can not reach B from all the stations between A and B. The way to think about it is like this, let's say there was a station C between A and B.
+
+> fuel >= 0
+> A -- x -- x --- *C --- x -- B
+
+When we started from A we had enough fuel to get from A to C and then from C to a station before B. This means that when we reached from A to C we had at least 0 or more fuel in our tank. We refueled at C and then started onward trip.
+
+> fuel = 0
+> *C --- x -- B
+
+Now if we were to start at C with 0 capacity, we would not be any better in terms of fuel reserves than a trip that started at A. It's guaranteed that we'd fail to make it to B. Hence we start our search at i+1'th index.
+
 ```java
 class Solution {
 
