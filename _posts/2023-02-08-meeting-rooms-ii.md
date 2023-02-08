@@ -15,6 +15,8 @@ Given an array of meeting time intervals intervals where intervals[i] = [starti,
 
 ### SOLUTION
 
+### APPROACH 1
+
 ```java
 class Solution {
     
@@ -65,5 +67,66 @@ class Solution {
 
     }
 
+}
+```
+
+### APPROACH 2
+
+[NeetCode YouTube](https://www.youtube.com/watch?v=FdzJmTCVyJU)
+
+```java
+class Solution {
+
+    public int minMeetingRooms(int[][] intervals) {
+
+        //create list of start and end timings, both sorted in ascending order
+        List<Integer> startTimings = new ArrayList<>();
+        List<Integer> endTimings = new ArrayList<>();
+        
+        for(int i=0; i<intervals.length; i++){
+            startTimings.add(intervals[i][0]);
+            endTimings.add(intervals[i][1]);
+        }
+
+        Collections.sort(startTimings);
+        Collections.sort(endTimings);
+        
+        //current number of rooms
+        int rooms = 0;
+
+        //track max rooms
+        int maxRooms=1;
+
+        //i -> start timings
+        //j -> end timings
+        int i=0, j=0;
+
+        //check all meetings using start timing
+        while(i<startTimings.size()){
+            
+            //if meeting needs to start before current end
+            if(startTimings.get(i) < endTimings.get(j)){
+
+                //we need +1 room
+                rooms++;
+
+                //move to next start
+                i++;
+            
+            //meeting has ended, so reduce rooms by 1
+            }else{
+                rooms--;
+                j++;
+            }
+
+            //update max
+            maxRooms = Math.max(maxRooms, rooms);
+
+        }
+
+        return maxRooms;
+
+    }
+    
 }
 ```
