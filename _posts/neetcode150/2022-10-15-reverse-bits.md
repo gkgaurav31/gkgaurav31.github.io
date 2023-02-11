@@ -16,6 +16,8 @@ Reverse bits of a given 32 bits unsigned integer.
 
 ### Solution
 
+### APPROACH 1
+
 ```java
 public class Solution {
     
@@ -40,7 +42,7 @@ public class Solution {
 }
 ```
 
-### ANOTHER WAY TO CODE
+### APPROACH 2
 
 ```java
 public class Solution {
@@ -58,4 +60,32 @@ public class Solution {
     }
 }
 
+```
+
+### APPROACH 3
+
+```java
+public class Solution {
+    // you need treat n as an unsigned value
+    public int reverseBits(int n) {
+
+        //init result will also bits as 0
+        int res = 0;
+
+        //from right to left, check if the bit is set in N
+        for(int i=0; i<32; i++){
+
+            //shift the bits i positions to right and AND it with 1
+            int bit = (n>>i) & 1;
+
+            //update result by doing an OR
+            //we can take the "bit" value and shift it (31-i) positions left and OR with res
+            res = res | bit << (31-i);
+
+        }
+
+        return res;
+
+    }
+}
 ```
