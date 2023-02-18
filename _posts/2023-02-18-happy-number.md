@@ -25,6 +25,18 @@ Return true if n is a happy number, and false if not.
 
 ### Solution
 
+The important thing in this problem is to realize that the numbers will not be in ever increasing (non-decreasing sequence). It would have been tricky to solve this problem, if they sum of squares of N kept increasing.
+
+| Digits | Largest       | Next |
+|--------|---------------|------|
+| 1      | 9             | 81   |
+| 2      | 99            | 162  |
+| 3      | 999           | 243  |
+| 4      | 9999          | 324  |
+| 13     | 9999999999999 | 1053 |
+
+For a number with 333 digits, it's impossible for it to ever go larger than 243243243. This means it will have to either get stuck in a cycle below 243243243 or go down to 111. Numbers with 444 or more digits will always lose a digit at each step until they are down to 333 digits. So we know that at worst, the algorithm might cycle around all the numbers under 243243243 and then go back to one it's already been to (a cycle) or go to 111.
+
 ```java
 class Solution {
 
