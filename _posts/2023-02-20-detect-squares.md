@@ -28,6 +28,15 @@ Implement the DetectSquares class:
 
 ### Solution
 
+We can use HashMap to store the points as Strings and their count as duplicates are allowed. So count the number of squares we can do the following:
+
+- Loop through each point while considering it as a diagonal
+- If it's parallel to the input point's x or y, it cannot be a diagonal, so we can continue to check for other points
+- If it's a possible diagonal, we can determine the co-ordinates of other two points (here we are considering it to be rectangle)
+- We add another check for a square if the length between the diagnonal and the other two points is the same. In that case, increase the count
+- The count will depend on duplicates also. The final count to be added will be:
+frequency of point 1 + frequency of point 2 + frequency of current diagonal point
+
 ```java
 class DetectSquares {
 
