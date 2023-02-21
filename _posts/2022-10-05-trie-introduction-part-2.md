@@ -3,7 +3,7 @@ layout: post
 title: Trie - Introduction - Part 2
 date: 2022-10-05 17:38 +0530
 author: "Gaurav Kumar"
-tags: "java trie"
+tags: "java trie theory"
 categories: "trie"
 ---
 

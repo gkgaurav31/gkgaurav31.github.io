@@ -28,11 +28,13 @@ Implement the DetectSquares class:
 
 ### Solution
 
+![snapshot]({{ site.baseurl }}/assets/img/detect_squares.png)
+
 We can use HashMap to store the points as Strings and their count as duplicates are allowed. So count the number of squares we can do the following:
 
 - Loop through each point while considering it as a diagonal
-- If it's parallel to the input point's x or y, it cannot be a diagonal, so we can continue to check for other points
-- If it's a possible diagonal, we can determine the co-ordinates of other two points (here we are considering it to be rectangle)
+- If it's parallel to the input point's x or y, it cannot be a diagonal, so we can continue to check for other points. Also, the length of the sides which will be formed by using the input point and diagonal points must be same since it needs to be a square.
+- If it's a possible diagonal, we can determine the co-ordinates of other two points
 - We add another check for a square if the length between the diagnonal and the other two points is the same. In that case, increase the count
 - The count will depend on duplicates also. The final count to be added will be:
 frequency of point 1 + frequency of point 2 + frequency of current diagonal point
@@ -65,8 +67,9 @@ class DetectSquares {
             int x = Integer.parseInt(k.split(":")[0]);
             int y = Integer.parseInt(k.split(":")[1]);
 
-            //if the current co-ordinate's x or y is same as input point, it cannot be a diagnonal so we can continue            
-            if(x == point[0] || y == point[1])
+            //if the current co-ordinate's x or y is same as input point, it cannot be a diagnonal so we can continue   
+            //the length of the sides parallel to x and y should be same in order to form a square as well         
+            if( (x == point[0] || y == point[1]) || (Math.abs(point[0]-x) != Math.abs(point[1]-y) ))
                 continue;
             
             //if [x,y] can be a diagnonal for the input point, we can determine the co-ordinates of other two points 
@@ -75,12 +78,12 @@ class DetectSquares {
             //Second Point: [x2, y2] = [x, p[1]]
             int x1 = point[0];
             int y1 = y;
+            
             int x2 = x;
             int y2 = point[1];
 
-            //if the above two points are present in the HashMap, then we can check whether they form a square
-            //if length of both sides which are parallel to X and Y are same, they must be a square
-            if(map.containsKey((x1 + ":" + y1)) && map.containsKey((x2 +":" +y2)) && Math.abs(x1-x2) == Math.abs(y1-y2)){
+            //if the above two points are present in the HashMap, then we can form a square
+            if(map.containsKey((x1 + ":" + y1)) && map.containsKey((x2 +":" +y2))){
 
                     //since duplicates are allowed, the number of ways we can form that square is:
                     //count += frequency of point 1 + frequency of point 2 + frequency of current diagonal point
