@@ -13,7 +13,7 @@ Given an undirected graph with V vertices. We say two vertices u and v belong to
 
 Note: A province is a group of directly or indirectly connected cities and no other cities outside of the group.
 
-[leetcode](https://leetcode.com/problems/redundant-connection/description/)
+[geeksforgeeks](https://practice.geeksforgeeks.org/problems/number-of-provinces/1)
 
 ### Solution
 
