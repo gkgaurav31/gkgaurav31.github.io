@@ -170,6 +170,8 @@ jekyll-archives:
     tag: /tags/:name/
     category: /categories/:name/
 
+url: "https://gkgaurav31.github.io" # the base hostname & protocol for your site
+
 plugins:
   - jekyll-remote-theme
   - jemoji
