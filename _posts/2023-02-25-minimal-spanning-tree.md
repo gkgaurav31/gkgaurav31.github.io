@@ -79,3 +79,23 @@ class Solution{
  
 }
 ```
+
+### Optimization
+
+In the previous code, find(node) method which gets the leader of any node can take O(height of tree) => O(N) in the worst case. If we could somehow reduce the height of the tree, that would help in reducing the time taken to get the leader. While finding the leader, we can keep changing the leaders of intermediate nodes in such a way that they directly point to the leader of that connected component. So the next time we try to find the leader, it will take O(1) time. The only change will be in the find(node) method -
+
+```java
+ public static int find(int x, int[] parent){
+    
+    //if parent of x is x, then return it
+    if(parent[x] == x){
+        return parent[x];
+    }
+    
+    //else update it's parent so point to the leader directly
+    parent[x] = find(parent[x], parent);
+    
+    //return updated parent[x]
+    return parent[x];
+ }
+```
