@@ -21,6 +21,9 @@ If some node isn't possible to visit, then its distance should be 100000000(1e8)
 
 [Tech Dose YouTube](https://www.youtube.com/watch?v=FrLWd1tJ_Wc)
 
+- This algorithm can help in detecting negative cycles (if that is present, it will not give us the right answer for the shortest path)
+- It works well for Directed Graphs. For undirected graph, we can consider two way edges from (u->v) and (v->u). If that edge of the undirected graph has a -ve value, Bellman algorithm will not work because it will create a negative cycle.
+
 ```java
 class Solution {
     
