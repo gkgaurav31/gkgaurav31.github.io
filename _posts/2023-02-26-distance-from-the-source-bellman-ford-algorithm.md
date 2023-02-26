@@ -19,6 +19,8 @@ If some node isn't possible to visit, then its distance should be 100000000(1e8)
 
 ### Solution
 
+[WilliamFiset YouTube](https://www.youtube.com/watch?v=lyw4FaxrwHg)
+
 [Tech Dose YouTube](https://www.youtube.com/watch?v=FrLWd1tJ_Wc)
 
 - This algorithm can help in detecting negative cycles (if that is present, it will not give us the right answer for the shortest path)
