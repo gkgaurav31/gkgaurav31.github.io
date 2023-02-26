@@ -19,6 +19,8 @@ If some node isn't possible to visit, then its distance should be 100000000(1e8)
 
 ### Solution
 
+[Tech Dose YouTube](https://www.youtube.com/watch?v=FrLWd1tJ_Wc)
+
 ```java
 class Solution {
     
