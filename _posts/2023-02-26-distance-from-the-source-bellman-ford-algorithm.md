@@ -97,3 +97,57 @@ class Solution {
     
 }
 ```
+
+### BETTER WAY TO CODE
+
+We can reduce some extra space that we have used -
+
+```java
+class Solution {
+    
+    static int[] bellman_ford(int V, ArrayList<ArrayList<Integer>> edges, int S) {
+        
+        //init -> distance[source node] = 0, rest +infinite or more than the max value possible
+        int[] distance = new int[V];
+        Arrays.fill(distance, 100000000); // -1000 ≤ adj[i][j] ≤ 1000
+        distance[S] = 0;
+        
+        //we need N-1 edges if there are N nodes in a connected graph
+        for(int i=0; i<V; i++){
+            
+            //for the current edge, we know that the cost from u->v is w.
+            //if the shortest path from source to u is distance[u], the shortest path from u to v will be:
+            //distance[u] + w
+            //since we are looking for minimum, pick in minimum between:
+            //Min(distance[v], distance[u] + w);
+            for(int j=0; j<edges.size(); j++){
+                
+                int u = edges.get(j).get(0);
+                int v = edges.get(j).get(1);
+                int w = edges.get(j).get(2);
+                
+                distance[v] = Math.min(distance[v], distance[u] + w);
+                
+            }
+            
+        }
+
+        //if the cost reduces for any of the nodes for next iteratation (Vth time), there must be a -ve cycle        
+        for(int j=0; j<edges.size(); j++){
+            
+            int u = edges.get(j).get(0);
+            int v = edges.get(j).get(1);
+            int w = edges.get(j).get(2);
+            
+            if(distance[u] + w < distance[v]){
+                return new int[]{-1};
+            }            
+            
+        }
+        
+        return distance;
+        
+    }
+    
+}
+```
