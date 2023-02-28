@@ -36,7 +36,7 @@ class Solution {
         Queue<Pair> q = new LinkedList<>();
 
         //add all cells with value 0 (which represent the gates) to the queue
-        //we will use multi-source BFS to check the distance or other reachable cells
+        //we will use multi-source BFS to check the distance of other reachable cells
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
                 if(rooms[i][j] == 0) q.add(new Pair(i, j));
