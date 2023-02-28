@@ -137,3 +137,94 @@ class Pair{
     }
 }
 ```
+
+### Small Optimization
+
+We can maintain a few variables to count:
+
+- Number of fresh oranges initially
+- Number of oranges which were rotten (while doing BFS)
+- Time needed to rot all oranges (we can keep increasing it if we find that the time taken to rot some orange is higher)
+
+Using the above variables, we don't need to traverse the entire matrix to check if there were any remaining oranges.
+
+```java
+class Solution {
+
+    public int orangesRotting(int[][] grid) {
+
+        int n = grid.length;
+        int m = grid[0].length;
+
+        int[][] time = new int[n][m];
+
+        Queue<Pair> q = new LinkedList<>();
+
+        int freshOrange = 0;
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                
+                if(grid[i][j] == 2){
+                    time[i][j] = 0;
+                    q.add(new Pair(i,j));
+                    continue;
+                }
+
+                if(grid[i][j] == 1){
+                    freshOrange++;
+                }
+
+                time[i][j] = -1;
+
+            }
+        }
+
+        int timeNeeded = 0;
+        int countOrangeRotted = 0;
+
+        while(!q.isEmpty()){
+            
+            Pair p = q.poll();
+
+            int[] x = {0, 0, 1, -1};
+            int[] y = {1, -1, 0, 0};
+
+            for(int k=0; k<4; k++){
+
+                int x2 = p.x + x[k];
+                int y2 = p.y + y[k];
+                
+                if(x2 >=0 && y2 >=0 && x2<n && y2<m && time[x2][y2] == -1 && grid[x2][y2] != 2 && grid[x2][y2] != 0){
+
+                    countOrangeRotted++;
+                    grid[x2][y2] = 2;
+                    q.add(new Pair(x2, y2));
+                    time[x2][y2] = time[p.x][p.y] + 1; 
+
+                    timeNeeded = Math.max(timeNeeded, time[x2][y2]);
+
+                }
+
+            }
+
+        }
+
+        if(freshOrange > countOrangeRotted) return -1;
+
+        return timeNeeded;
+
+    }
+
+
+}
+
+class Pair{
+    int x;
+    int y;
+    Pair(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+}
+```
