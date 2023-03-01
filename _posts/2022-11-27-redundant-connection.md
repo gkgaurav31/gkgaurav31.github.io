@@ -69,3 +69,25 @@ class Solution {
 
 }
 ```
+
+### OPTIMIZATION
+
+We can optimize the find(x) method to O(1) -
+
+See: [Graphs 101: Part 2]({% post_url 2023-02-21-graphs-101-part-2 %})
+
+```java
+int find(int x, int[] leader){
+
+    if(leader[x] == x) return x;
+
+    while(leader[x] != x){
+        x = leader[x];
+    }
+
+    leader[x] = find(leader[x], leader);
+
+    return leader[x];
+
+}
+```
