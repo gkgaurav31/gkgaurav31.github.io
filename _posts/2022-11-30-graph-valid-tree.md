@@ -72,3 +72,63 @@ class Solution {
     }
 }
 ```
+
+### Optimized
+
+[Graphs 101: Part 2]({% post_url 2023-02-21-graphs-101-part-2 %})
+
+```java
+class Solution {
+
+    public boolean validTree(int n, int[][] edges) {
+
+        int[] leader = new int[n];
+
+        for(int i=0; i<n; i++) leader[i] = i;
+
+        for(int i=0; i<edges.length; i++){
+
+            if(!merge(edges[i][0], edges[i][1], leader)){
+                return false;
+            }
+
+        }
+
+        int commonLeader = find(0, leader);
+
+        for(int i=1; i<n; i++){
+            if(find(i, leader) != commonLeader) return false;
+        }
+
+        return true;
+        
+    }
+
+    int find(int x, int[] leader){
+
+        if(leader[x] == x) return x;
+
+        while(leader[x] != x){
+            x = leader[x];
+        }
+
+        leader[x] = find(leader[x], leader);
+
+        return leader[x];
+
+    }
+
+    boolean merge(int x, int y, int[] leader){
+
+        int leaderX = find(x, leader);
+        int leaderY = find(y, leader);
+
+        if(leaderX == leaderY) return false;
+
+        leader[find(x, leader)] = find(y, leader);
+
+        return true;
+    }
+
+}
+```
