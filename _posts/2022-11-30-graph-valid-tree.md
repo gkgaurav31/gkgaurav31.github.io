@@ -75,7 +75,7 @@ class Solution {
 
 ### Optimized
 
-[Graphs 101: Part 2]({% post_url 2023-02-21-graphs-101-part-2 %})
+See: [Minimal Spanning Tree]({% post_url 2023-02-25-minimal-spanning-tree %})
 
 ```java
 class Solution {

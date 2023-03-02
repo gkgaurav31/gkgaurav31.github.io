@@ -74,7 +74,7 @@ class Solution {
 
 We can optimize the find(x) method to O(1) -
 
-See: [Graphs 101: Part 2]({% post_url 2023-02-21-graphs-101-part-2 %})
+See: [Minimal Spanning Tree]({% post_url 2023-02-25-minimal-spanning-tree %})
 
 ```java
 int find(int x, int[] leader){
