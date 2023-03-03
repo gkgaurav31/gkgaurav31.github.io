@@ -3,8 +3,8 @@ layout: post
 title: Number of Provinces
 date: 2023-02-22 23:26 +0530
 author: "Gaurav Kumar"
-tags: "java geeksforgeeks graphs"
-categories: "graphs"
+tags: "java geeksforgeeks graphs neetcode150"
+categories: "neetcode150"
 ---
 
 ### Problem Description

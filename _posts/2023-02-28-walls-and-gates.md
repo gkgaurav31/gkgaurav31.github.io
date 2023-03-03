@@ -3,8 +3,8 @@ layout: post
 title: Walls and Gates
 date: 2023-02-28 21:53 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode graphs"
-categories: "graphs"
+tags: "java leetcode graphs neetcode150"
+categories: "neetcode150"
 ---
 
 ### Problem Description

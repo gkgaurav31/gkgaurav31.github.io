@@ -3,8 +3,8 @@ layout: post
 title: Word Ladder
 date: 2023-03-02 21:57 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode graphs"
-categories: "graphs"
+tags: "java leetcode graphs neetcode150"
+categories: "neetcode150"
 ---
 
 ### Problem Description

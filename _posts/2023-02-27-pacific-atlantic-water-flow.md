@@ -2,8 +2,8 @@
 layout: post
 title: Pacific Atlantic Water Flow
 date: 2023-02-27 20:36 +0530
-tags: "java leetcode graphs"
-categories: "graphs"
+tags: "java leetcode graphs neetcode150"
+categories: "neetcode150"
 ---
 
 ### Problem Description
