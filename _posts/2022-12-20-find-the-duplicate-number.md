@@ -3,8 +3,8 @@ layout: post
 title: Find the Duplicate Number
 date: 2022-12-20 18:47 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode linkedlist"
-categories: "linkedlist"
+tags: "java leetcode linkedlist neetcode150"
+categories: "neetcode150"
 ---
 
 ### PROBLEM DESCRIPTION

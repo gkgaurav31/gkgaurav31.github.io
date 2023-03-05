@@ -3,8 +3,8 @@ layout: post
 title: Number of Connected Components in an Undirected Graph
 date: 2022-11-26 00:21 +0530
 author: "Gaurav Kumar"
-tags: "java geeksforgeeks graphs"
-categories: "graphs"
+tags: "java geeksforgeeks graphs neetcode150"
+categories: "neetcode150"
 ---
 
 ### Problem Description

@@ -3,8 +3,8 @@ layout: post
 title: Word Search
 date: 2023-01-06 22:58 +0530
 author: "Gaurav Kumar"
-tags: "java recursion backtracking important"
-categories: "backtracking"
+tags: "java recursion backtracking neetcode150 important"
+categories: "neetcode150"
 ---
 
 ## Problem Description

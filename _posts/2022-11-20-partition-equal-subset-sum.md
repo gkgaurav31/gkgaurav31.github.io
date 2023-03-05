@@ -3,8 +3,8 @@ layout: post
 title: Partition Equal Subset Sum
 date: 2022-11-20 14:18 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode dynamic_programming"
-categories: "dynamic_programming"
+tags: "java leetcode dynamic_programming neetcode150"
+categories: "neetcode150"
 ---
 
 ## Problem Description

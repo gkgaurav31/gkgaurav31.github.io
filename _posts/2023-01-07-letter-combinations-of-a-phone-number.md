@@ -3,8 +3,8 @@ layout: post
 title: Letter Combinations of a Phone Number
 date: 2023-01-07 00:14 +0530
 author: "Gaurav Kumar"
-tags: "java recursion backtracking"
-categories: "backtracking"
+tags: "java recursion backtracking neetcode150"
+categories: "neetcode150"
 ---
 
 ## Problem Description

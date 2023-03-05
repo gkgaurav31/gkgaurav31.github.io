@@ -3,8 +3,8 @@ layout: post
 title: Palindrome Partitioning
 date: 2023-01-07 11:15 +0530
 author: "Gaurav Kumar"
-tags: "java recursion backtracking"
-categories: "backtracking"
+tags: "java recursion backtracking neetcode150"
+categories: "neetcode150"
 ---
 
 ## Problem Description

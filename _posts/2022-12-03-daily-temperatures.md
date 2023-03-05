@@ -3,8 +3,8 @@ layout: post
 title: Daily Temperatures
 date: 2022-12-03 00:57 +0530
 author: "Gaurav Kumar"
-tags: "java recursion stack important neetcode"
-categories: "neetcode"
+tags: "java recursion stack important neetcode150"
+categories: "neetcode150"
 ---
 
 ## Problem Description

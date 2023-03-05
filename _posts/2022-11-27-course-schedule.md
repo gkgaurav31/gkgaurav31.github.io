@@ -3,8 +3,8 @@ layout: post
 title: Course Schedule
 date: 2022-11-27 14:22 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode graphs important"
-categories: "graphs"
+tags: "java leetcode graphs important neetcode150"
+categories: "neetcode150"
 ---
 
 ### Problem Description

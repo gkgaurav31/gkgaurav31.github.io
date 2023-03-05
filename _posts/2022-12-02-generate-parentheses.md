@@ -3,8 +3,8 @@ layout: post
 title: Generate Parentheses
 date: 2022-12-02 22:17 +0530
 author: "Gaurav Kumar"
-tags: "java recursion stack neetcode backtracking"
-categories: "neetcode"
+tags: "java recursion stack neetcode150 backtracking"
+categories: "neetcode150"
 ---
 
 ## Problem Description

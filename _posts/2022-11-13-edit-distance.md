@@ -3,8 +3,8 @@ layout: post
 title: Edit Distance
 date: 2022-11-13 18:29 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode strings dynamic_programming"
-categories: "dynamic_programming"
+tags: "java leetcode strings dynamic_programming neetcode150"
+categories: "neetcode150"
 ---
 
 ## Problem Description

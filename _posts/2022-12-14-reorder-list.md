@@ -3,8 +3,8 @@ layout: post
 title: Reorder List
 date: 2022-12-14 23:11 +0530
 author: "Gaurav Kumar"
-tags: "java leetcode linkedlist"
-categories: "linkedlist"
+tags: "java leetcode linkedlist neetcode150"
+categories: "neetcode150"
 ---
 
 ### PROBLEM DESCRIPTION
