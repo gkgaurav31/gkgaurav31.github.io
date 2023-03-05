@@ -18,6 +18,8 @@ Return the least time until you can reach the bottom right square (n - 1, n - 1)
 
 ### Solution
 
+[NeetCode YouTube](https://www.youtube.com/watch?v=amvrKlMLuGY)
+
 We can solve this by making using of Dijkstra's Algorithm and mofifying it a bit. We are not looking at the shortest distance to reach destination Node, rather, we want to reduce the maximum level present in a path which connects source to the destination.
 
 ```java
