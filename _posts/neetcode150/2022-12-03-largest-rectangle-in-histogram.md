@@ -3,8 +3,8 @@ layout: post
 title: Largest Rectangle in Histogram
 date: 2022-12-03 15:45 +0530
 author: "Gaurav Kumar"
-tags: "java stack important neetcode"
-categories: "neetcode"
+tags: "java stack important neetcode150"
+categories: "neetcode150"
 ---
 
 ## Problem Description
