@@ -86,7 +86,7 @@ class Solution {
 }
 ```
 
-### Another way to code
+### Another way to code (Similar Solution)
 
 ```java
 class Solution {
@@ -130,6 +130,72 @@ class Solution {
 
         return ans;
         
+    }
+
+}
+```
+
+### Using Max Heap
+
+```java
+class Solution {
+    
+    public int[] maxSlidingWindow(int[] nums, int k) {
+
+        int n = nums.length;
+
+        //max heap based on value of pair
+        PriorityQueue<Pair> pq = new PriorityQueue<>( (p1, p2) -> p2.value - p1.value);
+
+        //insert first k numbers
+        for(int i=0; i<k; i++) 
+            pq.add(new Pair(nums[i], i));
+
+        //there will be [n-k+1] windows
+        int[] ans = new int[n-k+1];
+
+        //index to add to answer array
+        int idx=0;
+
+        //first one will be the top of max heap
+        ans[idx++] = pq.peek().value;
+
+        //add other elements one by one
+        for(int i=k; i<n; i++){
+            
+            //add current element to the heap
+            pq.add(new Pair(nums[i], i));
+
+            //remove elements which are out of the window
+            //it's possible that the max belongs to previous windows
+            //we can check this by checking if the index of current max is less than the left side of the window (which will be i-k)
+            while(pq.peek().index <= i-k){
+                pq.poll();
+            }
+
+            //once the elements which are out of window are removed, we will have the largest element at the top which is our next max
+            ans[idx++] = pq.peek().value;   
+
+        }
+
+        return ans;
+
+    }
+
+}
+
+class Pair{
+    
+    int value;
+    int index;
+
+    Pair(int v, int i){
+        value = v;
+        index = i;
+    }
+
+    public String toString(){
+        return String.valueOf(value);
     }
 
 }
