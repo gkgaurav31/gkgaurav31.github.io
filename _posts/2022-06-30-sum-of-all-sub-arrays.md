@@ -23,6 +23,7 @@ public static int totalSumSubArrayBruteForce(ArrayList<Integer> A) {
         int currentSum=0;
         for(int j=i; j<A.size(); j++) {
             
+            //We will optimize this loop next.
             for(int k=i; k<=j; k++) {
                 currentSum+=A.get(k);
             }
@@ -36,7 +37,46 @@ public static int totalSumSubArrayBruteForce(ArrayList<Integer> A) {
 }
 ```
 
-#### OPTIMIZATION
+### OPTIMIZATION -- 1 (Prefix Sum)
+
+In the previous code, we use an inner nested loop to calculate the sum of elements from a given start and end index. We can optimize this to O(1) time complexity and O(N) space complexity by using a prefix array sum.  
+
+The overall time-complexity to find the sum of all subarray will still remain O(N^2).
+
+```java
+for(int k=i; k<=j; k++) {
+    currentSum+=A.get(k);
+}
+```
+
+Use:  
+
+```java
+public getSum(int L, int R, int[] pf){
+    if(L == 0)
+        return pf[R];
+    else
+        return pf[R] - pf[L-1];
+}
+```
+
+#### OPTIMIZATION -- 2 (Carry Forward)
+
+The calculation of sum from a given start and end index can further be improved to O(1) space comlexity by using carry forward technique.  
+
+The overall time-complexity to find the sum of all subarray will still remain O(N^2).
+
+```java
+for(s=0; s<n; s++){
+    currentSum=0;
+    for(i=s; i<n; i++){
+        currentSum = currentSum + A[i]; //carry forward
+        totalSum += currentSum;
+    }
+}
+```
+
+#### OPTIMIZATION -- 3 (Contributaion Method) -- O(N) Time Complexity
 
 We can optimize it to O(N) with a few observations:  
 
