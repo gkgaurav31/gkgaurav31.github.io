@@ -2,6 +2,8 @@
 layout: post
 title: Sum of all Sub-Arrays
 date: 2022-06-30 22:47 +0530
+tags: "java arrays important"
+categories: "arrays"
 ---
 
 ### Problem Description
