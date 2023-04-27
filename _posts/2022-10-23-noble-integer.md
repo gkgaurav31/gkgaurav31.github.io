@@ -3,7 +3,7 @@ layout: post
 title: Noble Integer
 date: 2022-10-23 10:49 +0530
 author: "Gaurav Kumar"
-tags: "java arrays"
+tags: "java arrays important"
 categories: "arrays"
 ---
 
@@ -12,6 +12,13 @@ categories: "arrays"
 Given an integer array A, find if an integer p exists in the array such that the number of integers greater than p in the array equals to p.
 
 ### Solution
+
+Let's say we sort the array in ascending order and iterate from the right.
+
+Important Observations:
+
+- If A[i] == A[i+1], the number of elements which are greater than them will be the same.
+- If A[i] != A[i+1], the number of elements which are greater than A[i] will be equal to (n-i-1) since we have sorted the array.
 
 ```java
 public class Solution {
