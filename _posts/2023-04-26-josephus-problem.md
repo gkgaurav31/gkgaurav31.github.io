@@ -2,6 +2,7 @@
 layout: post
 title: Josephus Problem
 date: 2023-04-26 23:10 +0530
+author: "Gaurav Kumar"
 tags: "java arrays geeksforgeeks"
 categories: "arrays"
 ---
