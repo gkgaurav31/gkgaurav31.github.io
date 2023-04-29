@@ -56,3 +56,49 @@ public class Solution {
     }
 }
 ```
+
+### SPACE OPTIMIZATION
+
+For calculating the sum, we can use the carry forward technique as well. When we move the right pointer, add the new element (right most). When we move the left pointer, reduce the sum by the previous less most element. If the sum is equal to the target value, return.
+
+```java
+public class Solution {
+
+    public int[] solve(int[] A, int B) {
+
+        int n = A.length;
+
+        int l = 0;
+        int r = 0;
+
+        //init: sum from [0,0] is A[0]
+        int sum = A[0];
+
+        while(r<n){
+
+            //if sum is is equal to the target needed, return it            
+            if(sum == B){
+                return Arrays.copyOfRange(A, l, r+1);
+            //if sum is lesser, move the right pointer to get a higher total sum
+            //since it can go out of range, check if it's less than N before adding it to the overall sum
+            }else if(sum < B){
+                r++;
+                if(r<n){
+                    sum += A[r];
+                }
+            //if sum is more, move the left pointer to get a lesser total sum
+            //no check needed here because he know that the previous index exists
+            }else{
+                l++;
+                sum -= A[l-1];
+            }
+
+        }
+
+        //no sub array with sum B found
+        return new int[]{-1};
+
+    }
+
+}
+```
