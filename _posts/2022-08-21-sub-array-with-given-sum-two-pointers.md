@@ -2,7 +2,7 @@
 layout: post
 title: Sub-Array with Given Sum (Two Pointers)
 date: 2022-08-21 23:49 +0530
-tags: "java arrays two_pointers"
+tags: "java arrays two_pointers important"
 categories: "two_pointers"
 ---
 
