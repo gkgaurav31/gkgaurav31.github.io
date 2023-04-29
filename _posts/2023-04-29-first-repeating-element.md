@@ -4,7 +4,7 @@ title: First Repeating element
 date: 2023-04-29 10:15 +0530
 author: "Gaurav Kumar"
 tags: "java arrays hashmap interviewbit"
-categories: "arrays"
+categories: "hashmap"
 ---
 
 ### PROBLEM DESCRIPTION
