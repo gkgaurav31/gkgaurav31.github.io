@@ -18,19 +18,9 @@ Given a NxM 2-D matrix, the task to find the sum of all the submatrices.
 ![snapshot]({{ site.baseurl }}/assets/img/all_submatrix_sum.png)
 
 ```java
-
 import java.io.*;
 
 class GFG {
- public static void main (String[] args) {
- 
-        int arr[][] = {{1, 1, 1},
-                        {1, 1, 1},
-                        {1, 1, 1}};
- 
-        System.out.println(matrixSum(arr));
-     
- }
  
  public static int matrixSum(int[][] matrix){
      
