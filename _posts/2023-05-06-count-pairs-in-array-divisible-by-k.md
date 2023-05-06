@@ -11,7 +11,7 @@ categories: " modulo"
 
 You are given a number N. Find the total number of setbits in the numbers from 1 to N.
 
-[geeksforgeeks](https://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/)
+[geeksforgeeks](https://practice.geeksforgeeks.org/problems/count-pairs-in-array-divisible-by-k/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
 
 ### SOLUTION
 
