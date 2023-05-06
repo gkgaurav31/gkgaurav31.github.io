@@ -3,7 +3,7 @@ layout: post
 title: Count Total Set Bits Till N
 date: 2023-05-06 20:52 +0530
 author: "Gaurav Kumar"
-tags: "java bit_manipulation leetcode important"
+tags: "java bit_manipulation geeksforgeeks important"
 categories: "bit_manipulation"
 ---
 
@@ -11,7 +11,7 @@ categories: "bit_manipulation"
 
 You are given a number N. Find the total number of setbits in the numbers from 1 to N.
 
-[https://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/](https://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/)
+[geeksforgeeks](https://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/)
 
 ### SOLUTION
 
