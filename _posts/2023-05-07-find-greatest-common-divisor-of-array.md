@@ -10,14 +10,13 @@ categories: "gcd"
 ### PROBLEM DESCRIPTION
 
 Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
-
 The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
 
 [leetcode](https://leetcode.com/problems/find-greatest-common-divisor-of-array/description/)
 
 ### SOLUTION
 
-[GCD]({% post_url 2023-05-07-gcd-and-inverse-modulo-theory %})
+[GCD Theory]({% post_url 2023-05-07-gcd-and-inverse-modulo-theory %})
 
 ```java
 class Solution {
