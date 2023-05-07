@@ -9,10 +9,12 @@ categories: "arrays"
 
 ## Problem Description
 
-Given a list of elements (an array) and a postive integer m, replace all elments such that Array[i] = Array[Array[i]]. 
+Given a list of elements (an array) and a postive integer m, replace all elments such that Array[i] = Array[Array[i]].
 All elements in the array are in the range [0, N-1].
 
 ### Solution
+
+![snapshot]({{ site.baseurl }}/assets/img/change_ai_aai.png)
 
 One of the obvious way to do this is by using extra space. We can simple create a new list and loop through the given array/list and keep updating the values needed in our answer array/list.
 
