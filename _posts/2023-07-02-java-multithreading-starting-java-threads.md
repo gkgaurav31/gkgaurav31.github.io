@@ -10,7 +10,7 @@ categories: "multithreading"
 This following post is based on the Udemy Course:
 [Java Multithreading](https://www.udemy.com/course/java-multithreading/learn/lecture/107238#content)
 
-### Java Multi-Threading: Starting Java Threads
+## Java Multi-Threading: Starting Java Threads
 
 We can create threads either by extending the Thread class or by implementing the Runnable interface. Here is an example of how it would look like.
 
