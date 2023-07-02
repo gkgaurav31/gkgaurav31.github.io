@@ -13,7 +13,7 @@ Given a number N check if it's a prime number.
 
 ### Solution
 
-The main this to remember here is that we need to check only will root of N, because if i is a factor of N, N/i will also be a factor of N. If we get any 1 factor, return false.
+The main this to remember here is that we need to check only till square root of N, because if i is a factor of N, N/i will also be a factor of N. If we get any 1 factor, return false.
 
 ```java
 static boolean isPrime(int n){
