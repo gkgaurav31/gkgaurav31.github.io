@@ -11,7 +11,7 @@ categories: "design_patterns"
 
 The objective is to ensure that a single object of a particular class can exist for an app.
 
-Thought Process:
+__Thought Process:__
 
 - We will have to make the constructor of that class private so that other classes cannot create objects using it.
 - We will need to use a method in that class itself to return an object of that class, using the private constructor.
