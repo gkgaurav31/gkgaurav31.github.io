@@ -50,8 +50,8 @@ A software developer by profession, and an artist at heart. Always willing to le
 
 ### 👨🏻‍🎓 Education
 
-**Bachelor of Science** in Information Technology  
-Government College of Engineering & Leather Technology (WBUT) - Kolkata, West Bengal, India _(2011 - 2015)_
+**Bachelor of Technology** in Information Technology  
+[Government College of Engineering & Leather Technology (WBUT) - Kolkata, West Bengal, India](https://gcelt.gov.in/) _(2011 - 2015)_
 
 ### :musical_score: INTERESTS
 
