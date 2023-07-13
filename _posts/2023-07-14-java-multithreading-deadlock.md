@@ -332,7 +332,7 @@ Found 1 deadlock.
 
 ## FIXING THE DEADLOCK
 
-The idea is to ensure that either both the locks are "locked" or none of them.
+The idea is to ensure that either both the locks are acquired or none of them.
 
 With the locks being released in the finally blocks, it helps prevent deadlocks from occurring. If one thread acquires lock1 and the other thread acquires lock2, and they both reach the finally block, each thread will release the lock it acquired. This ensures that even if one thread holds one lock and is waiting for the other, both locks will eventually be released, allowing progress to be made.
 
