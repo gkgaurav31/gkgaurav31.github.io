@@ -9,7 +9,7 @@ categories: "design_patterns"
 
 ## DECORATOR
 
-Decorator design pattern allows us to add extra features or behaviors to an object without changing its original structure.
+Decorator design pattern is a __structural design pattern__ that allows us to add extra features or behaviors to an object without changing its original structure.
 
 In this example, we have a Pizza class which represents the core functionality of a pizza. It has a getDescription() method that returns the description of the pizza and a getPizzaCost() method that returns the cost of the pizza.
 
