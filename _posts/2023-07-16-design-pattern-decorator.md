@@ -26,7 +26,9 @@ To create a decorated pizza, we can chain the decorators together. For example, 
 ![snapshot]({{ site.baseurl }}/assets/img/design_patterns/decorator.png)
 *Created using [PlantUML](https://plantuml.com/).*
 
-## BASE COMPONENT (PIZZA)
+## CODE WALKTHROUGH
+
+### BASE COMPONENT (PIZZA)
 
 ```java
 package com.designpattern;
@@ -47,7 +49,7 @@ public abstract class Pizza {
 }
 ```
 
-## PIZZA DECORATOR FOR THE TOPPINGS
+### PIZZA DECORATOR FOR THE TOPPINGS
 
 The PizzaDecorator class is an important part of the Decorator design pattern. It serves as a base for all concrete decorators and provides a way to __wrap__ and decorate the core pizza object.  
 
@@ -75,9 +77,9 @@ public abstract class PizzaDecorator extends Pizza{
 }
 ```
 
-## BASE PIZZA CONCRETE CLASSES
+### BASE PIZZA CONCRETE CLASSES
 
-### Margherita Pizza
+#### Margherita Pizza
 
 ```java
 package com.designpattern;
@@ -96,7 +98,7 @@ public class Margherita extends Pizza{
 }
 ```
 
-### Plain Pizza
+#### Plain Pizza
 
 ```java
 package com.designpattern;
@@ -115,13 +117,13 @@ public class PlainPizza extends Pizza{
 }
 ```
 
-## PIZZA DECORATOR CONCRETE CLASSES
+### PIZZA DECORATOR CONCRETE CLASSES
 
 __IMPORTANT:__ The ```getPizzaCost()``` method of the decorator considers the cost of both the core pizza and any decorations, while the getPizzaCost() method of the plain pizza or Margherita pizza only returns the base cost of the pizza itself.  
 
 In the decorator pattern, the decorators wrap around the core pizza object and provide additional features or decorations. These additional features may have an impact on the cost of the pizza. Therefore, when we call getPizzaCost() on a decorated pizza, the decorator's implementation of getPizzaCost() is invoked, which includes the cost of the decorations it adds.
 
-### CHEESE DECORATOR
+#### CHEESE DECORATOR
 
 ```java
 package com.designpattern;
@@ -145,7 +147,7 @@ public class CheeseDecorator extends PizzaDecorator {
 }
 ```
 
-### TOMATO DECORATOR
+#### TOMATO DECORATOR
 
 ```java
 package com.designpattern;
@@ -168,7 +170,7 @@ public class TomatoDecorator extends PizzaDecorator{
 }
 ```
 
-## CLIENT
+### CLIENT
 
 ```java
 package com.designpattern;
@@ -187,7 +189,7 @@ public class App {
 }
 ```
 
-## OUTPUT
+### OUTPUT
 
 ```text
 130.0

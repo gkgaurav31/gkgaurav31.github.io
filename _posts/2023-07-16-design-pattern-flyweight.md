@@ -20,7 +20,9 @@ In this example, let's consider the Ball class with the attributes color, imageU
 ![snapshot]({{ site.baseurl }}/assets/img/design_patterns/flyweight.png)
 *Created using [PlantUML](https://plantuml.com/).*
 
-## STORING THE INTRINSIC ATTRIBUTES USING FLYWEIGHT
+## CODE WALKTHROUGH
+
+### STORING THE INTRINSIC ATTRIBUTES USING FLYWEIGHT
 
 ```java
 package com.designpattern;
@@ -56,7 +58,7 @@ public class FlyweightBall {
 }
 ```
 
-## USING FLYWEIGHT OBJECT IN THE ACTUAL CLASS
+### USING FLYWEIGHT OBJECT IN THE ACTUAL CLASS
 
 ```java
 package com.designpattern;
@@ -121,7 +123,7 @@ public class Ball {
 }
 ```
 
-## USING FACTORY CLASS TO MANAGE FLYWEIGHT OBJECTS
+### USING FACTORY CLASS TO MANAGE FLYWEIGHT OBJECTS
 
 The BallFactory class acts as a cache for managing FlyweightBall objects. It ensures that only one instance of a FlyweightBall with a specific combination of ballColor and ballImageURL is created. This prevents the unnecessary creation of multiple FlyweightBall objects with the same intrinsic attributes and helps save memory.  
 
@@ -159,7 +161,7 @@ public class BallFactory {
 }
 ```
 
-## CLIENT
+### CLIENT
 
 ```java
 package com.demo;
@@ -197,7 +199,7 @@ public class App {
 }
 ```
 
-## OUTPUT
+### OUTPUT
 
 Notice here that the flyweighBall has the same reference!
 
