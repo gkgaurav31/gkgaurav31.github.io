@@ -3,7 +3,7 @@ layout: post
 title: Merge Sorted Array
 date: 2023-07-16 21:35 +0530
 author: "Gaurav Kumar"
-tags: "java arrays leetcode important"
+tags: "java arrays leetcode leetcode150 important"
 categories: "arrays"
 ---
 
