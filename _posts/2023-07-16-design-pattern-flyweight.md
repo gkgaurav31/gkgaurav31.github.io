@@ -13,6 +13,8 @@ The Flyweight pattern is a design pattern that helps optimize memory usage by sh
 
 In this example, let's consider the Ball class with the attributes color, imageURL, coordinateX, coordinateY, and radius. The color and imageURL can be considered intrinsic attributes because they are the same for all balls of the same type in the game. On the other hand, the coordinateX, coordinateY, and radius are extrinsic attributes because they vary for each individual ball object.
 
+[Good Explanation by Yogita Sharma - YouTube](https://www.youtube.com/watch?v=8cL9KbHS5kE)
+
 ## OVERVIEW (UML)
 
 ![snapshot]({{ site.baseurl }}/assets/img/design_patterns/flyweight.png)
