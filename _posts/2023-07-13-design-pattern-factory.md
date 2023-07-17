@@ -29,7 +29,9 @@ This design allows for easy extensibility. If you want to support a new type of 
 
 Here's an example of how the code would look like:
 
-## DATABASE INTERFACE
+## CODE WALKTHROUGH
+
+### DATABASE INTERFACE
 
 ```java
 package com.designpattern;
@@ -44,7 +46,7 @@ public interface Database {
 }
 ```
 
-## DATABASE FACTORY INTERFACE
+### DATABASE FACTORY INTERFACE
 
 ```java
 package com.designpattern;
@@ -56,7 +58,7 @@ public interface DatabaseFactory {
 }
 ```
 
-## QUERY INTERFACE
+### QUERY INTERFACE
 
 ```java
 package com.designpattern;
@@ -68,7 +70,7 @@ public interface Query {
 }
 ```
 
-## MYSQL QUERY AND POSTGRES QUERY IMPLEMENTATION
+### MYSQL QUERY AND POSTGRES QUERY IMPLEMENTATION
 
 ```java
 package com.designpattern;
@@ -97,7 +99,7 @@ public class PostgresQuery implements Query{
 }
 ```
 
-## MYSQL AND POSTGRES CONCRETE CLASSES
+### MYSQL AND POSTGRES CONCRETE CLASSES
 
 ```java
 package com.designpattern;
@@ -146,7 +148,7 @@ public class PostgreSQLDatabase implements Database{
 }
 ```
 
-## MYSQL FACTORY AND POSTGRES FACTORY IMPLEMENTATION
+### MYSQL FACTORY AND POSTGRES FACTORY IMPLEMENTATION
 
 ```java
 package com.designpattern;
@@ -175,7 +177,7 @@ public class PostgreSQLDatabaseFactory implements DatabaseFactory{
 }
 ```
 
-## CLIENT CODE
+### CLIENT CODE
 
 ```java
 package com.demo;
@@ -202,7 +204,7 @@ public class Client {
 }
 ```
 
-## SAMPLE OUTPUT
+### SAMPLE OUTPUT
 
 ```text
 connecting to mysql db.

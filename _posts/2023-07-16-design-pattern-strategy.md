@@ -36,7 +36,7 @@ public interface NavigationStrategy {
 
 Concrete classes that implement the NavigationStrategy interface for different modes of transportation.
 
-#### CAR NAVIGATION
+### CAR NAVIGATION
 
 ```java
 package com.designpattern;
@@ -52,7 +52,7 @@ public class CarNavigation implements NavigationStrategy{
 }
 ```
 
-#### BIKE NAVIGATION
+### BIKE NAVIGATION
 
 ```java
 package com.designpattern;
@@ -68,7 +68,7 @@ public class BikeNavigation implements NavigationStrategy {
 }
 ```
 
-#### WALK NAVIGATION
+### WALK NAVIGATION
 
 ```java
 package com.designpattern;

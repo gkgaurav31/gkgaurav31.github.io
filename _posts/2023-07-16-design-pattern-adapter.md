@@ -24,7 +24,9 @@ PaymentGateway is associated with RazorpayAdapter and CCAvenueAdapter using a so
 
 PaymentGateway is associated with RazorpayGateway and CCAvenueGateway using a solid line with an arrowhead. This association represents that both RazorpayGateway and CCAvenueGateway provide an implementation for the PaymentGateway interface.
 
-## INTERFACES
+## CODE WALKTHROUGH
+
+### INTERFACES
 
 PaymentGateway (Target Interface): This interface represents the common interface that our clients expect. It declares the processPayment method, which is used to process payments.
 
@@ -37,9 +39,9 @@ public interface PaymentGateway {
 }
 ```
 
-## INCOMPATIBLE CLASSES
+### INCOMPATIBLE CLASSES
 
-### RAZORPAYGATEWAY (ADAPTEE)
+#### RAZORPAYGATEWAY (ADAPTEE)
 
 This class represents the Razorpay payment gateway. It has its own specific interface, makePayment, which is incompatible with our PaymentGateway interface
 
@@ -55,7 +57,7 @@ public class RazorpayGateway {
 }
 ```
 
-### CCAVENUEGATEWAY (ADAPTEE)
+#### CCAVENUEGATEWAY (ADAPTEE)
 
 This class represents the CCAvenue payment gateway. It also has its own specific interface, initiatePayment, which is incompatible with our PaymentGateway interface
 
@@ -72,9 +74,9 @@ public class CCAvenueGateway {
 }
 ```
 
-## ADAPTERS
+### ADAPTERS
 
-### RAZORPAYADAPTER
+#### RAZORPAYADAPTER
 
 This adapter class implements the PaymentGateway interface. It internally holds an instance of RazorpayGateway and adapts its makePayment method to the processPayment method defined in the PaymentGateway interface
 
@@ -99,7 +101,7 @@ public class RazorpayAdapter implements PaymentGateway {
 }
 ```
 
-### CCAVENUEADAPTER
+#### CCAVENUEADAPTER
 
 This adapter class also implements the PaymentGateway interface. It internally holds an instance of CCAvenueGateway and adapts its initiatePayment method to the processPayment method defined in the PaymentGateway interface.
 Client:
@@ -125,7 +127,7 @@ public class CCAvenueAdapter implements PaymentGateway{
 }
 ```
 
-## APP (CLIENT)
+### APP (CLIENT)
 
 This is our client code that utilizes the PaymentGateway interface. It is unaware of the specific payment gateways or their implementations. It creates instances of the adapters (RazorpayAdapter and CCAvenueAdapter) and uses them interchangeably to process payments through the unified PaymentGateway interface
 
@@ -155,7 +157,7 @@ public class App {
 }
 ```
 
-## OUTPUT
+### OUTPUT
 
 ```text
 Processing payment via Razorpay: 1000.0

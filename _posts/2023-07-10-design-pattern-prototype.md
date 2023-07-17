@@ -9,9 +9,11 @@ categories: "design_patterns"
 
 ## PROTOTYPE
 
-### IDEA
+## IDEA
 
 Imagine a situation where creating an object is a costly task. This can happen when we need certain information from a database or external service before we can create the object. If we have to create this object multiple times in our application, it can slow down the overall performance. In such cases, we can use "pre-created" prototype objects. The idea is to create some objects in advance with attributes that usually don't change. Then, whenever we need a new object, we can quickly make a copy of this pre-created object and adjust any specific attributes we need. This way, we can save time and improve the performance of our application.
+
+## CODE WALKTHROUGH
 
 ### INTERFACE FOR PROTOTYPE
 
