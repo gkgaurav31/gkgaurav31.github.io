@@ -76,7 +76,7 @@ class Solution {
 
 ## IMPROVING THE PREVIOUS CODE
 
-In the previous code, we were tracking the previous two values. However, it would be enough to just know the count of continuous same elements till position i. If the count is <=2, we can include the current element in the answer. If not, skip it. Anytime we get a different number, reset the count to 1.
+In the code above, we were tracking the previous two values. However, it would be enough to just know the count of continuous same elements till position i. If the count is <=2, we can include the current element in the answer. If not, skip it. Anytime we get a different number, reset the count to 1.
 
 ```java
 class Solution {

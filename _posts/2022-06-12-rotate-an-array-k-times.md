@@ -2,12 +2,14 @@
 layout: post
 title: Rotate an Array k times
 author: "Gaurav Kumar"
-tags: "java arrays"
+tags: "java leetcode leetcode150 arrays"
 categories: "arrays"
 
 ---
 
-## Problem Description:  Given an Array, rotate it k times. 
+## Problem Description  
+
+Given an Array, rotate it k times
 
 ### Example
 
@@ -16,6 +18,8 @@ __Array:__
 __k: 3__  
 __Output:__
 7 8 9 1 2 3 4 5 6  
+
+[leetcode](https://leetcode.com/problems/rotate-array/)
 
 ### Solution
 
@@ -29,70 +33,36 @@ The, use the "reverse an array in the given range code" to reverse the first 3 e
 :exclamation: | Since k can be greater than the array length, we will need to use: __k = k%arr.length__
 
 ```java
-package com.arrays;
+class Solution {
 
-import java.util.Arrays;
+    public void rotate(int[] nums, int k) {
 
-public class RotateArray {
+        int n = nums.length;
 
-	public static void main(String[] args) {
+        k = k%n;
 
-		int[] arr = {1,2,3,4,5,6,7,8,9};
-		int k = 3;
-		
-		rotateArrayKTimes(arr, k);
-		
-		System.out.println(Arrays.toString(arr));
+        reverseRange(nums, 0, n-1);
+        reverseRange(nums, 0, k-1);
+        reverseRange(nums, k, n-1);
 
-	}
-	
-	public static int[] rotateArrayKTimes(int arr[], int k) {
-		
-        k = k%arr.length;
+    }
 
-		reverseArray(arr);
-		reverseArrayWithRange(arr, 0, k-1);
-		reverseArrayWithRange(arr, k, arr.length-1);
-		
-		return arr;
-		
-	}
+    public void reverseRange(int[] nums, int start, int end){
 
-	public static int[] reverseArrayWithRange(int[] arr, int start, int end) {
+        int i=start;
+        int j=end;
 
-		int i=start,j=end;
+        while(i<j){
+            swap(nums, i, j);
+            i++;
+            j--;
+        }
+    }
 
-		while(i<j) {
-			swap(arr, i, j);
-			i++;
-			j--;
-		}
-
-		return arr;
-
-	}
-
-	public static int[] reverseArray(int[] arr) {
-
-		int i=0,j=arr.length-1;
-
-		while(i<j) {
-			swap(arr, i, j);
-			i++;
-			j--;
-		}
-
-		return arr;
-
-	}
-
-	public static void swap(int[] arr, int i, int j) {
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-	}
-
-
-
+    public void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
 }
 ```
