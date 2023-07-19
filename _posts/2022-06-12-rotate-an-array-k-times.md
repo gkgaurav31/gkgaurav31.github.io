@@ -4,7 +4,6 @@ title: Rotate an Array k times
 author: "Gaurav Kumar"
 tags: "java leetcode leetcode150 arrays"
 categories: "arrays"
-
 ---
 
 ## Problem Description  
