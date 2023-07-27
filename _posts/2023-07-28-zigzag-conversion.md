@@ -102,3 +102,57 @@ class Solution {
 
 }
 ```
+
+## ANOTHER WAY TO CODE
+
+```java
+class Solution {
+
+    public String convert(String s, int numRows) {
+
+        //edge case
+        if(numRows == 1) return s;
+
+        //length of the string
+        int n = s.length();
+
+        //number of jumps needed to go to next character (of next group)
+        int jumps = 2 * (numRows-1);
+
+        //ans
+        StringBuffer sb = new StringBuffer();
+
+        //for each row
+        for(int r=0; r<numRows; r++){
+            
+            //the first character position for row x will be at x index of the string
+            for(int i=r; i<n; i+=jumps){
+
+                //append the current character of the row
+                sb.append(s.charAt(i));
+                
+                //if it's a middle row, we will need to get the second character
+                //it will be present at: currentIndex + 2*(numRows-1) - (2*currentRow)
+                if(r >= 1 && r <= numRows-2){
+                    
+                    int secondCharPossiblePosition = i + jumps - (2*r); //this can possibly be out of bounds
+
+                    //if it's within the bounds, append it
+                    if(secondCharPossiblePosition < n){
+                        sb.append(s.charAt(secondCharPossiblePosition));
+                    }
+
+                }
+
+                //because of for loop increment condition, the next position will be current + 2*(numRows-1);
+
+            }
+
+        }
+
+        return sb.toString();
+
+    }
+
+}
+```
