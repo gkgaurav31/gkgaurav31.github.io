@@ -18,10 +18,9 @@ Note that s may contain leading or trailing spaces or multiple spaces between tw
 
 ## SOLUTION (WITHOUT IN-BUILT METHODS)
 
-We can easily using split function and iterate through the String array from right to left to get the result. To achieve the same using just a simple loop, we can do it in the following way:
+We can easily use split function and iterate through the String array from right to left to get the result. To achieve the same using just a simple loop, we can do it in the following way:
 
 ```java
-
 class Solution {
     
     public String reverseWords(String s) {
