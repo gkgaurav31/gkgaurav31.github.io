@@ -55,7 +55,7 @@ class Solution {
 }
 ```
 
-### SINGLE LOOPS
+### SINGLE LOOP
 
 ```java
 class Solution {
