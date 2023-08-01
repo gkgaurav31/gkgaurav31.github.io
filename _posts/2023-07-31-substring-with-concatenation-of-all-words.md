@@ -113,6 +113,8 @@ class Solution {
 
 ### APPROACH 2 (SLIDING WINDOW)
 
+[good explanation](https://leetcode.com/problems/substring-with-concatenation-of-all-words/solutions/1753357/Clear-solution!-Easy-to-understand-with-diagrams%5C/)
+
 1. **Sliding Window Initialization:**
    - Start with both `left`, `right` pointers at the beginning of the string (`i`).
 
