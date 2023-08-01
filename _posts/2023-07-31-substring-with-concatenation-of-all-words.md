@@ -3,7 +3,7 @@ layout: post
 title: Substring with Concatenation of All Words
 date: 2023-07-31 21:38 +0530
 author: "Gaurav Kumar"
-tags: "java sliding_window arrays leetcode leetcode150"
+tags: "java sliding_window arrays leetcode leetcode150 important"
 categories: "arrays"
 ---
 
@@ -107,6 +107,107 @@ class Solution {
 
     }
 
+
+}
+```
+
+### APPROACH 2 (SLIDING WINDOW)
+
+1. **Sliding Window Initialization:**
+   - Start with both `left`, `right` pointers at the beginning of the string (`i`).
+
+2. **Sliding Window Expansion:**
+   - Keep expanding the window on the right if the current word matches any word in the given `words` array.
+
+3. **Mismatch Handling:**
+   - If there is a mismatch for the next word on the right, reset the `left` and `right` pointers to the next word to continue searching.
+
+4. **Match Handling:**
+   - If the next word on the right is found in the `words` array, add it to the `seen` hashmap and increase its frequency.
+   - If the frequency of the current word in the `seen` hashmap exceeds the frequency of the word in the `wordFreq` hashmap (i.e., it was seen more times than it's present in the given `words` array), reduce the window from the left.
+   - Keep doing this until the frequency of the current word in the `seen` hashmap matches the frequency in the `wordFreq` hashmap.
+
+5. **Concatenated Substring Found:**
+   - If the number of matches found (`match`) is equal to the word count (`wcount`), it means all words in the `words` array are present in the current window as a concatenated substring.
+
+6. **Add to Result:**
+   - In that case, the index `left` must be one of the starting indices of the concatenated substring, so add it to the `ansList`.
+
+```java
+class Solution {
+    
+    public List<Integer> findSubstring(String s, String[] words) {
+
+        int n = s.length();
+
+        int wcount = words.length;
+        int wlength = words[0].length();
+
+        int totalLength = wcount * wlength;
+
+        //frequency map of the given words
+        Map<String, Integer> wordFreq = new HashMap<>();
+        for(String x: words){
+            wordFreq.put(x, wordFreq.getOrDefault(x, 0) + 1);
+        }
+
+        //answer
+        List<Integer> ansList = new ArrayList<>();
+
+        //there will be multiple sliding windows starting from 0, 1, 2...(wlen-1)
+        for(int i=0; i<wlength; i++){
+            
+            //how many words have matched
+            int match = 0;
+            Map<String, Integer> seen = new HashMap<>();
+
+            //sliding window starting from left=right=i
+            //keeping expanding it on right if the words match
+            //if there is a mismatch for the next word on the right, reset left and right to the next word
+            //if the next word on the right is found in the list of given words then:
+            //add it to the seen hashmap and increase it frequency
+            //if it was seen more than the number of times it's present in the list of given words, try to reduce the windows from left
+            //we will keep doing this until the frequency of the current word matches (in wordFreq HashMap and seen HashMap)
+            //finally, check if the number of matches found is equal to the word count
+            //in that case, index left must be one of the answers
+            for(int left=i, right=i; right <= n-wlength; right += wlength){
+
+                String next = s.substring(right, right+wlength);
+
+                if(!wordFreq.containsKey(next)){
+                    match = 0;
+                    seen.clear();
+                    left = right + wlength; //right will also become same due to for loop
+                }else{
+
+                    seen.put(next, seen.getOrDefault(next, 0) + 1);
+
+                    //reduce window from left until the frequency becomes the same
+                    while(seen.get(next) > wordFreq.get(next)){
+
+                        String leftString = s.substring(left, left+wlength);
+                        seen.put(leftString, seen.get(leftString)-1);
+
+                        match--;
+                        left += wlength;
+                    }
+
+                    match++;
+
+                }
+
+                if(match == wcount){
+                    ansList.add(left);
+                }
+
+
+            }
+
+        }
+
+        return ansList;
+
+    }
 
 }
 ```
