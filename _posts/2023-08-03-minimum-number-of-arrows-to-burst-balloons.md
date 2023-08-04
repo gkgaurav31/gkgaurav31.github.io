@@ -21,6 +21,8 @@ Given the array points, return the minimum number of arrows that must be shot to
 
 [Good Explanation](https://www.youtube.com/watch?v=viE3LTt8xQs)
 
+![snapshot]({{ site.baseurl }}/assets/img/min_arrows.png)
+
 ```java
 class Solution {
 
