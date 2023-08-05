@@ -2,6 +2,7 @@
 layout: post
 title: Simplify Path
 date: 2023-08-04 22:04 +0530
+author: "Gaurav Kumar"
 tags: "java stack leetcode leetcode150"
 categories: "stack"
 ---
