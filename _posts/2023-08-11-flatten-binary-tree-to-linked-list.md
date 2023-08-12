@@ -78,7 +78,7 @@ class Solution {
     // The main function to flatten the binary tree
     public void flatten(TreeNode root) {
         // Call the helper function to perform the flattening
-        root = flattenHelper(root);
+        flattenHelper(root);
     }
 
     // Helper function to recursively flatten the binary tree
