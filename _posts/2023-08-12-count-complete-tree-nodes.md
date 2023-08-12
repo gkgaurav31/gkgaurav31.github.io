@@ -56,9 +56,6 @@ class Solution {
         // Calculate the depth of the leftmost path (height of the left subtree)
         int depth = calculateDepth(root);
 
-        // If the tree is a perfect tree (all levels except the last are completely filled)
-        if(depth == 0) return 1;
-
         // Calculate the number of nodes before the last level using the formula 2^d - 1
         int nodesBeforeLastLevel = (int)Math.pow(2, depth) - 1;
 
@@ -73,23 +70,30 @@ class Solution {
 
         // Perform binary search to find the highest leaf index that is present
         while(left <= right){
+
             int pivot = (left + right) / 2;
 
             // Check if the leaf node with index 'pivot' is present
             if(isLeafPresent(root, depth, nodesLastLevel, pivot)){
-                presentTillIndex = Math.max(presentTillIndex, pivot);
+
+                presentTillIndex = Math.max(presentTillIndex, pivot); // Update answer
                 left = pivot + 1; // Move the left boundary to search for higher indices
+
             } else {
+
                 right = pivot - 1; // Move the right boundary to search for lower indices
+
             }
         }
 
         // Return the total number of nodes in the tree
-        return nodesBeforeLastLevel + presentTillIndex + 1;
+        return nodesBeforeLastLevel + (presentTillIndex + 1);
     }
 
     // Check if a leaf node with a given index is present in the last level
     public boolean isLeafPresent(TreeNode root, int depth, int nodesLastLevel, int idx){
+
+        //init: left, right the range of index
         int left = 0;
         int right = nodesLastLevel - 1;
 
@@ -97,6 +101,7 @@ class Solution {
 
         // Traverse down the tree following the path indicated by the binary representation of idx
         for(int i = 0; i < depth; i++){
+            
             int pivot = (left + right) / 2;
 
             // Move to the left child if the index is less than or equal to the pivot
