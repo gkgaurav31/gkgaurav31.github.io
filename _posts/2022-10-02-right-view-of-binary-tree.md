@@ -7,11 +7,15 @@ tags: "java binarytree important leetcode"
 categories: "binarytree"
 ---
 
-### PROBLEM DESCRIPTION
+## PROBLEM DESCRIPTION
 
-Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.[Leetcode](https://leetcode.com/problems/binary-tree-right-side-view/)
+Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.  
 
-### SOLUTION
+[Leetcode](https://leetcode.com/problems/binary-tree-right-side-view/)
+
+## SOLUTION
+
+### APPROACH 1 - USING LEVEL ORDER TRAVERSAL
 
 The idea is to get the last/right-most element for each level in Level Order Traversal.
 
@@ -79,6 +83,36 @@ class Solution {
         
         return res;
         
+    }
+}
+```
+
+### APPROACH 2 - RECURSIVE DFS
+
+```java
+class Solution {
+    
+    public List<Integer> rightSideView(TreeNode root) {
+        return rightViewHelper(root, new ArrayList<Integer>(), 0);
+    }
+
+    // Recursive helper function to perform right side view traversal
+    public List<Integer> rightViewHelper(TreeNode root, List<Integer> list, int level){
+
+        if(root == null) return list; 
+
+        // If the list size is equal to the current level, add the node's value to the list
+        if(list.size() == level){
+            list.add(root.val); 
+        }
+
+        // We first try to traverse the right side of this node. If the right side node exists, list size will increase by 1
+        // If the right does not exist for the current node, no node would be added to the list and the size will still stay the same
+        // This means, at any level, only one node, which will be the right most one is going to be added
+        rightViewHelper(root.right, list, level+1);
+        rightViewHelper(root.left, list, level+1);
+
+        return list; 
     }
 }
 ```
