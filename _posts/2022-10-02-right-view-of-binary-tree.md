@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Right View of Binary tree
+title: Binary Tree Right Side View
 date: 2022-10-02 20:44 +0530
 author: "Gaurav Kumar"
 tags: "java binarytree important leetcode"
