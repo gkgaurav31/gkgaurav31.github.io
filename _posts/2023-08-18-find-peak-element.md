@@ -5,7 +5,6 @@ date: 2023-08-18 18:03 +0530
 author: "Gaurav Kumar"
 tags: "java binary_search leetcode leetcode150 important"
 categories: "binary_search"
-
 ---
 
 ## Problem Description
@@ -39,7 +38,7 @@ The same scenario will happen for a monotonically decreasing array. In that case
 
 ```java
 class Solution {
-    
+
     public int findPeakElement(int[] nums) {
 
         int n = nums.length;
@@ -52,13 +51,13 @@ class Solution {
 
         //binary search
         while(l<=r){
-            
+
             //get mid
             int mid = (l+r)/2;
 
             //if mid if 0th index
             if(mid == 0){
-                
+
                 //if the first number is more than its right, we can return it as the answer
                 //as per the problem, 0th index element is greater than it's left side
                 if(nums[mid] > nums[mid+1]){
@@ -70,7 +69,7 @@ class Solution {
 
             //if mid is last index
             }else if(mid == n-1){
-                
+
                 //if the last element is more than the last but one element, we can return it
                 if(nums[mid] > nums[mid-1]){
                     return mid;
@@ -81,7 +80,7 @@ class Solution {
 
             //if mid is some middle element
             }else{
-                
+
                 //if it's more than both of its neighbors, we can return it as the peak
                 if(nums[mid] > nums[mid-1] && nums[mid] > nums[mid+1]){
                     return mid;
@@ -95,7 +94,7 @@ class Solution {
                 }
 
             }
- 
+
         }
 
         return -1;
@@ -111,7 +110,7 @@ class Solution {
 
 ```java
 class Solution {
-    
+
     public int findPeakElement(int[] nums) {
 
         int n = nums.length;
