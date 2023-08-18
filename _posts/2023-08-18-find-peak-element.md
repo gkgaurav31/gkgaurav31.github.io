@@ -104,3 +104,41 @@ class Solution {
 
 }
 ```
+
+### ANOTHER WAY TO CODE
+
+[NeetCode YouTube](https://www.youtube.com/watch?v=kMzJy9es7Hc)
+
+```java
+class Solution {
+    
+    public int findPeakElement(int[] nums) {
+
+        int n = nums.length;
+
+        int l = 0;
+        int r = n-1;
+
+        while(l<=r){
+
+            int m = (l+r)/2;
+
+            //if left neighbor is greater
+            if(m>0 && nums[m-1] > nums[m]){
+                r = m-1;
+            //right neighbor is greater
+            }else if(m<n-1 && nums[m+1] > nums[m]){
+                l = m+1;
+            //current number must be more than both left and right
+            }else{
+                return m;
+            }
+
+        }
+
+        return -1;
+
+    }
+
+}
+```
