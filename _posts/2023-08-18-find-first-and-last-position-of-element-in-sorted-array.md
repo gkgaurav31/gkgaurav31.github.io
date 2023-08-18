@@ -17,6 +17,8 @@ You must write an algorithm with O(log n) runtime complexity.
 
 ## Solution
 
+Use binary search to find the starting index of the target. Then, run the binary search again but this time looking for the last occurance of the element.
+
 ```java
 class Solution {
 
@@ -90,5 +92,85 @@ class Solution {
 
         return idx;
     }
+}
+```
+
+### SMALL OPTIMIZATION
+
+- If the first binary search returns -1, that means that the target does not exist in the array and we can return -1
+- If we do find the start index, we can use that to optimize the second binary search. We know that the array is sorted. So, while searching for the endIndex, we can set the "LEFT" (start of the search area) for binary search as startIdx which we found in first step. Refer to the code to see how that would look like. This may not help if the startIdx is some initial index like 0,1,2 etc.
+
+```java
+class Solution {
+
+    public int[] searchRange(int[] nums, int target) {
+
+        int n = nums.length;
+
+        int startIdx = searchStart(nums, target);
+        if(startIdx == -1) return new int[]{-1, -1};
+
+        int endIdx = searchEnd(startIdx, nums, target);
+
+        return new int[]{startIdx, endIdx};
+
+    }
+
+    public int searchStart(int[] nums, int target){
+
+        int n = nums.length;
+
+        int l = 0;
+        int r = n-1;
+
+        int idx = -1;
+
+        while(l<=r){
+
+            int m = (l+r)/2;
+
+            if(nums[m] == target){
+                idx = m;
+                r = idx-1;
+            }
+            else if(nums[m] > target)
+                r = m - 1;
+            else
+                l = m + 1;
+
+        }
+
+        return idx;
+
+    }
+
+    public int searchEnd(int left, int[] nums, int target){
+
+        int n = nums.length;
+
+        int l = left; //the endIndex will be minimum startIdx we would have found
+        int r = n-1;
+
+        int idx = -1;
+
+        while(l<=r){
+
+            int m = (l+r)/2;
+
+            if(nums[m] == target){
+                idx = m;
+                l = m + 1;
+            }
+            else if(nums[m] > target)
+                r = m - 1;
+            else
+                l = m + 1;
+
+        }
+
+        return idx;
+
+    }
+
 }
 ```
