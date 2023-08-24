@@ -29,19 +29,26 @@ class Solution {
         return builder(nums, 0, nums.length-1);
     }
 
-    public TreeNode builder(int[] nums, int i, int j){
+    public TreeNode builder(int[] nums, int i, int j) {
 
-        if(i > j) return null;
+        // Base case: When the left index is greater than the right index, return null.
+        if (i > j) {
+            return null;
+        }
 
-        int idx = (i+j)/2;
+        // Calculate the index of the middle element.
+        int idx = (i + j) / 2;
 
+        // Create a new tree node with the middle element as the root value.
         TreeNode node = new TreeNode(nums[idx]);
 
-        node.left = builder(nums, i, idx-1);
-        node.right = builder(nums, idx+1, j);
+        // Recursively build the left subtree using elements from the left half of the array.
+        node.left = builder(nums, i, idx - 1);
+
+        // Recursively build the right subtree using elements from the right half of the array.
+        node.right = builder(nums, idx + 1, j);
 
         return node;
-
     }
 
 }
