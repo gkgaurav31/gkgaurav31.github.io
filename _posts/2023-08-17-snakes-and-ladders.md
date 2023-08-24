@@ -6,6 +6,7 @@ author: "Gaurav Kumar"
 tags: "java graphs leetcode leetcode150 important"
 categories: "graphs"
 ---
+
 ## PROBLEM DESCRIPTION
 
 You are given an n x n integer matrix board where the cells are labeled from 1 to n2 in a Boustrophedon style starting from the bottom left of the board (i.e. board[n - 1][0]) and alternating direction each row.
@@ -29,11 +30,11 @@ Return the least number of moves required to reach the square n2. If it is not p
 
 ## SOLUTION
 
-This is quite a tricky problem, but it has been well explained by here: [NeetCode](https://www.youtube.com/watch?v=6lH4nO3JfLk)
+This is quite a tricky problem, but it has been well explained here: [NeetCode](https://www.youtube.com/watch?v=6lH4nO3JfLk)
 
-This problem is actually a graph problem. Since we are looking for the shortest distance and there are no weights involved, we can think of using BFS. We can start from the position number 1. In the board, the 1 actually starts from the bottom row. To make it simpler, we can reverse the rows of the board to use natural way of indexing. For a given position say idx, to get its index in the matrix, we can treate idx as idx-1 (basically, convert it to 0-index) while getting the index needed. The value in the board itself does not need to be converted. The other problem is that the even rows go in reverse order. So, when we find that the row is even, we will have to update teh column calculated based on reverse order.  
+This problem is actually a graph problem. Since we are looking for the shortest distance and there are no weights involved, we can think of using BFS. We can start from the position number 1. In the board, the 1 actually starts from the bottom row. To make it simpler, we can reverse the rows of the board to use natural way of indexing. For a given position say idx, to get its index in the matrix, we can treat idx as idx-1 (basically, convert it to 0-index) while getting the actual index needed. The value in the board itself does not need to be converted. The other problem is that the even rows go in reverse order. So, when we find that the row is even, we will have to update the column calculated based on reverse order.
 
-Coming to the actual BFS logic, we start by putting the first position and it's moves count (as a pair) to a queue. We keep remove elements from the queue and go to the next 6 places (because the dice can have maximum 6 value). It's possible that in the next position, we have a ladder or a snake. In that case, we can simply update the next position to wherever the ladder or snake will take us. We make this as visited and add it to the queue. If it happens to be the last position, we have actually got an answer since we have reached the destination. We can directly return is as it must be the lowest number of steps it took to reach the destination following breadth wise search.
+Coming to the actual BFS logic, we start by putting the first position and it's moves (as a pair) to a queue. We keep removing elements from the queue and go to the next 6 places (because the dice can have maximum 6 value). It's possible that in the next position, we have a ladder or a snake. In that case, we can simply update the next position to wherever the ladder or snake will take us. We make this as visited and add it to the queue. If it happens to be the last position, we have actually got an answer since we have reached the destination. We can directly return is as it must be the lowest number of steps it took to reach the destination following breadth wise search.
 
 ```java
 //class to store the position and how many moves it took to reach it from source
@@ -85,7 +86,7 @@ class Solution {
 
         //BFS: while there are nothing more to explore
         while(!q.isEmpty()){
-            
+
             //get current position
             Pair p = q.poll();
             int cPosition = p.position; //current position number
@@ -93,7 +94,7 @@ class Solution {
 
             //after rolling the dice, we can move to next 6 positions
             for(int i=1; i<=6; i++){
-                
+
                 //possible next position
                 int nextPosition = cPosition + i;
 
@@ -101,7 +102,7 @@ class Solution {
                 int[] nextPositionIndex = getIndex(nextPosition, n);
                 int nextPositionX =  nextPositionIndex[0];
                 int nextPositionY =  nextPositionIndex[1];
-                
+
                 //if next position has a ladder or snake, use that (update nextPosition which we had calculated based on simple step)
                 if(board[nextPositionX][nextPositionY] != -1){
                     nextPosition = board[nextPositionX][nextPositionY];
@@ -110,7 +111,7 @@ class Solution {
                 //if the next position is end of the square, we have got the answer
                 if(nextPosition == (n*n))
                     return cMoves + 1;
-                
+
                 //otheriwse, add next position to visited (so that we don't visit it again)
                 //also add it to the queue to check for possition path from the next position
                 if(!visited.contains(nextPosition)){
@@ -124,7 +125,7 @@ class Solution {
 
         //if we never visited the destination and all positions have been explored, return -1
         return -1;
-            
+
     }
 
     public int[] getIndex(int idx, int n){
