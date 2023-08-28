@@ -4,7 +4,6 @@ title: Find Square Root
 author: "Gaurav Kumar"
 tags: "java miscelleneous"
 categories: "miscelleneous"
-
 ---
 
 ## Problem Description
@@ -27,43 +26,43 @@ package com.test;
 public class Solution {
 
 	public static void main(String[] args) {
-		
+
 		System.out.println(findSquareRootv1(25));
 		System.out.println(findSquareRootv2(25));
-		
+
 	}
-	
+
 	//brute force
 	public static int findSquareRootv1(int n) {
-		
+
 		for(int i=1; i<=n; i++) {
 			if(i*i == n) {
 				return i;
 			}
 		}
-		
+
 		return -1;
-		
+
 	}
-	
+
 	//using binary search approach
 	public static int findSquareRootv2(int n) {
 
 		if(n == 0) return 0;
 		if(n < 0) return -1;
-		
+
 		int[] arr = new int[n];
-		
+
 		for(int i=0; i<n;i++) {
 			arr[i] = i+1;
 		}
-		
+
 		int i=0;
 		int j=n-1;
 		int mid=0;
-		
+
 		while(i<=j) {
-			
+
 			mid = (i+j)/2;
 			int checkNum = arr[mid] * arr[mid];
 
@@ -74,13 +73,47 @@ public class Solution {
 			}else {
 				j = mid-1;
 			}
-			
+
 		}
-		
+
 		return -1;
-		
+
 	}
-	
+
 }
 
+```
+
+### Better way to code
+
+```java
+class Solution {
+
+    public int mySqrt(int x) {
+
+        long l = 0;
+        long r = x;
+
+        long idx = -1;
+
+        while(l<=r){
+
+            long m = (l+r)/2;
+
+            if(m*m == x) return (int) m;
+
+            if(m*m > x){
+                r = m-1;
+            }else{
+                idx = m;
+                l = m+1;
+            }
+
+        }
+
+        return (int)idx;
+
+    }
+
+}
 ```
