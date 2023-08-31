@@ -24,7 +24,7 @@ You may assume that you have an infinite number of each kind of coin.
 ```java
 class Solution {
     public int coinChange(int[] coins, int amount) {
-        return coinHelper(coins, amount);   
+        return coinHelper(coins, amount);
     }
 
     public int min = Integer.MAX_VALUE;
@@ -64,27 +64,44 @@ class Solution {
 ```java
 class Solution {
 
-    private static final int MAX = 10001; //constraint: 0 <= amount <= 104
-    
+    private static final int MAX = 10001; //constraint: 0 <= amount <= 10^4
+
     public int coinChange(int[] coins, int amount) {
 
+        //dp[i] denotes the minimum number of coins needed to make an amount "i" using the coins given
         int[] dp = new int[amount+1];
+
+        //if the maximum aount is 100, the maximum possible answer can be 100 using all 1s. So, we init the dp array to something more than that which will mean that it's not possible to make up that amount. We don't set it to -1 because we will try to calculate the minimum number of coins later, so -1 would never get updated.
         Arrays.fill(dp, MAX);
-        
+
+        //0 coins needed to make an amount of 0
         dp[0] = 0;
 
+        //calculate the number of coins needed to make an amount from 1, 2, 3...,amount needed
         for(int i=1; i<=amount; i++){
 
+            //try for each coin available and make use of pre-calculated values in the dp array to find the minimum amoung all possible options
             for(int j=0; j<coins.length; j++){
+
+                //the current amount must be >= current coin value, otherwise the amount will be negative (not possible)
                 if(i>=coins[j]){
+                    //let's say that the current amount is x
+                    //let's say the current coin is y
+                    //x-y>=0, so it would be possible to use the current coin
+                    //if we use the current coin, we will need to add 1 extra coin used
+                    //how many coins are needed for the remaining sum which is x-y?
+                    //this will be pre-calculated in dp at dp[x-y]!
+                    //this is one possible answer, but may not be the minimum
+                    //so update it only if it's lower than the previous options (using other coins)
                     dp[i] = Math.min(dp[i], 1 + dp[i-coins[j]]);
                 }
+
             }
 
         }
 
         return dp[amount]==MAX?-1:dp[amount];
-        
+
     }
 
 }
