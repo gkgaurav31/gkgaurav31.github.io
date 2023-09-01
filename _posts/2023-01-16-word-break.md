@@ -44,7 +44,7 @@ class Solution {
         return possible;
 
     }
-    
+
 }
 ```
 
@@ -54,7 +54,7 @@ class Solution {
 class Solution {
 
     public boolean wordBreak(String s, List<String> wordDict) {
-        
+
         Set<String> set = new HashSet<>(wordDict);
 
         Boolean[] dp = new Boolean[s.length()];
@@ -94,5 +94,65 @@ class Solution {
 
     }
 
+}
+```
+
+### BOTTOM-DOWN DYNAMIC PROGRAMMING APPROACH
+
+[NeetCode YouTube](https://www.youtube.com/watch?v=Sx9NNgInc3A)
+
+```java
+class Solution {
+
+    public boolean wordBreak(String s, List<String> wordDict) {
+
+        int n = s.length();
+
+        // Create a dynamic programming (DP) array of size 'n+1'.
+        // dp[i] represents whether the substring from index 'i' to the end of 's' can be segmented into words from 'wordDict'.
+        boolean[] dp = new boolean[n + 1];
+
+        // Initialize the last element of 'dp' as true because an empty string can be
+        // segmented into words trivially.
+        dp[n] = true;
+
+        // Convert 'wordDict' into a HashSet for efficient lookup and remove duplicates if any. (this is not necessary though)
+        Set<String> set = new HashSet<>(wordDict);
+
+        // Start iterating through 's' in reverse order (from right to left).
+        for (int i = n - 1; i >= 0; i--) {
+
+            // Iterate through each word 'x' in 'wordDict'.
+            for (String x : set) {
+
+                int lengthOfWord = x.length();
+
+                // If the length of 'x' is greater than the remaining substring's length,
+                // skip this iteration, as it's not possible to match 'x' with the remaining substring.
+                if (lengthOfWord > n - i) {
+                    continue;
+                }
+
+                // Otherwise, check if 'x' is equal to the substring of 's' starting at index 'i' and ending at 'i + length of current word'.
+                if (x.equals(s.substring(i, i + lengthOfWord))) {
+
+                    // If 'x' matches the substring, update dp[i] with dp[i + lengthOfWord].
+                    // The idea is that if the current word matches the substring, and the rest of the substring starting at i+lengthOfWord the result was true
+                    // then we can mark the current state as true
+                    dp[i] = dp[i + lengthOfWord];
+
+                    // If dp[i] becomes true, it means we found a valid segmentation,
+                    // so we can break out of this inner loop. (if we don't do it, there is a chance that for later words it will change it back to false)
+                    if (dp[i] == true) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        // The final value of dp[0] will indicate whether the entire string 's'
+        // can be segmented into words from 'wordDict'.
+        return dp[0];
+    }
 }
 ```
