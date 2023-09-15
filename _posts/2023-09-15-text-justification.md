@@ -27,7 +27,7 @@ Note:
 
 ## SOLUTION
 
-[Good Explanation | Hindi](https://www.youtube.com/watch?v=jpU2LVaDa4g)
+[Good Explanation - Hindi](https://www.youtube.com/watch?v=jpU2LVaDa4g)
 
 ```java
 class Solution {
