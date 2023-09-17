@@ -17,7 +17,8 @@ Note: You may not engage in multiple transactions simultaneously (i.e., you must
 
 ## Solution
 
-This problem can be exactly solved like this question: [Singleton]({% post_url 2023-07-05-design-pattern-singleton %})
+This problem can be exactly solved like this question: [Best Time to Buy and Sell Stock III]({% post_url 2023-09-16-best-time-to-buy-and-sell-stock-iii %})
+
 The cap value states can be from: [0, 1, 2, ..., k] -> k+1 states. This is the only change needed.
 
 ```java
