@@ -15,7 +15,6 @@ A software developer by profession, and an artist at heart. Always willing to le
 > Java &nbsp; <progress max="100" value="60" style="width: 25%; height: 10px;"></progress>  
 > Azure App Service &nbsp; <progress max="100" value="80" style="width: 25%; height: 10px;"></progress>  
 > Problem Solving/Coding &nbsp; <progress max="100" value="60" style="width: 25%; height: 10px;"></progress>  
-> Adobe Photoshop &nbsp; <progress max="100" value="60" style="width: 25%; height: 10px;"></progress>  
 > Docker &nbsp; <progress max="100" value="70" style="width: 25%; height: 10px;"></progress>  
 > Kubernetes &nbsp; <progress max="100" value="20" style="width: 25%; height: 10px;"></progress>
 
