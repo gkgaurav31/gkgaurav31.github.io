@@ -17,6 +17,8 @@ You may assume the input array always has a valid answer.
 
 ## SOLUTION
 
+### APPROACH 1
+
 Original sorted array: [a, b, c, d, e]
 
 First, we swap 'b' and 'c':
@@ -58,5 +60,49 @@ class Solution {
 
     }
 
+}
+```
+
+### APPROACH 2 (GREEDY)
+
+This approach is actually similar to bubble sort.
+
+```java
+class Solution {
+
+    public void wiggleSort(int[] nums) {
+
+        int n = nums.length;
+
+        // Iterate through the array from index 0 to n-2
+        for(int i = 0; i <= n - 2; i++) {
+
+            // If the current index is even (i%2 == 0)
+            if (i % 2 == 0) {
+
+                // Check if the current element is greater than the next element
+                if (nums[i] > nums[i + 1]) {
+                    // Swap the current element with the next element
+                    swap(nums, i, i + 1);
+                }
+
+            } else { // If the current index is odd
+
+                // Check if the current element is less than the next element
+                if (nums[i] < nums[i + 1]) {
+                    // Swap the current element with the next element
+                    swap(nums, i, i + 1);
+                }
+
+            }
+
+        }
+    }
+
+    public void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
 }
 ```
