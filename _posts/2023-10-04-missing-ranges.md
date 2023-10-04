@@ -19,6 +19,8 @@ Return the shortest sorted list of ranges that exactly covers all the missing nu
 
 ## SOLUTION
 
+### APPROACH 1
+
 ```java
 class Solution {
 
@@ -81,6 +83,54 @@ class Solution {
         }
 
         return result;
+    }
+}
+```
+
+### OPTIMIZED
+
+The main observersation is that if num[i-1] - nums[i] is > 1, there must be a missing range. That missing range will be: `nums[i-1]+1, nums[i]-1`. There are three other important edge cases which need to be handled:
+
+- A missing range before the first element of the nums array.
+- A missing range after the last element of the nums array.
+- nums array is empty, in which case we can return the range [lower, upper] directly as the answer
+
+```java
+class Solution {
+
+    public List<List<Integer>> findMissingRanges(int[] nums, int lower, int upper) {
+
+        int n = nums.length;
+
+        List<List<Integer>> res = new ArrayList<>();
+
+        // If the nums array is empty, the entire [lower, upper] range is missing.
+        if(n == 0){
+            res.add(Arrays.asList(lower, upper));
+            return res;
+        }
+
+        // If the first number in nums is greater than the lower bound,
+        // add a missing range from lower to nums[0] - 1.
+        if(nums[0] > lower){
+            res.add(Arrays.asList(lower, nums[0] - 1));
+        }
+
+        // Iterate through the sorted nums array to find and record missing ranges.
+        for(int i = 1; i < n; i++){
+            if(nums[i] - nums[i - 1] > 1){
+                // If there's a gap between consecutive numbers in nums, add a missing range.
+                res.add(Arrays.asList(nums[i - 1] + 1, nums[i] - 1));
+            }
+        }
+
+        // If the last number in nums is less than the upper bound,
+        // add a missing range from nums[n-1] + 1 to upper.
+        if(nums[n - 1] < upper){
+            res.add(Arrays.asList(nums[n - 1] + 1, upper));
+        }
+
+        return res;
     }
 }
 ```
