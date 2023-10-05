@@ -13,7 +13,7 @@ Given an array of meeting time intervals where intervals[i] = [starti, endi], de
 
 [leetcode](https://leetcode.com/problems/meeting-rooms/description/)
 
-### SOLUTION
+## SOLUTION
 
 ```java
 class Solution {
@@ -31,7 +31,7 @@ class Solution {
 
         //check other meetings in order
         for(int i=1; i<intervals.length; i++){
-            
+
             //if next meeting starts before previous meeting end, return false
             if(intervals[i][0] < previousEnd) return false;
 
@@ -39,8 +39,38 @@ class Solution {
             previousEnd = intervals[i][1];
 
         }
-        
+
         //no conflict found
+        return true;
+
+    }
+
+}
+```
+
+### ANOTHER WAY TO CODE
+
+```java
+class Solution {
+
+    public boolean canAttendMeetings(int[][] intervals) {
+
+        // number of intervals
+        int n = intervals.length;
+
+        // sort based on start time of the intervals
+        Arrays.sort(intervals, (a,b) -> a[0] - b[0] );
+
+        // go to each intervals
+        // since we have already sorted the intervals based on start time, we know that the second meeting will start later
+        // the conflict will happen if the previous meeting has not ended
+        for(int i=1; i<n; i++){
+
+            // if previous meeting is still going on and it is overlapping with next interval, return false
+            if(intervals[i][0] < intervals[i-1][1]) return false;
+
+        }
+
         return true;
 
     }
