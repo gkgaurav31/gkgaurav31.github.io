@@ -40,7 +40,7 @@ A software developer by profession, and an artist at heart. Always willing to le
 - Provide support to our customers for issues related to Azure App Service, Azure Spring Apps and Azure Container Apps.
 - Work on the development of internal diagnostic tools (detectors) to make the troubleshooting simpler.
 - Work on the technical readiness of the team on OSS technologies for the PaaS offering mentioned above.
-- Awarded "Ace Award" 4 times (2 individual, 2 team level) for the impact/contributions.
+- Awarded "Ace Award" 5 times (2 individual, 3 team level) for the impact/contributions.
 
 **Senior Systems Engineer** @[Infosys Ltd.](https://www.infosys.com/) _(December 2015 - June 2018)_
 
