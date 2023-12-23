@@ -3,46 +3,45 @@ layout: page
 # The Home page layout
 ---
 
+<!-- Buy Me a Coffee Widget -->
+<div>
+  <script
+    data-name="BMC-Widget"
+    data-cfasync="false"
+    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="gkgaurav31"
+    data-description="Support me on Buy me a coffee!"
+    data-message="Support me on Buy me a coffee! :)"
+    data-color="#5F7FFF"
+    data-position="Right"
+    data-x_margin="18"
+    data-y_margin="18"
+  ></script>
+</div>
 
-{% assign pinned = site.posts | where_exp: "item", "item.pin == true"  %}
-{% assign default = site.posts | where_exp: "item", "item.pin != true"  %}
-{% assign posts = "" | split: "" %}
+{% assign pinned = site.posts | where_exp: "item", "item.pin == true" %} {%
+assign default = site.posts | where_exp: "item", "item.pin != true" %} {% assign
+posts = "" | split: "" %}
 
 <!-- Get pinned posts -->
 
-{% assign offset = paginator.page | minus: 1 | times: paginator.per_page %}
-{% assign pinned_num = pinned.size | minus: offset %}
-
-{% if pinned_num > 0 %}
-  {% for i in (offset..pinned.size) limit: pinned_num %}
-    {% assign posts = posts | push: pinned[i] %}
-  {% endfor %}
-{% else %}
-  {% assign pinned_num = 0 %}
-{% endif %}
-
+{% assign offset = paginator.page | minus: 1 | times: paginator.per_page %} {%
+assign pinned_num = pinned.size | minus: offset %} {% if pinned_num > 0 %} {%
+for i in (offset..pinned.size) limit: pinned_num %} {% assign posts = posts |
+push: pinned[i] %} {% endfor %} {% else %} {% assign pinned_num = 0 %} {% endif
+%}
 
 <!-- Get default posts -->
 
-{% assign default_beg = offset | minus: pinned.size %}
-
-{% if default_beg < 0 %}
-  {% assign default_beg = 0 %}
-{% endif %}
-
-{% assign default_num = paginator.posts | size | minus: pinned_num  %}
-{% assign default_end = default_beg | plus: default_num | minus: 1 %}
-
-{% if default_num > 0 %}
-  {% for i in (default_beg..default_end) %}
-    {% assign posts = posts | push: default[i] %}
-  {% endfor %}
-{% endif %}
-
+{% assign default_beg = offset | minus: pinned.size %} {% if default_beg < 0 %}
+{% assign default_beg = 0 %} {% endif %} {% assign default_num = paginator.posts
+| size | minus: pinned_num %} {% assign default_end = default_beg | plus:
+default_num | minus: 1 %} {% if default_num > 0 %} {% for i in
+(default_beg..default_end) %} {% assign posts = posts | push: default[i] %} {%
+endfor %} {% endif %}
 
 <div id="post-list">
-
-{% for post in posts %}
+  {% for post in posts %}
 
   <div class="post-preview">
     <h1>
@@ -51,13 +50,12 @@ layout: page
 
     <div class="post-content">
       <p>
-        {% include no-linenos.html content=post.content %}
-        {{ content | markdownify | strip_html | truncate: 200 }}
+        {% include no-linenos.html content=post.content %} {{ content |
+        markdownify | strip_html | truncate: 200 }}
       </p>
     </div>
 
     <div class="post-meta text-muted d-flex justify-content-between">
-
       <div>
         <!-- posted date -->
         <i class="far fa-calendar fa-fw"></i>
@@ -68,7 +66,8 @@ layout: page
         {% include read-time.html content=post.content %}
 
         <!-- page views -->
-        {% if site.google_analytics.pv.proxy_endpoint or site.google_analytics.pv.cache_path %}
+        {% if site.google_analytics.pv.proxy_endpoint or
+        site.google_analytics.pv.cache_path %}
         <i class="far fa-eye fa-fw"></i>
         <span id="pv_{{-post.title-}}" class="pageviews">
           <i class="fas fa-spinner fa-spin fa-fw"></i>
@@ -82,15 +81,13 @@ layout: page
         <span>{{ site.data.label.pin_prompt | default: 'Pinned' }}</span>
       </div>
       {% endif %}
+    </div>
+    <!-- .post-meta -->
+  </div>
+  <!-- .post-review -->
 
-    </div> <!-- .post-meta -->
+  {% endfor %}
+</div>
+<!-- #post-list -->
 
-  </div> <!-- .post-review -->
-
-{% endfor %}
-
-</div> <!-- #post-list -->
-
-{% if paginator.total_pages > 0 %}
-  {% include post-paginator.html %}
-{% endif %}
+{% if paginator.total_pages > 0 %} {% include post-paginator.html %} {% endif %}

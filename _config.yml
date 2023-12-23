@@ -160,6 +160,7 @@ exclude:
   - node_modules
   - package.json
   - package-lock.json
+  - tmp
 
 jekyll-archives:
   enabled: [categories, tags]
@@ -180,3 +181,6 @@ plugins:
 
 # Google Analytics
 google_analytics: G-BM99475K5Q
+
+incremental: true
+
