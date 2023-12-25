@@ -178,6 +178,7 @@ plugins:
   - jemoji
   - jekyll-pdf-embed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Google Analytics
 google_analytics: G-BM99475K5Q
