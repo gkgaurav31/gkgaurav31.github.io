@@ -2,7 +2,7 @@
 layout: post
 title: Minimum Lights to Activate (InterviewBit)
 date: 2024-01-04 22:38 +0530
-uthor: "Gaurav Kumar"
+Author: "Gaurav Kumar"
 tags: "java arrays greedy interviewbit"
 categories: "interviewbit"
 ---
