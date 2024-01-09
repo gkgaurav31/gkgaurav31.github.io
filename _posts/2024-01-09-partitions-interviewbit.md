@@ -19,6 +19,19 @@ Such that : `sum(B[1],..B[i]) = sum(B[i+1],...B[j]) = sum(B[j+1],...B[n])`
 
 ## SOLUTION
 
+### BASIC APPROACH (ACCEPTED)
+
+If the totalSum/3 is not divisible by 3, we can simply return 0 since there is no way to divide it equally into three parts with equal sum.
+
+Start iterating from left to right and track the sum assuming it to be for the first partition. Once we have this sum as totalSum/3, use another loop to track the sum of second partition. This partition will obviously start after the previous one ended.
+
+Once the sum of second partition also becomes totalSum/3, we just have to verify if there is at least 1 element left to form the third partition.
+
+We do not really need to calculate the sum of third partition because it has to be totalSum/3
+(We have already made sure that first two partitions have sum totalSum/3 and we know totalSum is a multiple of 3).
+
+Finally, if there is at least 1 element left to form the third partition, increase the count by 1.
+
 ```java
 public class Solution {
 
