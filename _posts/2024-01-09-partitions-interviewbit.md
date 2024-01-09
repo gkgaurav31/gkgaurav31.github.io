@@ -228,3 +228,90 @@ public class Solution {
     }
 }
 ```
+
+### FURTHER OPTIMIZATION
+
+In the previous approach, while calculating the end index of first partition and start index of the third partition, we have already made sure that their sum should be totalSum/3 each. So, we have also verified at the start that the total sum is a multiple of 3. So, the left partition, which is the second partition has to be of sum totalSum/3. We don't need to really calculate it again. We can just check if there is at least 1 element which can be used to form the second partition. In that case, we can increase the count by 1.
+
+```java
+public class Solution {
+
+    public int solve(int A, int[] B) {
+
+        int n = B.length;
+
+        int totalSum = getTotalSum(B);
+
+        if(totalSum%3 != 0) return 0;
+
+        List<Integer> findEndIndexForFirstPartition = findEndIndexForFirstPartition(B, totalSum/3);
+        List<Integer> findStartIndexForThirdPartition = findStartIndexForThirdPartition(B, totalSum/3);
+
+        int count = 0;
+
+        for(int i=0; i<findEndIndexForFirstPartition.size(); i++){
+
+            for(int j=0; j<findStartIndexForThirdPartition.size(); j++){
+
+                //there should be at least 1 element between first and third partition
+                //the first and third partitions already have sum as totalSum/3
+                //so the second partition, if possible, must have the needed sum
+                if(findStartIndexForThirdPartition.get(j) - findEndIndexForFirstPartition.get(i) >= 2){
+                    count++;
+                }
+
+            }
+
+        }
+
+        return count;
+
+    }
+
+    public int getTotalSum(int[] A){
+        int s = 0;
+
+        for(int i=0; i<A.length; i++) s += A[i];
+
+        return s;
+    }
+
+    public List<Integer> findEndIndexForFirstPartition(int[] A, int neededSum){
+
+        int n = A.length;
+        List<Integer> list = new ArrayList<>();
+
+        int sum = 0;
+
+        for(int i=0; i<=n-3; i++){
+            sum += A[i];
+            if(sum == neededSum){
+                list.add(i);
+            }
+        }
+
+        return list;
+
+    }
+
+    public List<Integer> findStartIndexForThirdPartition(int[] A, int neededSum){
+
+        int n = A.length;
+
+        List<Integer> list = new ArrayList<>();
+
+        int sum = 0;
+
+        for(int i=n-1; i>=2; i--){
+            sum += A[i];
+            if(sum == neededSum){
+                list.add(i);
+            }
+        }
+
+        return list;
+
+    }
+
+}
+```
