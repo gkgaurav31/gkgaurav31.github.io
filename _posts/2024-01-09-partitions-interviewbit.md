@@ -244,7 +244,7 @@ public class Solution {
 
 ### FURTHER OPTIMIZATION
 
-In the previous approach, while calculating the end index of first partition and start index of the third partition, we have already made sure that their sum should be totalSum/3 each. So, we have also verified at the start that the total sum is a multiple of 3. So, the left partition, which is the second partition has to be of sum totalSum/3. We don't need to really calculate it again. We can just check if there is at least 1 element which can be used to form the second partition. In that case, we can increase the count by 1.
+In the previous approach, while calculating the end index of first partition and start index of the third partition, we have already made sure that their sum should be totalSum/3 each. We have also verified at the start that the total sum is a multiple of 3. So, the left partition, which is the second partition has to be of sum totalSum/3. We don't need to really calculate it again. We can just check if there is at least 1 element which can be used to form the second partition. In that case, we can increase the count by 1.
 
 ```java
 public class Solution {
