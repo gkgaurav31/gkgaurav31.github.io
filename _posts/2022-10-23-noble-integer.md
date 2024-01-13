@@ -3,8 +3,8 @@ layout: post
 title: Noble Integer
 date: 2022-10-23 10:49 +0530
 author: "Gaurav Kumar"
-tags: "java arrays important"
-categories: "arrays"
+tags: "java interviewbit arrays important"
+categories: "interviewbit"
 ---
 
 ## Problem Description
