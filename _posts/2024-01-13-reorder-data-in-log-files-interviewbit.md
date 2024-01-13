@@ -13,14 +13,14 @@ You are given an array of logs. Each log is a space-delimited string of words, w
 
 There are two types of logs:
 
-    Letter-logs: All words (except the identifier) consist of lowercase English letters.
-    Digit-logs: All words (except the identifier) consist of digits.
+- Letter-logs: All words (except the identifier) consist of lowercase English letters.
+- Digit-logs: All words (except the identifier) consist of digits.
 
 Reorder these logs so that:
 
-    The letter-logs come before all digit-logs.
-    The letter-logs are sorted lexicographically by their contents. If their contents are the same, then sort them lexicographically by their identifiers.
-    The digit-logs maintain their relative ordering.
+- The letter-logs come before all digit-logs.
+- The letter-logs are sorted lexicographically by their contents. If their contents are the same, then sort them lexicographically by their identifiers.
+- The digit-logs maintain their relative ordering.
 
 Return the final order of the logs.
 
@@ -43,8 +43,6 @@ The Compator does the following:
   - If `value1.compareTo(value2)` is 0, which means both the values are same, we need to order by the corresponding key. This can be done using `key1.compareTo(key2)`.
 
 ```java
-   import java.math.BigDecimal;
-
 public class Solution {
     public ArrayList<String> reorderLogs(ArrayList<String> A) {
         Collections.sort(A, new MyComparator());
