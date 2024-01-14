@@ -3,7 +3,7 @@ layout: post
 title: Set Intersection (InterviewBit)
 date: 2024-01-14 14:19 +0530
 author: "Gaurav Kumar"
-tags: "java interviewbit leetcode arrays important"
+tags: "java interviewbit leetcode greedy arrays important"
 categories: "interviewbit"
 ---
 
