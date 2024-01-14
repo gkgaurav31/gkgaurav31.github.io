@@ -16,6 +16,7 @@ You are given a 2D array A with dimensions N x 2, where each row denotes an inte
 Find the minimum size of a set S such that for every integer interval Z in A, the intersection of S with Z has a size of at least two.
 
 [InterviewBit](https://www.interviewbit.com/problems/set-intersection/)
+
 [leetcode](https://leetcode.com/problems/set-intersection-size-at-least-two/description/)
 
 ### Solution
