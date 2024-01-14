@@ -183,5 +183,3 @@ plugins:
 # Google Analytics
 google_analytics: G-BM99475K5Q
 
-incremental: true
-
