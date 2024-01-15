@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Set Matrix Zeroes
+title: Set Matrix Zeroes (InterviewBit)
 date: 2023-02-12 23:53 +0530
 author: "Gaurav Kumar"
-tags: "java neetcode150 mathematics geometry important"
+tags: "java neetcode150 interviewbit mathematics geometry important"
 categories: "neetcode150"
 ---
 
-This question is part of [NeetCode150 series](https://neetcode.io/practice).  
+This question is part of [NeetCode150 series](https://neetcode.io/practice).
 
 ## Problem Description
 
@@ -29,7 +29,7 @@ class Solution {
 
         int n = matrix.length;
         int m = matrix[0].length;
-        
+
         //we will use these two arrays to track if that particular row/column needs to be marked
         int[] rows = new int[n];
         int[] columns = new int[m];
