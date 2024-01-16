@@ -15,6 +15,37 @@ Given a 2D integer matrix A of size `N x N` find a `B x B` submatrix where `B <=
 
 ## SOLUTION
 
+We will create a prefix sum for the matrix. We can do this by taking the sum row wise first and then column wise (we can do vice versa too).
+
+Then, the sum of any subarray will be:
+
+`s = pf[bottomX][bottomY] - pf[bottomX][topY - 1] - pf[topX - 1][bottomY] + pf[topX - 1][topY - 1]`
+
+We will need to handle the case where this is on 0th row or 0th column.
+
+```java
+public int getSubMatrixSum(int[][] pf, int topX, int topY, int bottomX, int bottomY){
+
+    // Calculate the sum of the whole submatrix upto (bottomX, bottomY)
+    int whole = pf[bottomX][bottomY];
+
+    // Calculate the sum of the left part, if any
+    int leftPart = topY > 0 ? pf[bottomX][topY - 1] : 0;
+
+    // Calculate the sum of the top part, if any
+    int topPart = topX > 0 ? pf[topX - 1][bottomY] : 0;
+
+    // Calculate the sum of the overlapping part, if any
+    int overlapPart = (topX > 0 && topY > 0) ? pf[topX - 1][topY - 1] : 0;
+
+    // Calculate the final sum of the submatrix
+    int sum = whole - leftPart - topPart + overlapPart;
+
+    // Return the sum
+    return sum;
+}
+```
+
 ### BRUTE FORCE (TLE)
 
 ```java
@@ -129,7 +160,7 @@ If the length from topX to bottomX is B, we will use a temporary array to find t
 
 For example:
 
-Given Arrays:
+Given Array:
 
 ```text
 1 2 3
@@ -147,7 +178,7 @@ For this range of rows, the sum of elements columns wise will be:
 
 arr = `[5 7 9]`
 
-Now, in this temporary array, we need to find a subarray of size B which has the maximum sum. For this we can make use of sliding windows technique! This sum will be the maximum sum which can be formed by choosing rows between 0 to 1 with length B=2. We will need to do this for all possible row combinations for which we will use two loops. The third loop will calculate `arr` array which has the sum of elements column wise. Finally, we will use a method to get the maximum sub subarray of size B. Update the answer, if it is >= maxSum.
+Now, in this temporary array, we need to find a subarray of size B which has the maximum sum. For this we can make use of sliding windows technique! This sum will be the maximum sum which can be formed by choosing rows between 0 to 1 with length B=2. We will need to do this for all possible row combinations for which we will use two loops. The third loop will calculate `arr` array which has the sum of elements column wise. Finally, we will use a method to get the maximum sub subarray of size B. Update the answer, if it is more than maxSum.
 
 ```java
 public class Solution {
