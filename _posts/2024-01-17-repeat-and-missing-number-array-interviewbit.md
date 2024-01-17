@@ -82,12 +82,6 @@ public class Solution {
         // Get the length of the array
         int n = A.length;
 
-        // Create a new array to store the elements of the given array
-        int[] arr = new int[n];
-        for(int i=0; i<n; i++){
-            arr[i] = A[i];
-        }
-
         // Variable to store the repeated number
         int repeatedNumber = -1;
 
@@ -120,6 +114,124 @@ public class Solution {
 
         return new int[]{repeatedNumber, missingNumber};
 
+    }
+}
+```
+
+### APPROACH 3 - USING SOME MATHS
+
+Suppose A and B are the numbers which we need to find. One of them is repeated and another is missing.
+
+The main observations are:
+
+- sum of numbers from [1, N] - sum of numbers in the array = Math.abs(A - B) = X
+- (sum of squares of numbers from [1,N] - sum of squares of numbers in the arrays)= A^2 - B^2  
+   = (A+B)*(A-B)  
+   = (A+B)*X  
+  => (sum of squares of numbers from [1,N] - sum of squares of numbers in the arrays)/X = (A+B) = Y
+
+So, we have two equations ->
+
+> A - B = Math.abs(sumOfN - sumOfArray)
+> A + B = Math.abs(sumOfSquareN - sumOfSquareArray)/(A-B)
+
+If we add both these equations:
+
+> 2A = X + Y  
+> => A = (X+Y)/2;
+
+Substitue value of A in A - B = Math.abs(sumOfN - sumOfArray):
+
+> A - B = Math.abs(sumOfN - sumOfArray)
+> B = A - Math.abs(sumOfN - sumOfArray)
+
+But which one is repeated and which one is missing?
+
+Well, if there was a higher number which was repeated, the sum of numbers in the array will exceed sum of numbers from [1,N]. We can use this observation to create our answer array.
+
+Example:
+
+```text
+arr = [1 2 3 5 5]
+
+sum of N = 5*6/2 = 15
+sum of numbers in array = 16 > sum of N
+
+so the larger number out of A, B should be the repeated one.
+```
+
+```java
+public class Solution {
+
+    public int[] repeatedNumber(final int[] A) {
+
+        int n = A.length;
+
+        // Calculate the sum of first n natural numbers
+        long sumOfN = sumOfN(n);
+
+        // Calculate the sum of squares of first n natural numbers
+        long sumOfSquareN = sumOfSquareN(n);
+
+        // Calculate the sum of the given array
+        long sumOfArray = sumOfArray(A);
+
+        // Calculate the sum of squares of the elements in the given array
+        long sumOfSquareArray = sumOfSquareArray(A);
+
+        //X = A - B = Math.abs(sumOfN - sumOfArray)
+        //Y = A + B = Math.abs(sumOfSquareN - sumOfSquareArray)/(A-B)
+        //2A = X + Y => A = (X+Y)/2;
+        //B = A - X;
+
+        long x = Math.abs(sumOfN - sumOfArray);
+        long y = Math.abs(sumOfSquareN - sumOfSquareArray) / x;
+
+        long a = (x + y) / 2;
+        long b = a - x;
+
+        // if sumOfArray > sumOfN, the larger number must be the one which is repeated
+        if (sumOfArray > sumOfN) {
+            return new int[]{Math.max((int) a, (int) b), Math.min((int) a, (int) b)};
+        } else {
+            return new int[]{Math.min((int) a, (int) b), Math.max((int) a, (int) b)};
+        }
+    }
+
+    // Helper method to calculate the sum of first n natural numbers
+    public static long sumOfN(int n) {
+        long sum = 0;
+        for (long i = 1; i <= n; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    // Helper method to calculate the sum of squares of first n natural numbers
+    public static long sumOfSquareN(int n) {
+        long sum = 0;
+        for (long i = 1; i <= n; i++) {
+            sum += i * i;
+        }
+        return sum;
+    }
+
+    // Helper method to calculate the sum of elements in an array
+    public static long sumOfArray(int[] array) {
+        long sum = 0;
+        for (int num : array) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    // Helper method to calculate the sum of squares of elements in an array
+    public static long sumOfSquareArray(int[] array) {
+        long sum = 0;
+        for (int num : array) {
+            sum += (long) num * num;
+        }
+        return sum;
     }
 }
 ```
