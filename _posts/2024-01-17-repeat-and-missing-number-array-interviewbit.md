@@ -25,6 +25,8 @@ Note that in your output A should precede B.
 
 ### APPROACH 1 - USING HASHMAP
 
+This is pretty straight forward. Get the frequency of all numbers in the array. Then iterate from [1,N] and check its frequency. If its 0 or 2, we have found the needed numbers.
+
 ```java
 public class Solution {
 
@@ -73,6 +75,8 @@ public class Solution {
 ```
 
 ### APPROACH 2 - MARKING PRESENT VALUES IN THE ARRAY
+
+Instead of using extra space to store the frequency, we can mark the numbers that we find in the given array itself. If at any step, we get a position which is already marked, we will know the repeated number. If a position has not been marked at all, we can get the missing number. Since the numbers are from [1,N], we can mark the value at index (i-1) as -ve. This means, if the value at index X is -ve, X+1 is present in the array.
 
 ```java
 public class Solution {
