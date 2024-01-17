@@ -41,11 +41,11 @@ Let us do that:
 > A = [3 4 5 1]  
 > i=0 -> element 3 -> yes, it's a valid answer, so mark (3-1)=2 index as -ve  
 > A = [3 4 -5 1]  
-> i=1 -> element 3 -> yes, it's a valid answer, so mark (4-1)=3 index as -ve  
+> i=1 -> element 4 -> yes, it's a valid answer, so mark (4-1)=3 index as -ve  
 > A = [3 4 -5 -1]  
-> i=2 -> element 5 -> no, not in the valid answer range [1,5]  
+> i=2 -> element 5 (absolute value) -> no, not in the valid answer range [1,4]  
 > A = [3 4 -5 -1]  
-> i=3 -> element 1 (we need to take original absolute value), so mark (1-1)=0 index as -ve  
+> i=3 -> element 1, so mark (1-1)=0 index as -ve  
 > A = [-3 4 -5 -1]
 
 We have all the information to find out the missing number now!
