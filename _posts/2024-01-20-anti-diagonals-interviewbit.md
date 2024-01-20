@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Anti Diagonals (InterviewBit)"
+title: Anti Diagonals (InterviewBit)
 date: 2024-01-20 14:55 +0530
 author: "Gaurav Kumar"
 tags: "java interviewbit arrays"
