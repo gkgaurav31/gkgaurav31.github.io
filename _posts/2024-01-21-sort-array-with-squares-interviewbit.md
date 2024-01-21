@@ -19,6 +19,18 @@ Try to this in `O(N)` time.
 
 ## SOLUTION
 
+A straight forward solution is to create update each element with its square and then sort the array, however, that will be `O(NlogN)`.
+
+We can optimize it using a simple observation:
+
+> A = [-6, -3, -1, 2, 4, 5]
+
+The first number in the result array will be either the square of highest -ve number or lowest positive number. In this case, it will be square of -1. Then the next possible element will be between the next largest -ve number and lowest positive number.
+
+So, we can find the index of first non-negative number `idx`. Use two pointers `l=idx-1` and `r=idx` and keep comparing the square values. If square of `A[l]` is larger, use that and decrease `l`. If square of `A[r]` is larger, use that and increment `r`. Do this until both are within the array bounds.
+
+After either of them goes outside the bound, there still may be some elements left. It will be left either on left or right side but not on both side. So, no comparison is really needed, we just need to follow the same order. If elements are left on left side, fill them from right to left by decrementing `l` value. If elements on the right are left, fill them from left to right by incrementing the `r` value.
+
 ```java
 public class Solution {
 
@@ -84,6 +96,7 @@ public class Solution {
                 return i;
 
         // If no non-negative element is found, return the length of the array
+        // This will help in skipping the comparison as the index is out of bounds
         return A.length;
     }
 
