@@ -23,13 +23,13 @@ categories: "sorting"
 
 2. **Initialize Pigeonholes:**
 
-   - Create an array of `pigeonHoles`.
+   - Create an array of `pigeonHoles` of size `range`.
 
 3. **Distribute Elements:**
 
    - For each element `A[i]` in the input array `A`:
      - Calculate the index `idx` as `A[i] - min`.
-     - Add the element `A[i]` to the corresponding pigeonhole.
+     - Add the element `A[i]` to the corresponding `pigeonhole` array.
 
 4. **Collect Elements:**
 
@@ -40,64 +40,43 @@ categories: "sorting"
 ## IMPLEMENTATION
 
 ```java
-import java.util.ArrayList;
-import java.util.Arrays;
+public int[] sort(int[] A){
 
-public class PigeonholeSort {
+    int n = A.length;
 
-    public static void main(String[] args) {
+    if(n < 1) return A;
 
-        int[] A = {4, 2, 1, 8, 3, 5, 7, 10, 9, 6};
-        System.out.println(Arrays.toString(new PigeonholeSort().sort(A)));
+    int min = Arrays.stream(A).min().orElse(Integer.MAX_VALUE);
+    int max = Arrays.stream(A).max().orElse(Integer.MIN_VALUE);
 
+    int range = max - min + 1;
+
+    ArrayList<Integer>[] pigeonHoles = new ArrayList[range];
+    for(int i=0; i<range; i++) pigeonHoles[i] = new ArrayList<>();
+
+    for(int i=0; i<n; i++){
+        int idx = A[i] - min;
+        pigeonHoles[idx].add(A[i]);
     }
 
-    public int[] sort(int[] A){
+    int[] res = new int[n];
 
-        int n = A.length;
+    int idx = 0;
 
-        if(n < 1) return A;
+    while(idx < n){
 
-        // find the min and max in the array
-        int min = Arrays.stream(A).min().orElse(Integer.MAX_VALUE);
-        int max = Arrays.stream(A).max().orElse(Integer.MIN_VALUE);
+        for(int i=0; i<range; i++){
 
-        // set the range
-        int range = max - min + 1;
-
-        // create a pigeonHole array to keep the elements
-        // there can be duplicates, so use an ArrayList
-        ArrayList<Integer>[] pigeonHoles = new ArrayList[n];
-        for(int i=0; i<n; i++) pigeonHoles[i] = new ArrayList<>();
-
-        // put the element in the pigeonHole at index `A[i] - min`
-        for(int i=0; i<n; i++){
-            int idx = A[i] - min;
-            pigeonHoles[idx].add(A[i]);
-        }
-
-        // create a result array which will have sorted array
-        int[] res = new int[n];
-
-        int idx = 0;
-
-        // get elements from pigeonHole array and put them into the result array
-        while(idx < n){
-
-            for(int i=0; i<n; i++){
-
-                for(int x: pigeonHoles[i]){
-                    res[idx] = x;
-                    idx++;
-                }
-
+            for(int x: pigeonHoles[i]){
+                res[idx] = x;
+                idx++;
             }
 
         }
 
-        return res;
-
     }
+
+    return res;
 
 }
 ```
