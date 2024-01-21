@@ -67,3 +67,36 @@ public class Solution {
     }
 }
 ```
+
+### APPROACH 3 - USING SLOW AND FAST POINTER
+
+The below solution was accepted, but I think it will fail when there are no duplicates. This is similar to cycle detection algoritm using fast and slow pointers in Linked Lists. We start from the beginning, slow move by 1 step and fast moves ahead by 2 steps. If they meet, there must be a cycle. To find the start of the cycle, reset any of the pointers to the beginning and then move both of them one step at a time until they are equal.
+
+```java
+public class Solution {
+
+    public int repeatedNumber(final int[] A) {
+
+        int slow = A[0];
+        int fast = A[0];
+
+        // detect cycle
+        do{
+            slow = A[slow];
+            fast = A[A[fast]];
+        }while(slow != fast);
+
+        // reset one of the pointers to the beginning
+        slow = A[0]; // fast = A[0] can also be used
+
+        // move both by 1 step to get the starting position of the cycle
+        while(slow != fast){
+            slow = A[slow];
+            fast = A[fast];
+        }
+
+        return slow;
+
+    }
+}
+```
