@@ -15,16 +15,15 @@ Given a number N, return a list of all prime numbers till N.
 
 This can be optimally solved using [Sieve of Eratosthenes](https://www.geeksforgeeks.org/sieve-of-eratosthenes/) algorithm.
 
-- First we creat an boolean array of N+1 size and mark of them as prime (true)
-- We know that 0,1 are not primes, so initial them first
+- First we creat an boolean array of `N+1` size and mark of them as prime (true)
+- We know that 0,1 are not primes, so initialize them first
 - Now we start from 2. Since the corresponding value is true, it's prime
-- We know that all multiples of this number will not be prime. So, we start from it's 2nd multiple which is i*2 and keep setting them all as false. In the first iteration 4, 6, 8, 10, 12, 14, 16, 18, 20 ... will all be marked as false
-- Next we go to 3. But the value will already be false so continue. Same for 4
-- The value for 5 will be true. This means that there was not value before 5 which is its factor. That means it's a prime number. We don't really need to call isPrime separately. If it's not marked as false while iterating through the numbers, it will be a prime number
+- We know that all multiples of this number will not be prime. So, we start from it's 2nd multiple which is i\*2 and keep setting them all as false. In the first iteration 4, 6, 8, 10, 12, 14, 16, 18, 20 ... will all be marked as false
+- The value for 3, 5 will be true. This means that there was no value before 5 which is its factor. That means it's a prime number. We don't really need to call isPrime separately. If it's not marked as true while iterating through the numbers, it will be a prime number
 - Now just update all the multiples of 5 as false: 10, 15, 20, 25 30 etc.
 - We can further optimize this algorithm with a small tweak. If we observe carefully, we update the same value again and again if that number is a factor of multiple prime numbers
-- If we look at the pattern, the first number which will be marked as false will be equal to i*i (i.e currentElement*currentElement)
-- So we can simply start our inner loop j=i*i instead of j=i*2
+- If we look at the pattern, the first number which will be marked as false will be equal to `i*i` (i.e `currentElement*currentElement`)
+- So we can simply start our inner loop `j=i*i` instead of `j=i*2`
 
 ```java
 private static List<Integer> getAllPrimeNumbers(int n) {
