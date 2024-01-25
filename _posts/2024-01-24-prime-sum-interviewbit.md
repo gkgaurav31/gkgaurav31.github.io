@@ -4,7 +4,7 @@ title: Prime Sum (InterviewBit)
 date: 2024-01-24 20:43 +0530
 author: "Gaurav Kumar"
 tags: "java prime_numbers important"
-categories: "prime_numbers"
+categories: "interviewbit"
 ---
 
 ## PROBLEM DESCRIPTION
