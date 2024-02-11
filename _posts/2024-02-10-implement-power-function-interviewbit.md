@@ -2,7 +2,7 @@
 layout: post
 title: Implement Power Function (InterviewBit)
 date: 2024-02-10 18:01 +0530
-tags: "java mathematics"
+tags: "java binary_search"
 categories: "interviewbit"
 ---
 
