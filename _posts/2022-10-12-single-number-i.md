@@ -3,8 +3,8 @@ layout: post
 title: Single Number I
 date: 2022-10-12 22:40 +0530
 author: "Gaurav Kumar"
-tags: "java bit_manipulation"
-categories: "bit_manipulation"
+tags: "java bit_manipulation interviewbit"
+categories: "interviewbit"
 ---
 
 ## Problem Description
