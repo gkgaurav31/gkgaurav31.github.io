@@ -73,3 +73,46 @@ public class Solution {
     }
 }
 ```
+
+## OPTIMIZATION
+
+The total number of subarray which contains index `i` is:
+
+`(i+1) * (n-i)`
+
+If `n` is even, either `i+1` will be even or `n-i` will be even.  
+So, their product will always be even. In that case, we can simply return `0`.
+
+If `n` is odd, the contribution will be only if `i` is even.
+
+```java
+public class Solution {
+
+    public int solve(int[] A) {
+
+        int n = A.length;
+        int total = 0;
+
+        // (i+1) * (n-i) -> this will always be even
+        if(n%2 == 0)
+            return 0;
+
+        // n is odd:
+        for(int i=0; i<n; i++){
+
+            // Number of occurance in all the subarrays:
+            // (i+1) * (n-i)
+            // If i is even: i+1 will be odd AND n-i will also be odd
+            // So their product will be odd as well
+
+            if(i%2 == 0)
+                total ^= A[i];
+
+        }
+
+        return total;
+
+    }
+
+}
+```
