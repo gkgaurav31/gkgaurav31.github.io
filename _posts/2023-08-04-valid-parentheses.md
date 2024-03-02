@@ -23,17 +23,17 @@ An input string is valid if:
 
 ```java
 class Solution {
-    
+
     public boolean isValid(String s) {
-        
+
         int n = s.length();
-        
+
         // Create a mapping of closing brackets to their corresponding opening brackets.
         Map<Character, Character> map = new HashMap<>();
         map.put(')', '(');
         map.put(']', '[');
         map.put('}', '{');
-        
+
         // Set to store the open brackets.
         Set<Character> openBrackets = new HashSet<>();
         openBrackets.add('(');
@@ -73,5 +73,55 @@ class Solution {
         // If the stack is empty, all brackets were matched and popped, so the string is valid.
         return stack.isEmpty();
     }
+}
+```
+
+## ANOTHER WAY TO CODE
+
+```java
+class Solution {
+
+    public boolean isValid(String s) {
+
+        Map<Character, Character> map = new HashMap<>();
+
+        map.put(')', '(');
+        map.put(']', '[');
+        map.put('}', '{');
+
+        int n = s.length();
+
+        Stack<Character> stack = new Stack<>();
+
+        for(int i=0; i<n; i++){
+
+            char ch = s.charAt(i);
+
+            // if it's not a closing bracket, push to stack
+            if(!map.containsKey(ch)){
+                stack.push(ch);
+
+            // current char is a closing bracket
+            // so, there must corresponding open bracket in the stack at the top
+            }else{
+
+                // if stack is empty, return false
+                if(stack.isEmpty())
+                    return false;
+
+                // check if the right closing bracket is at the top of the stack
+                // if not, return false
+                if(stack.pop() != map.get(ch))
+                    return false;
+
+            }
+
+        }
+
+        // finally, the stack should be empty for a valid string
+        return stack.isEmpty();
+
+    }
+
 }
 ```
