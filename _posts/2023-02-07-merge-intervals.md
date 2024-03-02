@@ -19,7 +19,7 @@ Given an array of intervals where intervals[i] = [starti, endi], merge all overl
 class Solution {
 
     public int[][] merge(int[][] intervals) {
-        
+
         //sort based on start of the intervals
         Arrays.sort(intervals, (o1, o2) -> o1[0] > o2[0]?1: (o1[0] < o2[0]?-1:0) );
 
@@ -30,7 +30,7 @@ class Solution {
 
         //start merging from index 1
         for(int i=1; i<intervals.length; i++){
-            
+
             //Get the end of last added interval
             int previousEnd = list.get(list.size()-1)[1];
 
@@ -51,6 +51,8 @@ class Solution {
             ans[i] = list.get(i);
         }
 
+        // we can also do:
+        // return list.toArray(new int[list.size()][]);
         return ans;
 
     }

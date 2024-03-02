@@ -30,7 +30,7 @@ class Solution {
 
         //Loop through each interval
         for(int i=0; i<intervals.length; i++){
-            
+
             //newInterval is before the currentInterval (no overlap)
             if(newInterval[1] < intervals[i][0]){
 
@@ -47,7 +47,7 @@ class Solution {
 
             //if newInterval is after currentInterval (no overlap)
             }else if(newInterval[0] > intervals[i][1]){
-                
+
                 //add the current interval
                 //but continue with next intervals because they can still have overlap
                 list.add(intervals[i]);
@@ -70,6 +70,8 @@ class Solution {
         //So, now we add the newInterval to the answer list
         list.add(newInterval);
 
+        // we can also use an in-built method for conversion
+        // return list.toArray(new int[list.size()][]);
         return convert(list);
 
     }
