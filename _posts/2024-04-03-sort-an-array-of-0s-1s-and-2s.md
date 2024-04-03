@@ -55,6 +55,8 @@ class Solution
 
 ### APPROACH 2 - OPTIMAL
 
+[takeUForward - Good Explanation](https://www.youtube.com/watch?v=tp8JIuCXBaU)
+
 The idea is to do the following:
 
 - We need to use a `low` pointer before which all the numbers should be 0.
