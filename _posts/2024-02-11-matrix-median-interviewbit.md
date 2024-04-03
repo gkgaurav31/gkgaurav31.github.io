@@ -2,6 +2,7 @@
 layout: post
 title: Matrix Median (InterviewBit)
 date: 2024-02-11 13:16 +0530
+author: "Gaurav Kumar"
 tags: "java binary_search"
 categories: "interviewbit"
 ---

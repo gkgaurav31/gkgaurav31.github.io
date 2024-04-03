@@ -2,6 +2,7 @@
 layout: post
 title: Vowel and Consonant Substrings! (InterviewBit)
 date: 2024-02-28 21:05 +0530
+author: "Gaurav Kumar"
 tags: "java strings"
 categories: "interviewbit"
 ---

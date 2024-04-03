@@ -2,6 +2,7 @@
 layout: post
 title: Longest Common Prefix (InterviewBit)
 date: 2024-02-23 19:43 +0530
+author: "Gaurav Kumar"
 tags: "java strings"
 categories: "interviewbit"
 ---

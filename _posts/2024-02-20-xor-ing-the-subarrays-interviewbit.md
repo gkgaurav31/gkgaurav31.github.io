@@ -2,6 +2,7 @@
 layout: post
 title: XOR-ing the Subarrays! (InterviewBit)
 date: 2024-02-20 20:25 +0530
+author: "Gaurav Kumar"
 tags: "java bit_manipulation important"
 categories: "interviewbit"
 ---

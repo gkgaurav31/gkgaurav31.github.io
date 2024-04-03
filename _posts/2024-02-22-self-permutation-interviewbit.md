@@ -2,6 +2,7 @@
 layout: post
 title: Self Permutation (InterviewBit)
 date: 2024-02-22 20:22 +0530
+author: "Gaurav Kumar"
 tags: "java strings"
 categories: "interviewbit"
 ---

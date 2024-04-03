@@ -2,6 +2,7 @@
 layout: post
 title: Reverse Bits (InterviewBit)
 date: 2024-02-13 20:48 +0530
+author: "Gaurav Kumar"
 tags: "java bit_manipulation"
 categories: "interviewbit"
 ---

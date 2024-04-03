@@ -2,6 +2,7 @@
 layout: post
 title: Number of 1 Bits (InterviewBit)
 date: 2024-02-12 19:30 +0530
+author: "Gaurav Kumar"
 tags: "java bit_manipulation"
 categories: "interviewbit"
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: Amazing Subarrays (InterviewBit)
 date: 2024-02-23 19:58 +0530
+author: "Gaurav Kumar"
 tags: "java strings"
 categories: "interviewbit"
 ---

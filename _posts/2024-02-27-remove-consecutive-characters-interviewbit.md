@@ -2,6 +2,7 @@
 layout: post
 title: Remove Consecutive Characters (InterviewBit)
 date: 2024-02-27 21:39 +0530
+author: "Gaurav Kumar"
 tags: "java strings"
 categories: "interviewbit"
 ---

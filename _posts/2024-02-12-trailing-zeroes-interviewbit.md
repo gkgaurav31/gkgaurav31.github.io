@@ -2,6 +2,7 @@
 layout: post
 title: Trailing Zeroes (InterviewBit)
 date: 2024-02-12 19:39 +0530
+author: "Gaurav Kumar"
 tags: "java bit_manipulation"
 categories: "interviewbit"
 ---

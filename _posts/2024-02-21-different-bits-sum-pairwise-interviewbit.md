@@ -2,6 +2,7 @@
 layout: post
 title: Different Bits Sum Pairwise (InterviewBit)
 date: 2024-02-21 21:24 +0530
+author: "Gaurav Kumar"
 tags: "java bit_manipulation important"
 categories: "interviewbit"
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: WoodCutting Made Easy! (InterviewBit)
 date: 2024-02-11 16:45 +0530
+author: "Gaurav Kumar"
 tags: "java binary_search"
 categories: "interviewbit"
 ---

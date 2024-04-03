@@ -2,6 +2,7 @@
 layout: post
 title: Bulls and Cows (InterviewBit)
 date: 2024-02-23 23:31 +0530
+author: "Gaurav Kumar"
 tags: "java strings"
 categories: "interviewbit"
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: Min XOR value (InterviewBit)
 date: 2024-02-19 20:25 +0530
+author: "Gaurav Kumar"
 tags: "java bit_manipulation important"
 categories: "interviewbit"
 ---
