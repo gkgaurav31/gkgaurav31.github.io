@@ -2,6 +2,7 @@
 layout: post
 title: Find a peak element (InterviewBit)
 date: 2024-02-11 17:03 +0530
+author: "Gaurav Kumar"
 tags: "java binary_search"
 categories: "interviewbit"
 ---
