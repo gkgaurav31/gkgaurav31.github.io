@@ -17,6 +17,10 @@ Note: Return equilibrium point in 1-based indexing. Return `-1` if no such point
 
 ## SOLUTION
 
+### APPROACH 1
+
+Using prefix sum array, we can check if left sub-array sub is equal to right sub-array sum.
+
 ```java
 class Solution {
 
@@ -75,5 +79,47 @@ class Solution {
             return pf[r] - pf[l-1];
     }
 
+}
+```
+
+### APPROACH 2
+
+Using a similar logic, but without using extra space. We can take the total sum first `sum`.
+Then start looping in from left to right. If we subtract the current element from `sum`, we could get the sum of elements on right. For sum of left, we will keep another variable and use carry forward technique to maintain the sum from left.
+
+```java
+class Solution {
+
+    // a: input array
+    // n: size of array
+    // Function to find equilibrium point in the array.
+    public static int equilibriumPoint(long arr[], int n) {
+
+        long rightSum = 0;
+
+        for(int i=0; i<n; i++)
+            rightSum += arr[i];
+
+        long leftSum = 0;
+
+        for(int i=0; i<n; i++){
+
+            // to get right sum, we can subtract total sum calculated earlier with the current element
+            rightSum = rightSum - arr[i];
+
+            // if left sum equals right sum, return answer
+            // for the first iteration, left sum will be 0
+            if(leftSum == rightSum)
+                return i+1;
+
+            // for next iteration, left sum will change
+            // we can simply add the current number to the leftSum to get the "left sub array sum"
+            leftSum += arr[i];
+
+        }
+
+        return -1;
+
+    }
 }
 ```
