@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Design Pattern: Singleton'
+title: "Design Pattern: Singleton"
 date: 2023-07-05 23:17 +0530
 author: "Gaurav Kumar"
 tags: "java design_patterns"
@@ -11,7 +11,7 @@ categories: "design_patterns"
 
 The objective is to ensure that a single object of a particular class can exist for an app.
 
-__Thought Process:__
+**Thought Process:**
 
 - We will have to make the constructor of that class private so that other classes cannot create objects using it.
 - We will need to use a method in that class itself to return an object of that class, using the private constructor.
@@ -28,19 +28,19 @@ package demo;
 public class Logger {
 
  private static Logger logger = new Logger();
- 
+
  private Logger() {
-  
+
  }
- 
+
  public static Logger getInstance() {
   return logger;
  }
- 
+
 }
 ```
 
-To work-around the previous problem, we can create a method which will check if the logger object has been initialized already. If it is null, create an object of Logger. Otherwise, return it.  
+To work-around the previous problem, we can create a method which will check if the logger object has been initialized already. If it is null, create an object of Logger. Otherwise, return it.
 
 This code, however, is not thread-safe. Suppose, two thread t1 and t2 access the getInstance() method concurrently. Then they concurrently check if logger is null. For both threads, it is possible that the condition is true. In this case, t1 and t2 both will create objects for Logger which is undesirable.
 
@@ -52,21 +52,21 @@ package demo;
 public class Logger {
 
  private static Logger logger;
- 
+
  private Logger() {
-  
+
  }
- 
+
  public static Logger getInstance() {
-  
+
   if(logger == null) {
    logger = new Logger();
   }
-  
+
   return logger;
-  
+
  }
- 
+
 }
 
 ```
@@ -83,21 +83,21 @@ package demo;
 public class Logger {
 
  private static Logger logger;
- 
+
  private Logger() {
-  
+
  }
- 
+
  public static synchronized Logger getInstance() {
-  
+
   if(logger == null) {
    logger = new Logger();
   }
-  
+
   return logger;
-  
+
  }
- 
+
 }
 ```
 
@@ -111,28 +111,28 @@ package demo;
 public class Logger {
 
  private static Logger logger;
- 
+
  private Logger() {
-  
+
  }
- 
- public static synchronized Logger getInstance() {
-  
+
+ public static Logger getInstance() {
+
   if(logger == null) {
-   
+
    synchronized (Logger.class) {
-    
+
     if(logger == null) {
      logger = new Logger();
     }
-    
+
    }
-   
+
   }
-  
+
   return logger;
-  
+
  }
- 
+
 }
 ```

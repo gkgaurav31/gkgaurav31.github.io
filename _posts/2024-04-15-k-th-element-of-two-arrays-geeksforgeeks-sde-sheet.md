@@ -20,7 +20,6 @@ Given two sorted arrays arr1 and arr2 of size N and M respectively and an elemen
 ```java
 class Solution {
 
-    // Method to find the kth element in the merged sorted array
     public long kthElement(int arr1[], int arr2[], int n, int m, int k) {
 
         // Initialize indices for arr1 and arr2
