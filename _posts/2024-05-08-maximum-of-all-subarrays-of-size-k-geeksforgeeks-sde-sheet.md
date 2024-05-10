@@ -3,7 +3,7 @@ layout: post
 title: Maximum of all subarrays of size k (geeksforgeeks - SDE Sheet)
 date: 2024-05-08 22:12 +0530
 author: "Gaurav Kumar"
-tags: "java geeksforgeeks queue important"
+tags: "java geeksforgeeks arrays important"
 categories: "sde-sheet"
 ---
 
