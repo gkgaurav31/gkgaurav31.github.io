@@ -62,3 +62,58 @@ class Solution{
 
 }
 ```
+
+### APPROACH 2
+
+We begin from the end of the array and iterate backwards. We maintain the current position and tally the number of jumps needed. At each step, we identify the leftmost position from which we can jump to the current position. If it's not feasible to reach the current position from any previous one, we return -1 to denote impossibility. Otherwise, we return the total count of jumps required to reach the array's end.
+
+```java
+class Solution{
+
+    static int minJumps(int[] arr){
+
+        int n = arr.length;
+
+        // current position to reach
+        int current = n-1;
+
+        // number of jumps
+        int jumps = 0;
+
+        // we start from right, and check the left most position from which we can jump to this position
+        while(current > 0){
+
+            // since we are still not at index 0, we need 1 more jump
+            jumps++;
+
+            // init: try to check the left most position before current from which we can reach current position
+            int next = current;
+
+            // check for all positions before current
+            // if it's possible to reach current position update it
+            // get the minimum index (left most index) from which we can reach current
+            for(int i=current-1; i>=0; i--){
+                if(i+arr[i] >= current){
+                    next = i;
+                }
+            }
+
+            // this means, we cannot reach the current position from any previous position
+            // so, it's not possible to reach the end at all; return -1
+            if(current == next)
+                return -1;
+
+            // otherwise, it's possible to reach current position
+            // so now we can update our current goal to the left most position from which we can reach current
+            // this will be our next goal
+            current = next;
+
+        }
+
+        return jumps;
+
+
+    }
+
+}
+```
