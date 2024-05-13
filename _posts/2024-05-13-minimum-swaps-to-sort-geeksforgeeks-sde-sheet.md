@@ -17,6 +17,12 @@ Given an array of n distinct elements. Find the minimum number of swaps required
 
 [Good Explanation](https://www.youtube.com/watch?v=-2_c4lG7k_M)
 
+We create a new array that stores the elements along with their current indices. Then, we sort this array based on the value of the numbers. The array is sorted by the values, and we also know the indices of those values in the original array.
+
+Now, we start iterating from left to right. For the current element, we check if its index is already correct. In that case, we can simply move forward. If it's not correct, we know where it should be placed (since we know the index in the original array). So, we move/swap this element to its required position. Essentially, we are reversing the sorting process. We are starting from the sorted array and trying to put the elements back in the original given order.
+
+Once we have placed the current element in its original position, it's possible that the new element we get in the current position is still wrongly positioned. So, we should not move forward. Increase the number of swaps and continue checking until the current position becomes correct.
+
 ```java
 class Solution {
 
