@@ -3,7 +3,7 @@ layout: post
 title: Minimum Adjacent Swaps to Make a Valid Array
 date: 2024-06-03 11:29 +0530
 author: "Gaurav Kumar"
-tags: "java arrays leetcode google"
+tags: "java arrays leetcode amazon"
 categories: "arrays"
 ---
 
