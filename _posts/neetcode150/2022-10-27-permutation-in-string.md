@@ -140,6 +140,82 @@ class Solution {
 
     }
 
+}
+```
+
+### OPTIMIZED
+
+The previous solution will take O(26\*N) time complexity. We can optimize it further by using a `matches` variable to track the number of matched frequencies in s1 and s2. If it equals 26, we can return true.
+
+```java
+class Solution {
+
+    public boolean checkInclusion(String s1, String s2) {
+
+        int n = s1.length();
+        int m = s2.length();
+
+        if(n > m)
+            return false;
+
+        int[] f1 = new int[26];
+        int[] f2 = new int[26];
+
+        for(int i=0; i<n; i++){
+            f1[s1.charAt(i)-'a']++;
+            f2[s2.charAt(i)-'a']++;
+        }
+
+        int matches = initializeMatch(f1, f2);
+
+        if (matches == 26)
+            return true;
+
+        int idx = n; // start of next window
+
+        while(idx < m){
+
+            // we have moved the window one step towards right
+            // so freq of char at idx should increase
+            // and freq of left most char in prev window should decrease
+            char newChar = s2.charAt(idx);
+            char prevChar = s2.charAt(idx-n);
+
+            // update freq for new character in the next window
+            f2[newChar-'a']++;
+
+            if(f2[newChar-'a'] == f1[newChar-'a'])
+                matches++;
+
+            // IMPORTANT:
+            // we should reduces matches, if they were equal before the update for this char
+            // one way to check if the freq increased by exactly 1 after update
+            // which means, they must have been same before this update
+            else if(f2[newChar-'a'] - 1 == f1[newChar-'a'])
+                matches--;
+
+            // IMPORTANT
+            // if we update freq of both newChar and prevChar at the same time, that will not be correct
+
+            // update freq for prev char (left most) of the prev window
+            f2[prevChar-'a']--;
+
+            if(f2[prevChar-'a'] == f1[prevChar-'a'])
+                matches++;
+            else if(f2[prevChar-'a'] + 1 == f1[prevChar-'a'])
+                matches--;
+
+            if(matches == 26)
+                return true;
+
+            idx++;
+
+        }
+
+        return false;
+
+    }
+
     public int initializeMatch(int[] f1, int[] f2){
 
         int count = 0;
