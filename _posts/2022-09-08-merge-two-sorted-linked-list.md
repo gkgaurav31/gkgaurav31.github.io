@@ -37,7 +37,7 @@ public static Node mergeSortedLinkedList(Node h1, Node h2){
         h2=t.next;
     }
 
-    
+
     while(h1 != null && h2 != null){
         if(h1.value < h2.value){
             t.next=h1;
@@ -75,7 +75,7 @@ class Solution {
         ListNode h2=list2;
 
         ListNode h3;
-        
+
         if(h1.val <= h2.val){
             h3=h1;
             ListNode t = h1.next;
@@ -87,9 +87,35 @@ class Solution {
         }
 
         return h3;
-        
+
     }
-    
+
+}
+```
+
+### BETTER RECURSIVE CODE
+
+```java
+class Solution {
+
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+        if(list1 == null)
+            return list2;
+
+        if(list2 == null)
+            return list1;
+
+        if(list1.val < list2.val){
+            list1.next = mergeTwoLists(list1.next, list2);
+            return list1;
+        }else{
+            list2.next = mergeTwoLists(list1, list2.next);
+            return list2;
+        }
+
+    }
+
 }
 ```
 
@@ -101,11 +127,11 @@ class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
         ListNode dummyHead = new ListNode(0);
-        
+
         ListNode temp = dummyHead;
 
         while(list1 != null && list2 != null){
-            
+
             int x = list1.val;
             int y = list2.val;
 
@@ -128,8 +154,61 @@ class Solution {
         }
 
         return dummyHead.next;
-        
+
     }
-    
+
+}
+```
+
+### YET WAY TO CODE USING DOUBLY ENDED QUEUE (DEQUEUE)
+
+```java
+class Solution {
+
+    public void reorderList(ListNode head) {
+
+        //create a deque to store the nodes of the linked list
+        Deque<ListNode> q = new LinkedList<>();
+
+        // Temporary pointer to traverse the list
+        // Traverse the list and add each node to the deque
+        ListNode t = head;
+        while (t != null) {
+            q.add(t);
+            t = t.next;
+        }
+
+        // Tail pointer to keep track of the last node processed in the reordered list
+        ListNode tail = null;
+
+        // Reorder the list by alternating nodes from the front and back of the deque
+        while (q.size() >= 2) {
+
+            // Remove the first node from the front of the deque
+            ListNode first = q.removeFirst();
+
+            // Remove the last node from the back of the deque
+            ListNode last = q.removeLast();
+
+            // Get the next node to be linked (if the deque is not empty, get the front node, otherwise null)
+            ListNode next = (q.isEmpty() ? null : q.getFirst());
+
+            // Link the first node to the last node
+            first.next = last;
+
+            // Link the last node to the next node
+            last.next = next;
+
+            // Update the tail pointer to the next node
+            tail = next;
+
+        }
+
+        // If the tail is not null, set its next pointer to null to terminate the list
+        // If we do not do this, if there are odd number of nodes the last node remaining in the dequeue (the middle node in the list) will lead to a cycle
+        if (tail != null) {
+            tail.next = null;
+        }
+    }
 }
 ```
