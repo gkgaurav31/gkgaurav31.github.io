@@ -32,38 +32,38 @@ class Node {
 
 ```java
 class Solution {
-    
+
     public Node copyRandomList(Node head) {
-        
+
         if(head == null) return null;
-        
+
         Node t = head;
-        
+
         while(t != null){
             Node newNode = new Node(t.val);
             newNode.next = t.next;
             t.next=newNode;
             t=t.next.next;
         }
-        
+
         t = head;
-        
+
         while(t != null){
             Node r = t.random;
-            
+
             if(r == null){
                 t = t.next.next;
                 continue;
             }
-            
+
             t.next.random = r.next;
             t = t.next.next;
         }
-        
+
         Node h2=head.next;
         Node t1 = head;
         Node t2 = head.next;
-        
+
         while(t2 != null){
             t1.next = t2.next;
             t1 = t1.next;
@@ -71,10 +71,10 @@ class Solution {
             t2.next = t1.next;
             t2 = t2.next;
         }
-        
+
         return h2;
-        
+
     }
-    
+
 }
 ```
