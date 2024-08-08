@@ -3,7 +3,7 @@ layout: post
 title: Design Bounded Blocking Queue
 date: 2024-08-04 22:18 +0530
 author: "Gaurav Kumar"
-tags: "java design queue leetcode "
+tags: "java design queue leetcode"
 categories: "design"
 ---
 
