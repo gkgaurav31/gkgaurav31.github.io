@@ -42,3 +42,50 @@ class Solution{
 
 }
 ```
+
+## OPTIMIZATION - O(n) SOLUTION
+
+```java
+class Solution {
+
+    public static void zigZag(int n, int[] arr) {
+
+        // init: check if current element is less than next element (which should be true for 0th index)
+        boolean checkLessThan = true;
+
+        // iterate over the elements
+        for(int i=0; i<n-1; i++){
+
+            // we need to check if current element is less than next element
+            if(checkLessThan){
+
+                // if current element is not less than next element, then swap both
+                if( !(arr[i] < arr[i+1]) )
+                    swap(arr, i, i+1);
+
+            // we need to check if current element is more than next element
+            }else{
+
+                // if current element is not more than next element, then swap both
+                if( !(arr[i] > arr[i+1]) )
+                    swap(arr, i, i+1);
+
+            }
+
+            // toggle
+            // for next pair, the relation should be opposite
+            checkLessThan = !checkLessThan;
+
+        }
+
+
+    }
+
+    public static void swap(int[] arr, int i, int j){
+        int t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
+
+}
+```
