@@ -56,3 +56,61 @@ class Solution {
 
 }
 ```
+
+## ANOTHER WAY TO CODE
+
+```java
+class Solution {
+
+    public pair[] allPairs(int x, int arr1[], int arr2[]) {
+
+        int n = arr1.length;
+        int m = arr2.length;
+
+        // create set using arr2
+        Set<Integer> set = new HashSet<>();
+        for(int i=0; i<m; i++)
+            set.add(arr2[i]);
+
+        // list of pairs with sum x
+        List<pair> list = new ArrayList<>();
+
+        // sort the first array so that we always get the smallest first element
+        Arrays.sort(arr1);
+
+        // iterate over the first array
+        for(int i=0; i<n; i++){
+
+            // avoid repeating elements
+            // if we remove this, it still gets accepted as a solution in gfg
+            // i think it's because all elements are unique in the test cases
+            if(i > 0 && arr1[i] == arr1[i-1])
+                continue;
+
+            // first element candidate
+            int a = arr1[i];
+
+            // second element needed
+            int b = x-a;
+
+            // check if second element is present in the set (which has elements of arr2)
+            if(set.contains(b)){
+
+                // if it does, add this pair to the result
+                // since we sorted arr1, `a` will be the least already
+                list.add(new pair(a, b));
+            }
+
+        }
+
+        // covert to array of pairs
+        pair[] res = new pair[list.size()];
+        for(int i=0; i<res.length; i++)
+            res[i] = list.get(i);
+
+        return res;
+
+    }
+
+}
+```
