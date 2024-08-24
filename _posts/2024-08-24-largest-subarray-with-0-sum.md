@@ -53,3 +53,49 @@ class GfG {
     }
 }
 ```
+
+## INTERESTING WAY TO HANDLE THE EDGE CASE
+
+When the prefix sum is 0, we want to consider the complete array from the beginning. But, there is no previous index which had the entry for sum 0 in the HashMap. So, the length we get may be smaller that the complete length till current index. We can easily handle this by adding `(0, -1)` to the HashMap which means that the sum before 0th index is 0.
+
+Example:
+
+> arr = -1 1 -1 1  
+> pf = -1 0 -1 0
+
+Let us consider the last 0 prefix sum.
+
+When we get 0 prefix sum, it will check the previous occurance of sum=0. It will get `-1` since we added that to the HashMap.
+
+So the length will become: `i - firstIndexForCurrentSum = 3 - (-1) = 4`
+
+```java
+class GfG
+{
+    int maxLen(int arr[], int n)
+    {
+
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+
+        int sum = 0;
+
+        int maxLength = 0;
+
+        for(int i=0; i<n; i++){
+
+            sum = sum + arr[i];
+
+            if(map.containsKey(sum)){
+                maxLength = Math.max(maxLength, i - map.get(sum));
+            }else
+                map.put(sum, i);
+
+        }
+
+
+        return maxLength;
+
+    }
+}
+```
