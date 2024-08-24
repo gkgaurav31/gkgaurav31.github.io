@@ -127,3 +127,101 @@ class Solution {
 
 }
 ```
+
+## AVOID GLOBAL COUNT VARIABLE
+
+```java
+class Solution {
+
+    // arr[]: Input Array
+    // N : Size of the Array arr[]
+    // Function to count inversions in the array.
+    static long inversionCount(long arr[], int n) {
+        return sort(arr, 0, n-1);
+    }
+
+    static long sort(long arr[], int l, int r)
+    {
+        long count = 0;
+
+        if (l < r) {
+
+            // Find the middle point
+            int m = l + (r - l) / 2;
+
+            // Sort first and second halves
+            count += sort(arr, l, m);
+            count += sort(arr, m + 1, r);
+
+            // Merge the sorted halves
+            count += merge(arr, l, m, r);
+        }
+
+        return count;
+    }
+
+
+
+    static long merge(long arr[], int l, int m, int r)
+    {
+
+        long count = 0;
+
+        // Find sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        // Create temp arrays
+        long L[] = new long[n1];
+        long R[] = new long[n2];
+
+        // Copy data to temp arrays
+        for (int i = 0; i < n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j < n2; ++j)
+            R[j] = arr[m + 1 + j];
+
+        // Merge the temp arrays
+
+        // Initial indices of first and second subarrays
+        int i = 0, j = 0;
+
+        // Initial index of merged subarray array
+        int k = l;
+
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+
+                count += (n1 - i);
+
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements of L[] if any
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        // Copy remaining elements of R[] if any
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+
+        return count;
+
+    }
+
+
+}
+```
