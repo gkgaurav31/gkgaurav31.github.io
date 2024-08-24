@@ -75,3 +75,49 @@ class Solution{
 
 }
 ```
+
+## BETTER WAY TO CODE
+
+- find local minima
+- find local maxima after previous local minima
+- if such a pair exists, add to answer
+- reset to next position
+
+```java
+class Solution {
+
+    // Function to find the days  buying and selling stock for max profit.
+    ArrayList<ArrayList<Integer>> stockBuySell(int A[], int n) {
+
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+
+        int b = 0; // buy index
+        int s = 0; // sell index
+
+        while (b < n - 1) {
+
+            // Move 'b' to the next local minima (if current price is not the local minima).
+            while (b < n - 1 && A[b + 1] <= A[b]) {
+                b++;
+            }
+
+            s = b; // start searching for the next local maxima from 'b'
+
+            // Move 's' to the next local maxima (if current price is not the local maxima).
+            while (s < n - 1 && A[s + 1] > A[s]) {
+                s++;
+            }
+
+            // If 'b' is less than 's', it means we have a valid buy-sell pair.
+            if (b < s) {
+                list.add(new ArrayList<>(Arrays.asList(b, s)));
+            }
+
+            // Move 'b' to 's + 1' to start the search for the next potential buy day.
+            b = s + 1;
+        }
+
+        return list;
+    }
+}
+```
