@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stock buy and sell
+title: Stock buy and sell (geeksforgeeks - SDE Sheet)
 date: 2024-08-24 21:35 +0530
 author: "Gaurav Kumar"
 tags: "java arrays geeksforgeeks sde-sheet"
