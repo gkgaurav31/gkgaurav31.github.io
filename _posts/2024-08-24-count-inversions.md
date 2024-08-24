@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Count Inversions
+title: Count Inversions (geeksforgeeks - SDE Sheet)
 date: 2024-08-24 14:00 +0530
 author: "Gaurav Kumar"
 tags: "java geeksforgeeks arrays sde-sheet important"

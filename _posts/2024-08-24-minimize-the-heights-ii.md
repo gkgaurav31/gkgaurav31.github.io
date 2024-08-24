@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Minimize the Heights II
+title: Minimize the Heights II (geeksforgeeks - SDE Sheet)
 date: 2024-08-24 11:26 +0530
 author: "Gaurav Kumar"
 tags: "java geeksforgeeks arrays sde-sheet important"
