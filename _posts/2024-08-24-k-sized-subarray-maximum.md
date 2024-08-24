@@ -3,7 +3,7 @@ layout: post
 title: K Sized Subarray Maximum (geeksforgeeks - SDE Sheet)
 date: 2024-08-24 20:12 +0530
 author: "Gaurav Kumar"
-tags: "java geeksforgeeks arrays sde-sheet"
+tags: "java sliding_window heap geeksforgeeks sde-sheet"
 categories: "sde-sheet"
 ---
 
