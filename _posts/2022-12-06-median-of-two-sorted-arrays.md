@@ -3,7 +3,7 @@ layout: post
 title: Median of Two Sorted Arrays
 date: 2022-12-06 23:08 +0530
 author: "Gaurav Kumar"
-tags: "java binary_search search neetcode150"
+tags: "java binary_search search neetcode150 important"
 categories: "neetcode150"
 ---
 
@@ -141,5 +141,84 @@ class Solution {
 
         return 0;
     }
+}
+```
+
+### SIMILAR CODE
+
+```java
+class Solution {
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+
+        int n = nums1.length;
+        int m = nums2.length;
+
+        // make the first array shorter
+        // we will use binary search on nums1
+        if(n > m)
+            return findMedianSortedArrays(nums2, nums1);
+
+        // total number of elements
+        int total = n+m;
+
+        // we need half of total to figure out the median
+        int half = total/2;
+
+        // init: for binary search
+        int l = 0; // take 0 elements from nums1
+        int r = n; // take n elements from nums1
+
+        while(l <= r){
+
+            // i -> partition position for first array
+            int i = (l + r + 1)/2;
+
+            // j -> if we take x elements from first array, we will take (half-x) from second array to figure out the median
+            int j = half - i;
+
+            // init: left of partition index as MIN
+            // init: right of partition index as MAX
+            int l1 = Integer.MIN_VALUE, l2 = Integer.MIN_VALUE;
+            int r1 = Integer.MAX_VALUE, r2 = Integer.MAX_VALUE;
+
+            if(i-1 >= 0)
+                l1 = nums1[i-1]; // left of partition position in arr1
+            if(i < n)
+                r1 = nums1[i];  // at the partition position in arr1
+
+            if(j-1 >=0)
+                l2 = nums2[j-1]; // left of partition position in arr2
+
+            if(j < m)
+                r2 = nums2[j]; // at the partition position in arr2
+
+            if(l1 <= r2 && l2 <= r1){ // check if this can form the first half correctly
+
+                // if even length
+                if(total%2 == 0){
+
+                    return (Math.max(l1, l2) + Math.min(r1, r2))/2.0;
+
+                // for odd length
+                }else{
+
+                    return Math.min(r1, r2)/1.0;
+
+                }
+
+            // if arr1 partition has greater element than arr2 partition, we need to reduce arr1 partition
+            }else if(l1 > r2){
+                r = i - 1;
+            // otherwise, we need to add more elements to arr1 partition
+            }else
+                l = i + 1;
+
+        }
+
+        return -1.0;
+
+    }
+
 }
 ```
