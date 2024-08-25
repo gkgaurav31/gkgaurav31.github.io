@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Find the element that appears once in sorted array
+title: Find the element that appears once in sorted array (geeksforgeeks - SDE Sheet)
 date: 2024-08-25 20:15 +0530
 author: "Gaurav Kumar"
 tags: "java xor geeksforgeeks sde-sheet"
