@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Allocate Minimum Pages
+title: Allocate Minimum Pages (geeksforgeeks - SDE Sheet)
 date: 2024-08-25 22:54 +0530
 author: "Gaurav Kumar"
 tags: "java binary_search geeksforgeeks sde-sheet"
