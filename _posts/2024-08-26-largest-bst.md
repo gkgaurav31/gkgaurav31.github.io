@@ -16,6 +16,8 @@ Note: Here Size equals the number of nodes in the subtree.
 
 ## SOLUTION
 
+### BRUTE-FORCE
+
 ```java
 class Solution{
 
@@ -69,7 +71,7 @@ class Solution{
 }
 ```
 
-## OPTIMIZED
+### OPTIMIZED
 
 [Good Explanation - takeUForward](https://www.youtube.com/watch?v=X0oXMdtUDwo)
 
