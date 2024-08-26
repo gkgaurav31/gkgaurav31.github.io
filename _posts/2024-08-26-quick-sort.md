@@ -20,6 +20,22 @@ Implement the partition() and quickSort() functions to sort the array.
 
 ## SOLUTION
 
+The `partition` function is a key part of the Quick Sort algorithm. It rearranges the elements in a section of the array so that all elements less than or equal to a chosen pivot are on its left, and all elements greater than the pivot are on its right. Here's how it works:
+
+1. **Choose a Pivot**: In this example, the pivot is the first element of the current array section (`arr[low]`). We can choose any element.
+
+2. **Initialize Pointers**: Two pointers, `i` (starting from the `low` index) and `j` (starting from the `high` index), are used to scan the array from both ends toward the center.
+
+3. **Move Pointers**: The pointer `i` moves right until it finds an element greater than the pivot. The pointer `j` moves left until it finds an element less than or equal to the pivot.
+
+4. **Swap Elements**: If `i` is still less than `j`, swap the elements at `i` and `j`. This ensures that smaller elements are on the left and larger ones are on the right of the pivot.
+
+5. **Place Pivot**: Once the pointers cross (`i >= j`), swap the pivot element with the element at the `j` pointer. This places the pivot in its correct sorted position.
+
+6. **Return Pivot Position**: The function returns the index `j`, which is now the pivot's final sorted position in the array.
+
+By repeating this process, the array gets sorted around each pivot.
+
 ```java
 class Solution
 {
