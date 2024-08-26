@@ -63,3 +63,87 @@ static boolean binarysearch(int[] arr, int x){
 }
 }
 ```
+
+### APPROACH 2
+
+Check row wise - decide whether to check columns based on the range of numbers using the first and last number.
+If it falls in that range, column also falls in that same range. Then x must be present in `matrix[r][c]` or not present at all.
+
+This will have `O(n x m)` time complexity in the worst case.
+
+```java
+class Solution
+{
+
+    static boolean search(int matrix[][], int n, int m, int x)
+    {
+
+        // check if this row is possible
+        for(int r=0; r<n; r++){
+
+            if(x >= matrix[r][0] && x <= matrix[r][m-1]){
+
+                // check if this column is possible
+                for(int c=0; c<m; c++){
+
+                    if(x >= matrix[0][c] && x <= matrix[n-1][c]){
+
+                        // check this row and column
+                        if(matrix[r][c] == x)
+                            return true;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return false;
+
+    }
+
+}
+```
+
+### APPROACH 3 - OPTIMIZED | O(n+m)
+
+The main idea is to start from top right corner.
+
+- If x is same, return true
+- If x is greater than element at current position, we go down (everything on left will be smaller)
+- If x is smaller than element at current position, we go left (everything downwards will be larger)
+
+We will reach out of bounds if the value is not present.
+
+```java
+    class Solution
+    {
+    //Function to search a given number in row-column sorted matrix.
+    static boolean search(int matrix[][], int n, int m, int x)
+    {
+
+        int r = 0;
+        int c = m-1;
+
+        while(r < n && c >= 0){
+
+            int current = matrix[r][c];
+
+            if(current == x)
+                return true;
+
+            if(x > matrix[r][c]){
+                r++;
+            }else{
+                c--;
+            }
+
+        }
+
+        return false;
+
+    }
+    }
+```
