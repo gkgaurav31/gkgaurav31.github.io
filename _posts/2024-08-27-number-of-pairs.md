@@ -22,6 +22,8 @@ Given two positive integer arrays arr and brr, find the number of pairs such tha
 
 But, there are some **exceptions**. The following cheat sheet will help in remembering them:
 
+`freq[5]` -> This will store the frequency of number `[0-4]` in array `Y`.
+
 ### CHEAT SHEET
 
 > x = 0 -> skip  
