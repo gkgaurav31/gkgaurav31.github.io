@@ -15,14 +15,14 @@ Given two positive integer arrays arr and brr, find the number of pairs such tha
 
 ## SOLUTION
 
-In general:
+### INTUITION
 
 > if (x < y)  
 > then x^y > y^x
 
 But, there are some **exceptions**. The following cheat sheet will help in remembering them:
 
-**Cheat Sheet**
+### CHEAT SHEET
 
 > x = 0 -> skip  
 > x = 1 -> only valid if y = 0 => so add freq[0]  
