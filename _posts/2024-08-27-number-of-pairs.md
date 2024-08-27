@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Number of pairs
+title: Number of pairs (geeksforgeeks - SDE Sheet)
 date: 2024-08-27 23:02 +0530
 author: "Gaurav Kumar"
 tags: "java arrays geeksforgeeks sde-sheet"
