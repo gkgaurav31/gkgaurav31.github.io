@@ -31,7 +31,6 @@ A software developer by profession, and an artist at heart. Always willing to le
 - **Customer Experience Insights**: on Azure App Service: Java Web Application which shows the customer's experience while working with support teams. It integrates with Cognitive Services to identify customer's sentiments and share a report in an e-mail. _(Jan 2023)_
 - **OSSum Templates**: Edge/Chrome Extension: A browser extension which generates common templates we use while working with the customers - specifically for the "Initial Response" e-mail and other follow-up e-mails. It also includes quick access to other useful tools which can make life of the Engineer easier, such as - shortcut to open diagnostic tools, directly open team to contact the customer and a direct link for softphone. _(Oct 2022)_
   > ![snapshot]({{ site.baseurl }}/assets/img/about_me/ossum_templates.png)
-- **Get Case ID**: Simple web app to extract a case ID using regex. (Using Spring Boot and thymeleaf) _(Jan 2021)_
 
 ### 👨🏻‍💻 Technical Experience
 
