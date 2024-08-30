@@ -15,6 +15,8 @@ Given a `N x N` matrix, where every row and column is sorted in non-decreasing o
 
 ## SOLUTION
 
+[Good Explanation - Aryan Mittal - YouTube](https://www.youtube.com/watch?v=MOe7LlagCN8)
+
 ### APPROACH 1 - MAX HEAP (ACCEPTED)
 
 Iterate all the elements in the array and keep adding them to max heap. If max heap size is > k, remove the top element. At the end, the max heap size will be k, and the top most element is the answer.
