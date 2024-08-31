@@ -17,6 +17,8 @@ Given a string S. The task is to print all unique permutations of the given stri
 
 ### BRUTE-FORCE - BACKTRACKING (ACCEPTED)
 
+Convert string to a char array. We will try to get permutations by swapping the characters in this array. We can start with first char. Using recursion swap one by one with positions `[i, n-1]`. Once we are at the end of the char array, we have got one permutation. Add it to the HashSet to avoid duplicates. Convert the result to a list and return its sorted order.
+
 ```java
 class Solution {
 
