@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Longest Distinct characters in string
+title: Longest Distinct characters in string (geeksforgeeks - SDE Sheet)
 date: 2024-08-31 13:32 +0530
 author: "Gaurav Kumar"
 tags: "java sliding_window geeksforgeeks sde-sheet"
