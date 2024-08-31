@@ -71,3 +71,5 @@ class GfG
     }
 }
 ```
+
+> THIS CAN ALSO BE SOLVED USING [RABIN KARP ALGORITHM](https://gkgaurav31.github.io/posts/rabin-karp/)
