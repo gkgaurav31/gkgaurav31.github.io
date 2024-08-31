@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Implement strstr
+title: Implement strstr (geeksforgeeks - SDE Sheet)
 date: 2024-08-31 11:43 +0530
 author: "Gaurav Kumar"
 tags: "java arrays geeksforgeeks sde-sheet"
