@@ -3,7 +3,7 @@ layout: post
 title: Longest Palindrome in a String (geeksforgeeks - SDE Sheet)
 date: 2024-08-31 17:40 +0530
 author: "Gaurav Kumar"
-tags: "java sliding_window geeksforgeeks sde-sheet"
+tags: "java strings geeksforgeeks sde-sheet"
 categories: "sde-sheet"
 ---
 
