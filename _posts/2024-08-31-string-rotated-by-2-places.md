@@ -1,6 +1,6 @@
 ---
 layout: post
-title: String Rotated by 2 Places (geeksforgeeks - SDE Sheet)
+title: String Rotated by 2 Places
 date: 2024-08-31 13:02 +0530
 author: "Gaurav Kumar"
 tags: "java strings geeksforgeeks sde-sheet"
