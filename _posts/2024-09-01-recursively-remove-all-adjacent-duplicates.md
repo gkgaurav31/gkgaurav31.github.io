@@ -17,6 +17,10 @@ Note: For some test cases, the resultant string would be an empty string. In tha
 
 ## SOLUTION
 
+### APPROACH 1 - BRUTE FORCE (ACCEPTED)
+
+Iterate through all the character of s and generate another string which remove the duplicates in the first iteration. The resultant string can be the input for recursive call. If the resultant string is the same as original string, that means there were no duplicates and we can simply return that string.
+
 ```java
 class Solution {
 
@@ -65,7 +69,7 @@ class Solution {
         }
 
         // If no characters were removed (result is the same as input), return the result
-        if (s.equals(sb.toString()))
+        if (s.equals(sb.toString())) // we could also use length
             return s;
 
         // Recursively process the result string until no more adjacent duplicates are found
