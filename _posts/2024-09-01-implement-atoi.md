@@ -19,6 +19,14 @@ Note: Conversion is feasible only if all characters in the string are numeric or
 
 ### APPROACH 1
 
+Determine if the number is positive or negative based on the first character.
+
+Iterate from the end of the string, converting each character to its numeric value. Use a position variable to handle place values (units, tens, hundreds).
+
+Return -1 if any character is non-numeric (except for an optional leading '-').
+
+Negates the final result if the number is negative.
+
 ```java
 class Solution {
 
@@ -33,7 +41,7 @@ class Solution {
         // Initialize a variable to store the final integer value
         int total = 0;
         // Initialize a position variable to calculate place value (units, tens, hundreds, etc.)
-        int pos = 0;
+        int pos = 1;
 
         // Loop through the string from the end to the beginning
         for(int i = n - 1; i >= 0; i--) {
@@ -50,8 +58,9 @@ class Solution {
                 return -1;
 
             // Convert the character to its corresponding integer value and add to the total
-            // The expression calculates the place value (e.g., units, tens, hundreds) using Math.pow(10, pos)
-            total += ((Integer.valueOf(String.valueOf(ch))) * Math.pow(10, pos++));
+            int digit = ch - '0';
+            total += (digit * pos);
+            pos = pos * 10;
 
         }
 
