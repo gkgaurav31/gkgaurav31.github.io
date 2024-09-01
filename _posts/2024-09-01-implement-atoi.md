@@ -17,8 +17,6 @@ Note: Conversion is feasible only if all characters in the string are numeric or
 
 ## SOLUTION
 
-### APPROACH 1
-
 Determine if the number is positive or negative based on the first character.
 
 Iterate from the end of the string, converting each character to its numeric value. Use a position variable to handle place values (units, tens, hundreds).
