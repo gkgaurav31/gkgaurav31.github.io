@@ -24,13 +24,16 @@ The main logic is this:
 
 ```java
 // Insert a character in s1
-int insert = ed(s1, s2, i, j - 1, dp);
+int insert = 1 + ed(s1, s2, i, j - 1, dp);
 
 // Remove a character from s1
-int remove = ed(s1, s2, i - 1, j, dp);
+int remove = 1 + ed(s1, s2, i - 1, j, dp);
 
 // Replace a character in s1 with a character from s2
-int replace = ed(s1, s2, i - 1, j - 1, dp);
+int replace = 1 + ed(s1, s2, i - 1, j - 1, dp);
+
+// Choose the operation with the minimum cost and add one for the current operation
+dp[i][j] = Math.min(insert, Math.min(remove, replace));
 ```
 
 ```java
