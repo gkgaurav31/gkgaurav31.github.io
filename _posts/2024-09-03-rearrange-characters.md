@@ -18,6 +18,23 @@ Note: The string has only lowercase English alphabets and it can have multiple s
 
 [Good Explanation](https://www.youtube.com/watch?v=wZENBuWh-C0)
 
+- create a frequency array int[26]
+- use two variables to store the char with max frequency and the char which has that frequency
+- if the frequency of any char is > half of the length of array, it is not possible to rearrange in a way that no two chars are same and beside each other
+- otherwise, there are different arrangements possible
+- the brute force approach is to find all permutations of the string and check whichever one is valid. This will have O(n!) time complexity
+- The other way is to do something like this:
+
+  - First we take the char with highest frequency and put them in alternative way
+
+    Example: `X _ X _ X _ X _ _ _ _`
+
+  - It will not go out of bounds. If it did, it has to have a freq of more than half, which has already been checked earlier
+  - Now we loop through the freq array one by one. We keep taking those chars and keep adding them to this array, like this: `X _ X _ X _ X _ A _ A _`
+  - For next char, the idx will be out of bounds. We reset it to index 1.
+  - Then we continue adding the chars in the same way.
+    Like: `X B X B X C X _ A _ A _`
+
 ```java
 class Solution {
 
