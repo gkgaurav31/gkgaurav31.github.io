@@ -21,6 +21,15 @@ Note: The discs are arranged such that the top disc is numbered 1 and the bottom
 
 [Good Explanation on YouTube by Abdul Bari](https://www.youtube.com/watch?v=q6RicK1FCUs)
 
+### MAIN STEPS
+
+| Rod A (from) | Rod B (using) | Rod C (to) |
+| ------------ | ------------- | ---------- |
+
+- Move `(n-1)` discs from A to B using C
+- Move a disc from A to C
+- Move `(n-1)` discs from B to C using A
+
 ```java
 class Hanoi {
 
