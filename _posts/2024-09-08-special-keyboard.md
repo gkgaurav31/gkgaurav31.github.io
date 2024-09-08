@@ -22,6 +22,23 @@ Find maximum numbers of A's that can be produced by pressing keys on the special
 
 ## SOLUTION
 
+We have mainly two cases:
+
+- At each step i, one option is to press key 1 to add a single 'A' to the screen. If we're at step i, we can get one more 'A' than what we had at step i-1.
+
+- In this case, we look at the possibility of pressing Ctrl-A + Ctrl-C at a previous position `j` and then pasting the copied 'A's multiple times after that. The key is finding the right `j` where you would perform the Ctrl-A + Ctrl-C combination, which gives us the highest return by allowing us to paste the copied buffer multiple times.
+
+  - `j` must be at least `i-3` to allow for:
+  - Ctrl-A (1 keypress)
+  - Ctrl-C (1 keypress)
+  - At least one Ctrl-V (1 keypress)
+
+  Now, for any given `j`, after copying the screen (Ctrl-A + Ctrl-C), the remaining key presses (from `j+2` to `i`) can be used for pasting (Ctrl-V). The number of pastes we can make is `(i - j - 2)`.
+
+  The total number of 'A's produced from this operation is:
+
+  `dp[j] + dp[j] * (i - j - 2)`
+
 ```java
 class Solution {
 
