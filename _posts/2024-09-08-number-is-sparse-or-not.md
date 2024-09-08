@@ -15,6 +15,8 @@ Given a number N. The task is to check whether it is sparse or not. A number is 
 
 ## SOLUTION
 
+### APPROACH 1
+
 We can solve this by iterating through the binary representation of the given number and checking if any two consecutive bits are set. Starting from the least significant bit, we track whether the current bit is 1 using a boolean variable. With each iteration, we right shift the number to examine the next bit. If at any point two consecutive 1s are found, we immediately return false since the number is not sparse.
 
 ```java
@@ -47,5 +49,24 @@ class Solution
         // If no two consecutive set bits are found, the number is sparse, return true.
         return true;
     }
+}
+```
+
+### APPROACH 2
+
+```java
+class Solution
+{
+    //Function to check if the number is sparse or not.
+    public static boolean isSparse(int n)
+    {
+        //we perform Right shift on n by 1 bit.
+        //then perform AND operation on n and n/2
+        //(obtained by right shifting n by 1 bit).
+        //returning true if we get 0 as result otherwise false.
+        return (n & (n >> 1)) == 0;
+
+    }
+
 }
 ```
