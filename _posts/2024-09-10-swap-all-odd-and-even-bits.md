@@ -15,6 +15,10 @@ Given an unsigned integer N. The task is to swap all odd bits with even bits. Fo
 
 ## SOLUTION
 
+We start by creating two variables: one to capture the bits at even positions and another to capture the bits at odd positions. To do this, we perform an AND operation between the number N and these two variables. This isolates the even and odd bits separately.
+
+Next, we shift the even-positioned bits to the right and the odd-positioned bits to the left, effectively swapping them. Finally, we combine these shifted bits to get the result where all odd and even bits have been swapped.
+
 ```java
 class Solution
 {
