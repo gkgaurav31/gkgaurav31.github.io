@@ -15,6 +15,8 @@ Given the head of a singly linked list, the task is to rotate the left shift of 
 
 ## SOLUTION
 
+We can solve this by first reversing the entire linked list, then splitting it into two parts based on the given rotation value k, and reversing both parts individually. After reversing the two halves, we reconnect them to form the final rotated list.
+
 ```java
 class Solution {
 
