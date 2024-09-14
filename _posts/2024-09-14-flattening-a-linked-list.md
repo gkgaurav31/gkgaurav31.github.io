@@ -84,3 +84,86 @@ class Solution {
     }
 }
 ```
+
+### BREAK AT THE CENTER
+
+We could have also divided the Linked Lists from the center and recursively solved the two sub-problems.
+
+```java
+class Solution {
+
+    Node flatten(Node root) {
+        return flattenHelper(root);
+    }
+
+    Node flattenHelper(Node root){
+
+        if(root == null || root.next == null)
+            return root;
+
+        // divide into two parts
+        Node slow = root;
+        Node fast = root.next;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node t1 = slow;
+        Node h2 = slow.next;
+
+        // break
+        t1.next = null;
+
+        Node h1 = root;
+
+        Node first = flattenHelper(h1);
+        Node second = flattenHelper(h2);
+
+        return mergeSortedLinkedLists(first, second);
+
+    }
+
+    Node mergeSortedLinkedLists(Node head1, Node head2){
+
+        Node h1 = head1;
+        Node h2 = head2;
+
+        Node dummyHead = new Node(0);
+        Node tail = dummyHead;
+
+        while(h1 != null && h2 != null){
+
+            Node temp = null;
+
+            if(h1.data < h2.data){
+
+                temp = h1;
+                h1 = h1.bottom;
+
+            }else{
+
+                temp = h2;
+                h2 = h2.bottom;
+
+            }
+
+            temp.bottom = null;
+
+            tail.bottom = temp;
+            tail = tail.bottom;
+
+        }
+
+        if(h1 != null)
+            tail.bottom = h1;
+        else
+            tail.bottom = h2;
+
+        return dummyHead.bottom;
+
+    }
+
+}
+```
