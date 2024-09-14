@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Merge K sorted linked lists
+title: Merge K sorted linked lists (geeksforgeeks - SDE Sheet)
 date: 2024-09-14 18:50 +0530
 author: "Gaurav Kumar"
 tags: "java linkedlist geeksforgeeks sde-sheet"
