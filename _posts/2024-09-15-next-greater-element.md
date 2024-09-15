@@ -3,7 +3,7 @@ layout: post
 title: Next Greater Element (geeksforgeeks - SDE Sheet)
 date: 2024-09-15 14:32 +0530
 author: "Gaurav Kumar"
-tags: "java stack geeksforgeeks sde-shee important"
+tags: "java stack geeksforgeeks sde-sheet important"
 categories: "sde-sheet"
 ---
 
