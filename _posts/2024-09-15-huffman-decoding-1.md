@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Huffman Decoding-1
+title: Huffman Decoding-1 (geeksforgeeks - SDE Sheet)
 date: 2024-09-15 21:17 +0530
 author: "Gaurav Kumar"
 tags: "java geeksforgeeks sde-sheet"
