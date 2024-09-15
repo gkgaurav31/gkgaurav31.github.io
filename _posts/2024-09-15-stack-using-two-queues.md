@@ -15,6 +15,16 @@ Implement a Stack using two queues q1 and q2.
 
 ## SOLUTION
 
+- push:
+
+  add current element to q2
+  transfer all elements from q1 to q2
+  switch q1, q2 references, so q1 becomes q2 and vice versa
+
+- pop:
+
+  get element from q1. return -1 if empty
+
 ```java
 class Queues
 {
