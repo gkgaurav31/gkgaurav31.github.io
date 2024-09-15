@@ -17,8 +17,8 @@ Implement a Stack using two queues q1 and q2.
 
 - push:
 
-  add current element to q2
-  transfer all elements from q1 to q2
+  add current element to q2  
+  transfer all elements from q1 to q2  
   switch q1, q2 references, so q1 becomes q2 and vice versa
 
 - pop:
