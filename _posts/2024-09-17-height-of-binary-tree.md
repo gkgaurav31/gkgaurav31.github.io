@@ -2,6 +2,7 @@
 layout: post
 title: Height of Binary Tree (geeksforgeeks - SDE Sheet)
 date: 2024-09-17 19:05 +0530
+author: "Gaurav Kumar"
 tags: "java binarytree geeksforgeeks sde-sheet"
 categories: "sde-sheet"
 ---
