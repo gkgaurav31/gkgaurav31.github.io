@@ -54,6 +54,8 @@ class Solution
 
 ### RIGHT APPROACH (DIJKSTRA'S ALGORITHM)
 
+We can solve it by using Dijkstra's algorithm on a grid, where each cell represents a node with an associated cost. The idea is to use a priority queue (min-heap) to explore the least costly path first, starting from the top-left corner of the grid. At each step, we check all four possible directions (right, left, down, up) and calculate the new cost to reach neighboring cells. If the new cost is lower than the previously known cost, we update the cost and add the cell to the priority queue. This process continues until we reach the bottom-right corner, ensuring that the minimum cost path is found efficiently.
+
 ```java
 import java.util.*;
 
