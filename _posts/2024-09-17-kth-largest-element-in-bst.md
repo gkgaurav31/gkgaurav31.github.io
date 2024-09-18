@@ -78,11 +78,7 @@ class Solution
         if(count.c == K)
             return root.data;
 
-        int left = kthLargest(root.left, K, count);
-        if (left != -1)
-            return left;
-
-        return -1;
+        return kthLargest(root.left, K, count);
 
     }
 
