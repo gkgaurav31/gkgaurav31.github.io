@@ -3,7 +3,7 @@ layout: post
 title: Symmetric Tree (geeksforgeeks - SDE Sheet)
 date: 2024-09-18 21:40 +0530
 author: "Gaurav Kumar"
-tags: "java binarytree BST geeksforgeeks sde-sheet"
+tags: "java binarytree geeksforgeeks sde-sheet"
 categories: "sde-sheet"
 ---
 
@@ -14,6 +14,12 @@ Given a Binary Tree. Check whether it is Symmetric or not, i.e. whether the bina
 [geeksforgeeks](https://www.geeksforgeeks.org/problems/symmetric-tree/1?page=8)
 
 ## SOLUTION
+
+create helper method `isSame(r1, r2)`
+
+compare r1 and r2 values.
+
+Then recursively check `isSame(r1.left, r2.right)` && `isSame(r1.right, r2.left)`
 
 ```java
 class GfG
