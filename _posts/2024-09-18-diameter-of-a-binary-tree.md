@@ -15,6 +15,14 @@ The diameter of a tree (sometimes called the width) is the number of nodes on th
 
 ## SOLUTION
 
+The key idea is to compute the height of the left and right subtrees for each node and then sum these heights to get the path length passing through that node.
+
+We maintain a global variable max that stores the maximum diameter encountered so far.
+
+For each node, we calculate three values: the height of the left subtree plus one, the height of the right subtree plus one, and the combined left and right subtree path passing through the node. We update the maximum diameter using the largest of these values.
+
+The important part is while returning the length. We should only consider either the nodes on left or right but not both. The combined part cannot be part of path for the parent node.
+
 ```java
 class Solution {
 
