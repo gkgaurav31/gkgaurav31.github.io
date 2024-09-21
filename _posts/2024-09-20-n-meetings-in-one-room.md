@@ -3,7 +3,7 @@ layout: post
 title: N meetings in one room (geeksforgeeks - SDE Sheet)
 date: 2024-09-20 23:49 +0530
 author: "Gaurav Kumar"
-tags: "java binarytree geeksforgeeks sde-sheet"
+tags: "java intervals geeksforgeeks sde-sheet"
 categories: "sde-sheet"
 ---
 
