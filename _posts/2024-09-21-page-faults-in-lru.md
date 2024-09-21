@@ -17,46 +17,55 @@ Given a sequence of pages in an array pages[] of length N and memory capacity C,
 
 ## SOLUTION
 
-We can solve this by using the Least Recently Used (LRU) page replacement algorithm with a Deque and a Set. The Deque keeps track of the pages in memory, placing the most recently used ones at the front. As we go through the page requests, we check if a page is already in memory. If it is, we move it to the front; if not, we count it as a page fault. If memory is full, we remove the least recently used page from the back.
+We can solve this by using the Least Recently Used (LRU) page replacement algorithm with a `Deque` and a `Set`. The `Deque` keeps track of the pages in memory, placing the most recently used ones at the front. As we go through the page requests, we check if a page is already in memory. If it is, we move it to the front; if not, we count it as a page fault. If memory is full, we remove the least recently used page from the back.
 
 ```java
 class Solution {
 
     static int pageFaults(int N, int C, int pages[]) {
+
         // Deque to keep track of pages currently in memory (most recently used at the front)
         Deque<Integer> memory = new LinkedList<>();
+
         // Set to allow O(1) lookup for pages in memory
         Set<Integer> pageSet = new HashSet<>();
 
-        int pageFaults = 0; // Counter for the number of page faults
+        int pageFaults = 0;
 
         // Iterate through each page request in the pages array
         for (int i = 0; i < pages.length; i++) {
-            int currentPage = pages[i]; // Current page being referenced
+
+            int currentPage = pages[i];
 
             // Check if the current page is already in memory
             if (pageSet.contains(currentPage)) {
-                // Page is already in memory; move it to the front (most recently used)
-                memory.remove(currentPage); // Remove it from its current position
-                memory.addFirst(currentPage); // Add it to the front
+
+                // Remove it from its current position
+                // and add it to the front
+                memory.remove(currentPage);
+                memory.addFirst(currentPage);
             } else {
+
                 // Page fault occurs; the page is not in memory
-                pageFaults++; // Increment the page fault counter
+                pageFaults++;
 
                 // Check if memory is full
                 if (memory.size() == C) {
+
                     // Remove the least recently used page (last in the deque)
-                    int last = memory.removeLast(); // Remove the last page
-                    pageSet.remove(last); // Also remove it from the set
+                    int last = memory.removeLast();
+                    pageSet.remove(last);
+
                 }
 
                 // Add the current page to the front (most recently used)
                 memory.addFirst(currentPage);
-                pageSet.add(currentPage); // Add the page to the set for future reference
+                pageSet.add(currentPage);
+
             }
         }
 
-        return pageFaults; // Return the total number of page faults
+        return pageFaults;
     }
 }
 ```
