@@ -58,6 +58,8 @@ class Solution {
 
 [USING BINARY SEARCH](https://www.youtube.com/watch?v=on2hvxBXJH4)
 
+We can solve this by using a list to keep track of the smallest possible ending elements for increasing subsequences of different lengths. For each element in the array, we use binary search to find where it should be placed in the list. If it's larger than all elements in the list, we add it to the end. Otherwise, we replace the appropriate element to maintain the smallest possible values. This way, the list always represents the smallest tails of increasing subsequences, and its size gives the length of the longest increasing subsequence.
+
 ```java
 class Solution {
 
