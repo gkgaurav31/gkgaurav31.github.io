@@ -69,3 +69,67 @@ class Solution {
 
 }
 ```
+
+### OPTIMIZED
+
+```java
+import java.util.TreeSet;
+
+class Solution {
+
+    String chooseandswap(String str) {
+
+        // Get the length of the input string
+        int n = str.length();
+
+        // Create a TreeSet to store unique characters from the string in sorted order
+        TreeSet<Character> set = new TreeSet<>();
+
+        for (int i = 0; i < n; i++)
+            set.add(str.charAt(i));
+
+        // Iterate through each character in the string
+        for (int i = 0; i < n; i++) {
+
+            char current = str.charAt(i);
+
+            // Remove the current character from the set if it exists
+            if (set.contains(current))
+                set.remove(current);
+
+            // If the set is empty, return the original string as no swaps can be made
+            if (set.size() == 0) {
+                return str;
+            }
+
+            // Check if the smallest character in the set is less than the current character
+            if (set.first() < current) {
+
+                // The character we are considering swapping
+                char a = current;
+
+                // The smallest character in the set to swap with (which is present later in the string)
+                char b = set.first();
+
+                char[] s = str.toCharArray();
+
+                // Perform the swap in the character array
+                for (int k = 0; k < n; k++) {
+                    if (s[k] == a) {
+                        s[k] = b;
+                    } else if (s[k] == b) {
+                        s[k] = a;
+                    }
+                }
+
+                // Convert the modified character array back to a string and return it
+                return String.valueOf(s);
+            }
+        }
+
+        // If no beneficial swap was found, return the original string
+        return str;
+    }
+
+}
+```
