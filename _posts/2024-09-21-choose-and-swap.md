@@ -15,7 +15,57 @@ You are given a string str of lower case english alphabets. You can choose any t
 
 ## SOLUTION
 
-- Find the lexicographically smallest character (minChar) in the string.
-- Traverse the string to find the first character (swapChar) that is larger than minChar.
-- If such a swapChar exists, swap all occurrences of minChar and swapChar.
-- Return the resulting lexicographically smallest string.
+### BRUTE FORCE (ACCEPTED)
+
+Try swapping every pair possible from the given string. If it's lexographically smaller than given str, it's a possible candidate. Maintain a result string and update it if the current string formed is smaller.
+
+```java
+class Solution {
+
+    String chooseandswap(String str) {
+
+        // Initialize the result with the original string
+        String res = str;
+
+        // Create a set of unique characters from the input string
+        Set<Character> set = new HashSet<>();
+        for(int i = 0; i < str.length(); i++)
+            set.add(str.charAt(i));
+
+        // Convert the set to a list of characters to allow indexed access
+        List<Character> list = new ArrayList<>(set);
+
+        // Loop through all pairs of characters in the list to attempt swapping
+        for (int i = 0; i < list.size(); i++) {
+
+            for (int j = i + 1; j < list.size(); j++) {
+
+                // Get two characters to swap: 'a' from list.get(i) and 'b' from list.get(j)
+                char a = list.get(i);
+                char b = list.get(j);
+
+                // Create a copy of the original string as a character array for swapping
+                char[] arr = str.toCharArray();
+
+                // Swap all occurrences of 'a' with 'b' and 'b' with 'a' in the character array
+                for (int k = 0; k < arr.length; k++) {
+                    if (arr[k] == a)
+                        arr[k] = b;
+                    else if (arr[k] == b)
+                        arr[k] = a;
+                }
+
+                // Convert the modified character array back to a string
+                String newStr = String.valueOf(arr);
+
+                // If the new string is lexicographically smaller, update the result
+                if (newStr.compareTo(res) < 0)
+                    res = newStr;
+            }
+        }
+
+        return res;
+    }
+
+}
+```
