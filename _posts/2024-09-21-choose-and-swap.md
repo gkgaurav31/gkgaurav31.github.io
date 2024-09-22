@@ -75,13 +75,10 @@ class Solution {
 [Good Explanation on YouTube](https://www.youtube.com/watch?v=NhnsINajZRA)
 
 ```java
-import java.util.TreeSet;
-
 class Solution {
 
     String chooseandswap(String str) {
 
-        // Get the length of the input string
         int n = str.length();
 
         // Create a TreeSet to store unique characters from the string in sorted order
