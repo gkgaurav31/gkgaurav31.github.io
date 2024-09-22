@@ -15,6 +15,8 @@ A frog jumps either 1, 2, or 3 steps to go to the top. In how many ways can it r
 
 ## SOLUTION
 
+We can solve this using dynamic programming by counting how many ways the frog can reach each step based on the previous three steps. To reach step i, the frog can come from step i-1, i-2, or i-3, so the total ways to reach step i is the sum of the ways to reach those three steps.
+
 ```java
 class Solution {
 
