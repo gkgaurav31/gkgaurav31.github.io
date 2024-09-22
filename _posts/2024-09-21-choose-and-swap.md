@@ -72,6 +72,8 @@ class Solution {
 
 ### OPTIMIZED
 
+[Good Explanation on YouTube](https://www.youtube.com/watch?v=NhnsINajZRA)
+
 ```java
 import java.util.TreeSet;
 
