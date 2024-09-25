@@ -9,7 +9,8 @@ categories: "sde-sheet"
 
 ## PROBLEM DESCRIPTION
 
-The problem is to find the shortest distances between every pair of vertices in a given edge-weighted directed graph. The graph is represented as an adjacency matrix of size n\*n. `Matrix[i][j]` denotes the weight of the edge from i to j. If `Matrix[i][j]=-1`, it means there is no edge from i to j.
+The problem is to find the shortest distances between every pair of vertices in a given edge-weighted directed graph. The graph is represented as an adjacency matrix of size `nxn`. `Matrix[i][j]` denotes the weight of the edge from i to j. If `Matrix[i][j]=-1`, it means there is no edge from i to j.
+
 Note : Modify the distances for every pair in-place.
 
 [geeksforgeeks](https://www.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1?page=9)
@@ -17,6 +18,17 @@ Note : Modify the distances for every pair in-place.
 ## SOLUTION
 
 [Good Explanation by takeUForward](https://www.youtube.com/watch?v=YbY8cVwWAvw)
+
+```plaintext
+Consider intermediate nodes from [0,n]
+Consider pair wise for nodes:
+i -> [0, n]
+  j -> [0, n]
+  Keep updating min distance between
+  i->j directly
+  OR
+  i->k then k->j.
+```
 
 ```java
 class Solution
