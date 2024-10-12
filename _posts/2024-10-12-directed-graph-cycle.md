@@ -82,6 +82,16 @@ class Solution {
 
 ### APPROACH 2 - USING INDEGREE (ACCEPTED)
 
+We can solve this by using `Kahn's Algorithm`, which is a BFS-based approach to check for cycles in a directed graph.
+
+The idea is to track the in-degrees of all vertices, which represent how many edges point to each vertex.
+
+We first identify vertices with zero in-degrees (i.e., no dependencies) and add them to a queue.
+
+As we process these vertices, we reduce the in-degrees of their neighbors. If a neighbor’s in-degree becomes zero, we add it to the queue as well. If all vertices are processed without finding any vertex with a non-zero in-degree at the end, the graph is acyclic.
+
+However, if any vertex still has a non-zero in-degree after processing, it means there is a cycle, as some vertices are dependent on each other in a circular way.
+
 ```java
 class Solution {
 
