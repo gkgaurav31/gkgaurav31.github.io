@@ -3,7 +3,7 @@ layout: post
 title: Trie | (Delete) (geeksforgeeks - SDE Sheet)
 date: 2024-10-13 16:27 +0530
 author: "Gaurav Kumar"
-tags: "java graphs geeksforgeeks sde-sheet"
+tags: "java trie geeksforgeeks sde-sheet"
 categories: "sde-sheet"
 ---
 
