@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rotate matrix elements clockwise
+title: Rotate matrix elements clockwise (geeksforgeeks - SDE Sheet)
 date: 2024-10-16 17:02 +0530
 author: "Gaurav Kumar"
 tags: "java arrays geeksforgeeks sde-sheet important"
