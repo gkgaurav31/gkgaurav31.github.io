@@ -16,6 +16,8 @@ Note: Integer N is stored using 16 bits. i.e. 12 will be stored as 0000000000001
 
 ## SOLUTION
 
+[Good Explanation - geeksforgeeks](https://www.youtube.com/watch?v=S2yXCBu3NdQ)
+
 Left Shift:
 
 If we left shift `N` by `D` places to the left, the left most `D` bits should move towards right. The trick is to get those left most `D` bit by right shifting `N` by `(16-N)` times! Then just taken a bitwise `OR` for both of them. We need to ensure that the final result is still in 16 bit, so we do a bitwise `AND` with `(1<<16) - 1`.
