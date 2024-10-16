@@ -19,9 +19,9 @@ You are given a number N. Find the total number of setbits in the numbers from 1
 
 ```java
 class Solution{
-    
+
     static int countBits(int A){
-        
+
         //base case
         if(A == 0) return 0;
 
@@ -31,7 +31,7 @@ class Solution{
         //number of 1s present in each bit position = 2^x / 2
         long numerOfOnesInEachPosition = (1<<x)/2;
 
-        //how many positions have any set bits? 
+        //how many positions have any set bits?
         long totalNumberOfPositions = x;
 
         //all the remaining numbers from 2^x to A will have set bit in its MSB
@@ -43,9 +43,9 @@ class Solution{
         //if we carefully observe, (A / 2^x) is now a sub-problem. So, calculate that using recursion and add that to the currentTotal
         long contributionByRemaining = countBits( A - (1<<x) );
 
-        return (int)(currentTotal + contributionByRemaining); 
+        return (int)(currentTotal + contributionByRemaining);
     }
-    
+
     public static long logBase2(long n){
 
         long c = 0;
