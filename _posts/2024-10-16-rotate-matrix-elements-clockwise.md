@@ -44,6 +44,7 @@ class Solution {
 
             // Rotate the top row from left to right
             for (int c = left; c <= right; c++) {
+
                 // Temporarily store the current element
                 int temp = arr[top][c];
 
@@ -56,6 +57,7 @@ class Solution {
 
             // Rotate the right column from top to bottom
             for (int r = top + 1; r <= bottom; r++) {
+
                 // Temporarily store the current element
                 int temp = arr[r][right];
 
@@ -68,6 +70,7 @@ class Solution {
 
             // Rotate the bottom row from right to left
             for (int c = right - 1; c >= left; c--) {
+
                 // Temporarily store the current element
                 int temp = arr[bottom][c];
 
@@ -80,6 +83,7 @@ class Solution {
 
             // Rotate the left column from bottom to top
             for (int r = bottom - 1; r >= top + 1; r--) {
+
                 // Temporarily store the current element
                 int temp = arr[r][left];
 
@@ -90,20 +94,12 @@ class Solution {
                 prev = temp;
             }
 
-            // Move the top boundary down to the next layer
             top++;
-
-            // Move the bottom boundary up to the next layer
             bottom--;
-
-            // Move the left boundary right to the next layer
             left++;
-
-            // Move the right boundary left to the next layer
             right--;
         }
 
-        // Return the rotated matrix
         return arr;
     }
 
