@@ -21,6 +21,19 @@ The code searches for all occurrences of a pattern in a given text using a rolli
 
 It first calculates hash values for both the pattern and the initial window of text. If their hashes match, it compares the actual strings to confirm a match. Then, it slides over the text one character at a time, updating the hash efficiently by removing the previous character's contribution and adding the new one. For each match, it stores the 1-based starting index in a list. The use of modulo ensures hash values stay manageable, avoiding overflow.
 
+Example:
+
+First, we convert the pattern into a hash number by adding up the ASCII values (character codes) of its characters.
+For example, if the pattern is "abc", the hash could be something like this:
+
+'a' = 97, 'b' = 98, 'c' = 99.
+
+So, the pattern hash would be: 97 + 98 + 99 = 294.
+
+If the text is "abcabcabc" and the pattern is "abc", the first 3 characters ("abc") have the same hash: 294.
+
+If the hash match, it's a potential match. We compare the current window with the pattern to confirm.
+
 ```java
 import java.util.ArrayList;
 
@@ -81,3 +94,9 @@ class Solution {
     }
 }
 ```
+
+### IMPROVING THE HASH
+
+The current rolling hash calculation is very basic and could lead to hash collisions more often than necessary.
+
+A more common approach is to use a base (e.g., 256) in the hash function. This reduces the chance of two different strings having the same hash (collision).
