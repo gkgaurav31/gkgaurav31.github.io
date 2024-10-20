@@ -143,3 +143,125 @@ class Node {
     }
 }
 ```
+
+## ORGANIZED CODE
+
+Some parts of the previous code can be separately put in a different method for better readability. The logic remains the same.
+
+```java
+class LRUCache {
+
+    int capacity;
+    Node head;
+    Node tail;
+    Map<Integer, Node> map;
+    int size;
+
+    // Constructor for initializing the cache capacity with the given value.
+    LRUCache(int cap) {
+
+        this.capacity = cap;
+        map = new HashMap<>();
+        size = 0;
+
+        // dummy
+        head = new Node(-1, -1);
+        tail = new Node(-1, -1);
+
+        head.next = tail;
+        tail.prev = head;
+
+    }
+
+    // Function to return value corresponding to the key.
+    public int get(int key) {
+
+        if(!map.containsKey(key))
+            return -1;
+
+        // get the corresponding node
+        Node node = map.get(key);
+
+        // move it to the end
+        deleteNode(node);
+        addToEnd(node);
+
+        return node.value;
+
+    }
+
+    // Function for storing key-value pair.
+    public void set(int key, int value) {
+
+        int x = get(key);
+
+        if(x != -1){
+            tail.prev.value = value;
+            return;
+        }
+
+        Node node = new Node(key, value);
+        map.put(key, node);
+
+        if(size >= capacity){
+
+            // remove oldest node
+            deleteFront();
+
+        }else
+            size++;
+
+        // add current node to the end
+        addToEnd(node);
+
+    }
+
+    public void deleteFront(){
+
+        Node removeNode = head.next;
+        map.remove(removeNode.key);
+
+        // remove from linked list
+        Node newNext = head.next.next;
+
+        head.next = newNext;
+        newNext.prev = head;
+
+    }
+
+    public void deleteNode(Node node){
+
+        Node prevNode = node.prev;
+        Node nextNode = node.next;
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
+
+    }
+
+    public void addToEnd(Node node){
+
+        Node lastNode = tail.prev;
+        lastNode.next = node;
+        node.prev = lastNode;
+        node.next = tail;
+        tail.prev = node;
+
+    }
+
+}
+
+// Node for a Doubly Linked List
+class Node{
+
+    int key;
+    int value;
+    Node prev;
+    Node next;
+
+    Node(int k, int v){
+        key = k;
+        value = v;
+    }
+
+}
+```
