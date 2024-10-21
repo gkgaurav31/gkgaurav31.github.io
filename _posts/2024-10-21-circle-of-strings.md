@@ -26,6 +26,10 @@ We want to check if all the strings can be arranged in a way that forms a circle
 
 Next, we make sure all the characters that have outgoing strings are connected, meaning you can travel between them, ensuring they form a single connected chain. If both these conditions are met, the strings can be arranged to form a circle. If not, it's impossible to do so.
 
+Take Example: `ac, ca, km, mk`
+
+Even though the in-degree equals the out-degree for all characters, the strings cannot form a circle because the graph is not connected — there are two separate cycles (ac → ca and km → mk). Thus, it is not possible to form a single circle with these strings.
+
 ```java
 class Solution {
 
