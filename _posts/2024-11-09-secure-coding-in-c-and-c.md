@@ -9,8 +9,6 @@ categories: "clean code"
 
 ## SECURE CODING IN C AND C++
 
-> Learnings from the book "Secure Coding C and C++ by Rober C. Seacord"
-
 ### SIZEOF(ARRAY)
 
 In C/C++, when you pass an array to a function, it becomes a pointer to the first element. This means that `sizeof(array)` inside the function gives the size of the pointer, not the actual array.
@@ -80,7 +78,7 @@ void get_y_or_n(void) {
 }
 ```
 
-If more than 8 characters are entered, this causes undefined behavior since `gets()` doesn’t limit input size.
+If more than 8 characters are entered, this causes undefined behavior since `gets()` doesn't limit input size.
 
 Here's the implementation of `gets()` method in C:
 
@@ -114,7 +112,7 @@ fgets(char *str, int n, FILE *stream)
 
 ## COPYING AND CONCATENATING STRINGS
 
-Errors can occur when copying strings with functions like `strcpy()` or `sprintf()`, as they don’t limit the data copied.
+Errors can occur when copying strings with functions like `strcpy()` or `sprintf()`, as they don't limit the data copied.
 
 Command-line arguments are stored as null-terminated strings in `argv`:
 
@@ -327,6 +325,79 @@ int main()
     }else{
         puts("Reallocation of memory failed.");
     }
+
+    printf("\n\n--------------------END--------------------\n\n");
+
+    return 0;
+}
+```
+
+- We can reduce the size as well. For example:
+  `ptr = (int *) realloc(ptr, sizeof(int) * (n / 2));`
+  After resizing to a smaller size, any data beyond the new allocated size (in this case, beyond n/2 elements) will be lost.
+- Always assign the result of `realloc()` to the original pointer (`ptr` in this case). This is important because realloc() can return a new memory address, and you would lose the reference to the old memory if you didn't reassign the pointer.
+- Always check if `realloc()` returns `NULL`. If it does, it means the memory reallocation failed, and the original memory remains valid.
+
+### FREE()
+
+Deallocate memory that was previously allocated dynamically using functions like `malloc()`, `calloc()`, or `realloc()`.
+
+```C
+void free(void *ptr);
+```
+
+After freeing, the pointer becomes a dangling pointer if not set to `NULL`, meaning it still holds the memory address of the deallocated memory. Accessing or dereferencing this pointer after freeing memory is undefined behavior.
+To prevent this, it's a good practice to set the pointer to `NULL` after freeing memory.
+
+### COMMON PITFALLS
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+// Structure to represent a person
+typedef struct Person {
+    int age;
+    char* name;
+} Person;
+
+int main(int argc, char* argv[]) {
+
+    // #1. Dangling Pointers
+    Person *person1 = (Person*)malloc(sizeof(Person));
+
+    free(person1);  // Free the memory
+
+    // person1 is now a dangling pointer (no longer valid).
+    person1 = NULL;  // Set to NULL to avoid accidental use
+
+    // #2. Double Free Error
+    Person *person2 = (Person*)malloc(sizeof(Person));
+    free(person2);
+
+    // Double free: free the same memory block again, which causes undefined behavior
+    free(person2);
+
+    // #3. Forgetting to use "sizeof"
+    int *int_ptr = malloc(sizeof(int));  // Correct allocation using sizeof
+    free(int_ptr);
+
+    // #4. Dereferencing a NULL Pointer
+    char *name = malloc(sizeof(char));
+    if (name != NULL) {
+        *name = 'A';  // Safe to dereference
+        free(name);
+    }
+
+    // Example of incorrect code:
+    // char *name = NULL;
+    // *name = 'A';  // ERROR: Dereferencing a NULL pointer
+
+    // Another example:
+    // char *name = (char *) malloc(100000000);
+    // NULL pointer can be returned from malloc, calloc or realloc
+    // *name = 'A';
+    // We could be deferencing an invalid pointer here
 
     printf("\n\n--------------------END--------------------\n\n");
 
