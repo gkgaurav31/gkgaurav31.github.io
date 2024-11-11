@@ -4,7 +4,7 @@ title: Secure Coding in C and C++ (Part 1)
 date: 2024-11-09 15:24 +0530
 author: "Gaurav Kumar"
 tags: "c c++ theory important"
-categories: "clean code"
+categories: "clean_code"
 ---
 
 ## SECURE CODING IN C AND C++
@@ -403,4 +403,66 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+```
+
+### FUNCTION POINTER
+
+A function pointer in C is a pointer that points to a function instead of a data variable. It allows dynamic function calls and can be used for callback mechanisms or passing functions as arguments.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void message_1() {
+    puts("message...1");
+}
+
+void message_2(){
+    puts("message...2");
+}
+
+int main(int argc, char* argv[]) {
+
+    // Pointer to function that takes no arguments and returns void
+    void (*greeting)();
+
+    // Check if an argument is passed to the program (argc > 1)
+    // argc represents the number of command-line arguments passed to the program, and it includes the program's name as the first argument.
+    if(argc > 1){
+
+        // Store the first command-line argument (argv[1])
+        char *arg1 = argv[1];
+
+        // Compare the argument with the string "message_1"
+        // If equal, assign greeting to point to message_1 function
+        if(strcmp("message_1", arg1) == 0){
+            greeting = &message_1;
+        } else {
+            // If the argument is not "message_1", assign greeting to point to message_2 function
+            greeting = &message_2;
+        }
+
+    } else {
+        // If no arguments are passed, default greeting to message_1
+        greeting = &message_1;
+    }
+
+    // Call the function pointed to by greeting
+    greeting();
+
+    return 0;
+}
+```
+
+OUTPUT:
+
+```bash
+➜  learn-c gcc hello.c
+➜  learn-c ./a.out message_1
+message...1
+➜  learn-c ./a.out message_2
+message...2
+➜  learn-c ./a.out xyz
+message...2
 ```
