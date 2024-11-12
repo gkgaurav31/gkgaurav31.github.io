@@ -7,7 +7,7 @@ tags: "c c++ theory important"
 categories: "clean_code"
 ---
 
-## SECURE CODING IN C AND C++
+## SECURE CODING IN C AND C++ (Part 1)
 
 ### SIZEOF(ARRAY)
 
