@@ -37,6 +37,10 @@ Here is a simple HTML which does not use Content-Security-Policy. This will load
 
 The below HTML has a Content-Security-Policy which will block this font:
 
+You'd see the below error in browser console logs:
+
+> Refused to load the stylesheet 'https://fonts.googleapis.com/css2?family=Roboto&display=swap' because it violates the following Content Security Policy directive: "default-src 'self'". Note that 'style-src-elem' was not explicitly set, so 'default-src' is used as a fallback.
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -181,3 +185,6 @@ HTML File:
   </body>
 </html>
 ```
+
+The following YouTube video provides a good explanation about using CSP:
+[Content Security Policy explained](https://www.youtube.com/watch?v=txHc4zk6w3s)
