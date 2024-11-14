@@ -9,6 +9,8 @@ categories: "clean_code"
 
 HTTP is stateless, meaning each request is independent, with no memory of previous requests. For example, if you visit a website and add items to a shopping cart, the server doesn’t remember your cart between page loads. HTTP cookies solve this by storing small pieces of data on your browser, allowing the server to "remember" your state.
 
+[HTTP Cookies by Hussein Nasser](https://www.youtube.com/watch?v=sovAIX4doOE)
+
 ## CREATE COOKIE
 
 ### CLIENT SIDE
