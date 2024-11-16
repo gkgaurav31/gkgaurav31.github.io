@@ -60,4 +60,12 @@ This scenario is similar to the previous example, where an attacker can inject a
 
 For example, a hacker could create a malicious shortened URL like [http://somewebsite/xss_r/?name=%3Cscript%3Ealert%28%22XSS%21%21%21%22%29%3C%2Fscript%3E#](http://somewebsite/xss_r/?name=%3Cscript%3Ealert%28%22XSS%21%21%21%22%29%3C%2Fscript%3E#). If a victim clicks on this link, it will execute the JavaScript on their machine. This can potentially allow the attacker to steal sensitive information, such as cookies, session data, or personal details, by exploiting the vulnerabilities in the user's browser.
 
-![snapshot]({{ site.baseurl }}/assets/img/xss-reflected.png)
+![snapshot]({{ site.baseurl }}/assets/img/security/xss-reflected.png)
+
+Here's a way through which a hacker can potentially steal your cookies which may contain sensitive information. To demonstrate it, I will run a test server using `nc`.
+
+Command:
+`nc -lvp 4444`  
+Listens on port 4444 for incoming connections in verbose mode.
+
+![snapshot]({{ site.baseurl }}/assets/img/security/xss-reflected-cookie.png)
