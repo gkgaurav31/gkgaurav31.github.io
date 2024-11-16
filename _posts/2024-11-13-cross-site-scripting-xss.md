@@ -77,3 +77,24 @@ Using this payload, we can send the webpage's cookies to a server on 127.0.0.1:4
 ```
 
 ![snapshot]({{ site.baseurl }}/assets/img/security/xss-reflected-cookie.png)
+
+> `TIP`: The following site has a "cheat-sheet" for OWASP payloads and strategies that can be used to test vulnerability: [https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html#xss-locator-polyglot](https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html#xss-locator-polyglot)
+
+> `XSS Locator (Polyglot)`
+> This test delivers a 'polyglot test XSS payload' that executes in multiple contexts, including HTML, script strings, JavaScript, and URLs:
+> javascript:/_--></title></style></textarea></script></xmp>
+> <svg/onload='+/"`/+/onmouseover=1/+/[_/[]/+alert(42);//'>
+
+There are certain tools which can help in detecting such vulnerabilities, such as: [XSStrike](https://github.com/s0md3v/XSStrike) and [XSSer](https://github.com/epsylon/xsser).
+
+### Using XSStrike
+
+- Clone the repo and run `python xsstrike.py`
+- Get the PHPSESSIONID Cookie value (We can use `document.cookie` method) for the website
+- From the terminal, run the following command after updating it with your header values:
+
+```bash
+python xsstrike.py -u http://localhost/vulnerabilities/xss_r/?name=query --headers "Cookie: security=high; PHPSESSID=xxxxxxxxxxxxxx" --skip-dom
+```
+
+![snapshot]({{ site.baseurl }}/assets/img/security/xss-reflected-xsstrike.png)
