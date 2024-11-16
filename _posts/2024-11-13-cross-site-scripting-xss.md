@@ -87,7 +87,7 @@ Using this payload, we can send the webpage's cookies to a server on 127.0.0.1:4
 
 There are certain tools which can help in detecting such vulnerabilities, such as: [XSStrike](https://github.com/s0md3v/XSStrike) and [XSSer](https://github.com/epsylon/xsser).
 
-### Using XSStrike
+### USING XSSTRIKE
 
 - Clone the repo and run `python xsstrike.py`
 - Get the PHPSESSIONID Cookie value (We can use `document.cookie` method) for the website
@@ -98,3 +98,39 @@ python xsstrike.py -u http://localhost/vulnerabilities/xss_r/?name=query --heade
 ```
 
 ![snapshot]({{ site.baseurl }}/assets/img/security/xss-reflected-xsstrike.png)
+
+### USING XSSER
+
+- Clone the repo
+- Install using: `sudo python ./setup.py install`
+- Test
+
+We can use the following command for testing for XSS vulnerabilities:
+
+`xsser -u 'http://127.0.0.1' -g '/vulnerabilities/xss_r/?name=XSS' --cookie='security=high; PHPSESSID=tk1os5mdrfe3b3obj6jde7opu5' --ignore-proxy --threads 2 --auto`
+
+> The query parameter should have XSS value other you would get an error like: At least one -payloader- using a keyword: 'XSS' (for hex.hash) or 'X1S' (for int.hash):
+
+- A report will be generated in the file `XSSreport.raw`
+
+Here's an example of what the report would contain:
+
+```bash
+===========================================================================
+
+[+] Target: http://127.0.0.1 | /vulnerabilities/xss_r/?name=XSS
+[+] Vector: [ name ]
+
+[!] Method: URL
+[*] Hash: d35938008e2c6bd97f2e3e1fd88f601f
+
+[*] Payload:
+
+ http://127.0.0.1/vulnerabilities/xss_r/?name=%3Cform%3E%3Cbutton+formaction%3Djavascript%26colon%3Bd35938008e2c6bd97f2e3e1fd88f601f%3EY
+
+[!] Vulnerable: [Not Info]
+
+[!] Status: XSS FOUND!
+
+===========================================================================
+```
