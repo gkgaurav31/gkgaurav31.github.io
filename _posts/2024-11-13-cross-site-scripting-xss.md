@@ -153,7 +153,7 @@ We will use a proxy called `Zed Attach Proxy`: [zaproxy](https://www.zaproxy.org
 
 ![snapshot]({{ site.baseurl }}/assets/img/security/zap.png)
 
-## BYPASSING CLIENT-SIDE CHARACTER LIMITS WITH ZAP
+### BYPASSING CLIENT-SIDE CHARACTER LIMITS WITH ZAP
 
 Using ZAP, we can bypass client-side character limits. Follow these steps:
 
@@ -202,3 +202,5 @@ To automate XSS testing using OWASP ZAP, follow these steps:
 ![snapshot]({{ site.baseurl }}/assets/img/security/zap-fuzz-result.png)
 
 - After fuzzing is complete, check the `State` column to identify any potential vulnerabilities. The payload used for each request will be highlighted above the corresponding entry.
+
+## DOM-BASED XSS
