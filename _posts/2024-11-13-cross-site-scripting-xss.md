@@ -153,7 +153,7 @@ We will use a proxy called `Zed Attach Proxy`: [zaproxy](https://www.zaproxy.org
 
 ![snapshot]({{ site.baseurl }}/assets/img/security/zap.png)
 
-## Bypassing Client-Side Character Limits with ZAP
+## BYPASSING CLIENT-SIDE CHARACTER LIMITS WITH ZAP
 
 Using ZAP, we can bypass client-side character limits. Follow these steps:
 
@@ -176,4 +176,29 @@ Using ZAP, we can bypass client-side character limits. Follow these steps:
 
    ![snapshot]({{ site.baseurl }}/assets/img/security/zap-simple-message-1.png)
 
-⚠️ The intercepted request in ZAP can now be modified before being sent to the server, allowing you to bypass any client-side restrictions imposed on character input.
+   ⚠️ The intercepted request in ZAP can now be modified before being sent to the server, allowing you to bypass any client-side restrictions imposed on character input.
+
+5. You can modify the POST body by replacing it with: `txtName=test&mtxMessage=<IMG SRC=# onmouseover="alert('xss')">&btnSign=Sign+Guestbook` on zap. You can even go beyond the number of characters allowed to see if that goes through.
+
+6. Click on continue to next break point. The request will go to the server, get processed and saved!
+
+> A hacker could exploit this method to add a malicious HTML form that tricks users into entering their credentials. The user might believe they need to sign in to view comments, while the JavaScript silently sends the submitted data to an attacker-controlled server, exploiting the vulnerability.
+
+### AUTOMATED XSS VULNERABILITY TEST USING ZAP
+
+To automate XSS testing using OWASP ZAP, follow these steps:
+
+- Launch the website in a browser via ZAP, so the request gets intercepted by ZAP.
+- In ZAP, review the intercepted request and response.
+- Identify the part of the request to fuzz, such as the `txtName` parameter.
+- Right-click on the `txtName` field within the request and select `Fuzz` to begin the automated injection of XSS payloads.
+
+![snapshot]({{ site.baseurl }}/assets/img/security/zap-fuzz.png)
+
+- From there, click on `Payloads` -> `Add` -> `File Fuzzers` ->
+  `jbrofuzz` -> Select `XSS.
+- Confirm the selection and "start fuzzing".
+
+![snapshot]({{ site.baseurl }}/assets/img/security/zap-fuzz-result.png)
+
+- After fuzzing is complete, check the `State` column to identify any potential vulnerabilities. The payload used for each request will be highlighted above the corresponding entry.
