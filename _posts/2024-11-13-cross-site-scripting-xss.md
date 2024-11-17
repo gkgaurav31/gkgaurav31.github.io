@@ -204,3 +204,38 @@ To automate XSS testing using OWASP ZAP, follow these steps:
 - After fuzzing is complete, check the `State` column to identify any potential vulnerabilities. The payload used for each request will be highlighted above the corresponding entry.
 
 ## DOM-BASED XSS
+
+The attack occurs on the client side (in the browser), where JavaScript code manipulates the DOM (Document Object Model). It doesn't rely on the server to reflect or process the input; instead, the client-side script directly handles the malicious input.
+
+In the DVWA site, if we go to the page `XSS (DOM)` and inspect the HTML, we can see that it includes the following javascript:
+
+This JavaScript code checks if the URL contains the query parameter default=. If it does, it extracts the value of this parameter, decodes it, and creates an `<option>` element with that value for a dropdown list. It then adds a separator option `(----)` and includes additional language options: English, French, Spanish, and German.
+
+```js
+if (document.location.href.indexOf("default=") >= 0) {
+  var lang = document.location.href.substring(
+    document.location.href.indexOf("default=") + 8
+  );
+  document.write(
+    "<option value='" + lang + "'>" + decodeURI(lang) + "</option>"
+  );
+  document.write("<option value='' disabled='disabled'>----</option>");
+}
+
+document.write("<option value='English'>English</option>");
+document.write("<option value='French'>French</option>");
+document.write("<option value='Spanish'>Spanish</option>");
+document.write("<option value='German'>German</option>");
+```
+
+We can easily exploit this vulnerability by modifying the default query parameter in the URL, like so:
+
+[http://127.0.0.1/vulnerabilities/xss_d/?default=Test](http://127.0.0.1/vulnerabilities/xss_d/?default=Test)
+
+As a result, the Test language will appear in the drop-down list of available languages.
+
+To automate DOM XSS vulnerability testing, we can use xsstrike, just like we did for reflective XSS.
+
+> `TIP`: When looking for vulnerability, look out for `document.write` method in the source code.
+
+---
