@@ -46,7 +46,7 @@ If a user enters a malicious script (For example: `<script>alert('XSS');</script
 
 A good way to practically learn about these attacks, we can make use of the following "insecure" containerized apps:
 
-[DAMN VULNERABLE WEB APPLICATION](https://github.com/digininja/DVWA?tab=readme-ov-file#damn-vulnerable-web-application)
+[DAMN VULNERABLE WEB APPLICATION (DVWA)](https://github.com/digininja/DVWA?tab=readme-ov-file#damn-vulnerable-web-application)
 
 `docker run --rm -it -p 80:80 --name vulnerable vulnerables/web-dvwa`
 
@@ -54,7 +54,7 @@ A good way to practically learn about these attacks, we can make use of the foll
 
 `docker run --rm -p 3000:3000 --name juice-shop bkimminich/juice-shop`
 
-## REFLECTED CSS
+## REFLECTED XSS
 
 This scenario is similar to the previous example, where an attacker can inject and execute JavaScript in a user's browser, taking advantage of client-side vulnerabilities.
 
@@ -134,3 +134,46 @@ Here's an example of what the report would contain:
 
 ===========================================================================
 ```
+
+## STORED XSS
+
+In Stored XSS, malicious input is saved on the server and executed whenever a user visits the affected page. For example, on a site like YouTube, a hacker could post a JavaScript payload as a comment. When other users view the page, the script executes, potentially stealing credentials or performing malicious actions. Unlike Reflected XSS, where the script is part of a crafted link, Stored XSS persists on the server and impacts multiple users over time.
+
+Here's a GitHub page which contains certain useful XSS Payload which can be ucsed for testing: [Tiny-XSS-Payloads](https://github.com/terjanq/Tiny-XSS-Payloads?tab=readme-ov-file#tiny-xss-payloads).
+
+Let's use the same DVWA application -> XSS (Stored) page to learn about this.
+
+Using the PayLoad `<svg onload=alert(1)>` we can see that the site is vulnerable (when Security Level = low).
+
+It contains a `Message` textarea which has a client side character input limit.
+
+We will use a proxy called `Zed Attach Proxy`: [zaproxy](https://www.zaproxy.org/).
+
+> ZAP is what is known as a “manipulator-in-the-middle proxy.” It stands between the tester’s browser and the web application so that it can intercept and inspect messages sent between browser and web application, modify the contents if needed, and then forward those packets on to the destination.
+
+![snapshot]({{ site.baseurl }}/assets/img/security/zap.png)
+
+## Bypassing Client-Side Character Limits with ZAP
+
+Using ZAP, we can bypass client-side character limits. Follow these steps:
+
+1. Open ZAP and choose `Manual Explore`
+
+   - URL: `http://localhost`
+   - Click on `Launch Browser`
+
+2. A new browser instance will launch, and requests will be proxied through ZAP.
+
+   - Navigate to the target site (e.g., DVWA at `http://localhost`).
+
+3. Enable breakpoints in ZAP
+
+   - Click on the green circular button in the menu bar to enable breakpoints for all requests.
+
+4. Intercept and modify requests
+
+   - Fill in the `Name` and `Message` fields on the site and send the request.
+
+   ![snapshot]({{ site.baseurl }}/assets/img/security/zap-simple-message-1.png)
+
+⚠️ The intercepted request in ZAP can now be modified before being sent to the server, allowing you to bypass any client-side restrictions imposed on character input.
