@@ -114,3 +114,52 @@ class Solution {
 
 }
 ```
+
+## UPDATE
+
+The requirement in this problem seems to have changed. So the previous solution does not seem to work any longer. The difference is that, if the second array contains duplicates, we need to consider them multiple times as well. This can easily be incorporated by storing the frequency of numbers in the second array using HashMap (instead of using HashSet like before).
+
+```java
+class Solution {
+
+    public pair[] allPairs(int x, int arr1[], int arr2[]) {
+
+        int n = arr1.length;
+        int m = arr2.length;
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for(int i=0; i<m; i++)
+            map.put(arr2[i], map.getOrDefault(arr2[i], 0) + 1);
+
+        List<pair> list = new ArrayList<>();
+
+        Arrays.sort(arr1);
+
+        for(int i=0; i<n; i++){
+
+            int a = arr1[i];
+            int b = x-a;
+
+            if(map.containsKey(b)){
+
+                int times = map.get(b);
+
+                for(int k=0; k<times; k++){
+                    list.add(new pair(a, b));
+                }
+
+            }
+
+        }
+
+        pair[] res = new pair[list.size()];
+        for(int i=0; i<res.length; i++)
+            res[i] = list.get(i);
+
+        return res;
+
+    }
+
+}
+```

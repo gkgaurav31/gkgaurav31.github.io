@@ -239,3 +239,5 @@ To automate DOM XSS vulnerability testing, we can use xsstrike, just like we did
 > `TIP`: When looking for vulnerability, look out for `document.write` method in the source code.
 
 ---
+
+## postMessage()
