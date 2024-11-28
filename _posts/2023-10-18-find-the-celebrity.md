@@ -76,7 +76,7 @@ The two important observations are:
 
 These two observations can help in finding the last candidate for the celebrity. It's possible that there is no celebrity at all. So, before returning we need to double check if the last candidate is actually a celebrity, similar to the brute force way.
 
-````java
+```java
 /* The knows API is defined in the parent class Relation.
       boolean knows(int a, int b); */
 
@@ -114,4 +114,118 @@ public class Solution extends Relation {
 }
 ```
 
-````
+### ANOTHER WAY TO CODE (NOT SO OPTIMIZED BY ACCEPTED)
+
+We can create two arrays to track:
+
+1. Number of people who know x
+2. Number of people x knows
+
+The celebrity will be the one who knows only 1 person (themself) and all other n people knows the celebrity.
+
+```java
+public class Solution extends Relation {
+
+    public int findCelebrity(int n) {
+
+        // number of people who know me
+        int[] knowsMe = new int[n];
+
+        // number of people whom I know
+        int[] iKnow = new int[n];
+
+        for(int i=0; i<n; i++){
+
+            for(int j=0; j<n; j++){
+
+                // if i knows j
+                if(knows(i, j)){
+                    iKnow[i]++;
+                    knowsMe[j]++;
+                }
+
+            }
+
+        }
+
+        // a celebrity will be the person who only knows themselves
+        // so iKnow[celebrity] should be = 1
+        // also, all other people know the celebrity (including the celebrity themself)
+        // so knowsMe[celebrity] should be n
+        for(int i=0; i<n; i++){
+            if(iKnow[i] == 1 && knowsMe[i] == n)
+                return i;
+        }
+
+        return -1;
+
+    }
+
+}
+```
+
+### OPTIMIZED AND SIMPLE TO UNDERSTAND
+
+We will use elimination to figure out a candidate.
+
+The candidate can be from `[0, n-1]`.
+
+Let's init: i = 0 and j = n-1.
+
+If i knows j, i cannot be celeb, so increase i.
+If j knows i, j cannot be celeb, so decrease j.
+
+If both don't know each other, we can move either of them or both.
+
+Once we have a candidate, verify if its a celeb by using the same previous logic.
+
+```java
+public class Solution extends Relation {
+
+    public int findCelebrity(int n) {
+
+        int l = 0;
+        int r = n-1;
+
+        while(l<r){
+
+            // if l knows r, l cannot be the celeb
+            if(knows(l, r)){
+                l++;
+            // if r knows l, r cannot be the celeb
+            }else if(knows(r, l)){
+                r--;
+            // both don't know each other, and both cannot be celeb
+            }else{
+                l++;
+                r--;
+            }
+
+        }
+
+
+
+        // now we have a candidate, but we will need to verify
+        int candidate = l; // or r
+
+        // everyone should know celeb
+        // AND
+        // celeb should not know anyone else (other than themself)
+        for(int i=0; i<n; i++){
+
+            // if i does not know the candidate
+            if(!knows(i, candidate))
+                return -1;
+
+            // if candidate knows i
+            if(i != candidate && knows(candidate, i))
+                return -1;
+
+        }
+
+        return candidate;
+
+    }
+
+}
+```
