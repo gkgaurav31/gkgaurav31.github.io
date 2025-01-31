@@ -237,7 +237,3 @@ As a result, the Test language will appear in the drop-down list of available la
 To automate DOM XSS vulnerability testing, we can use xsstrike, just like we did for reflective XSS.
 
 > `TIP`: When looking for vulnerability, look out for `document.write` method in the source code.
-
----
-
-## postMessage()
