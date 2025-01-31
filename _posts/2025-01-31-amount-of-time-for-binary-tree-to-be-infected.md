@@ -39,7 +39,7 @@ Once we have the parent mapping, we can perform a **BFS traversal** starting fro
 2. For each node, check its **left** and **right** children—if they haven't been visited, add them to the queue and mark them as visited.
 3. Similarly, retrieve the **parent node** from the HashMap and add it to the queue if it hasn't been visited.
 
-### Edge Case
+Edge Case
 
 - The root node has no parent, so its parent reference in the HashMap will be `null`. We need to handle this case separately.
 
