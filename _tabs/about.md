@@ -37,7 +37,14 @@ A software developer by profession, and an artist at heart. Always willing to le
 
 ### 👨🏻‍💻 Technical Experience
 
-**Support Escalation Engineer** @ [Microsoft](https://www.microsoft.com/en-in/) _(July 2018 - Present)_
+**Software Engineer II** @ [Microsoft](https://www.microsoft.com/en-in/) _(February 2025 - Present)_
+
+- In OneDrive SharePoint Team, built automated incident management workflows using internal tools and Python/C#, reducing manual steps and improving operational efficiency for critical services
+- Won company-wide hackathon: Designed and implemented Incident Intelligence Platform, an AI-driven system that integrates telemetry and troubleshooting guides to generate structured resolution plans. 
+Utilized Azure AI Foundry, Cosmos DB, Azure Storage, and Azure Search with vector search for incident correlation
+- Resolved high-severity incidents for OneDrive and SharePoint through root cause analysis of code regressions and recent changes. Applied killswitches and hotfixes, reducing time to mitigate and escalate, ensuring service reliability
+
+**Support Escalation Engineer** @ [Microsoft](https://www.microsoft.com/en-in/) _(July 2018 - February 2025)_
 
 - Provide support to our customers for issues related to Azure App Service, Azure Spring Apps and Azure Container Apps.
 - Work on the development of internal diagnostic tools (detectors) to make the troubleshooting simpler.
