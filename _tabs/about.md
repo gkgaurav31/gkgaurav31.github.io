@@ -26,12 +26,22 @@ A software developer by profession, and an artist at heart. Always willing to le
 
 ### :newspaper: Projects
 
+- **Intelligent Incidents Platform**: Engineered an AI-driven incident-resolution agent using Azure AI Foundry that automatically retrieves incident metadata from Azure Cosmos DB and delivers the most relevant troubleshooting guides by leveraging Azure Storage and Azure AI Search. _(September 2025)_
+
+  #### INCIDENT RETRIEVAL FLOW
+  - Store incident metadata: ICM Metadata --> Azure Cosmos DB 
+  - Retrieve incident metadata: AI Foundry Agent --> Azure Container App (Open API) 
+
+  #### TSG RETRIEVAL FLOW
+  - Store TSG: TSG Repo --> Azure BLOB Storage --> Indexing using AI Search
+  - Retrieve TSG: AI Foundry Agent --> Azure AI Search
+
 - **First Day Resolution (FDR) Helper**: Built of top of the "cases automation" function app, it is an AI-driven project aimed at improving customer support by analyzing cases currently present in the queue. It gathers case data and generates tailored a action plan for efficient issue resolution. This enhances the CSS team's effectiveness and it can help in improve our "First Day Resolution" and "Response Time". _(Aug 2023)_
 
   > ![snapshot]({{ site.baseurl }}/assets/img/about_me/fdr_helper.png)
   > ![snapshot]({{ site.baseurl }}/assets/img/about_me/Arch-FDR-Helper.png)
 
-- **Customer Experience Insights**: on Azure App Service: Java Web Application which shows the customer's experience while working with support teams. It integrates with Cognitive Services to identify customer's sentiments and share a report in an e-mail. _(Jan 2023)_
+- **Customer Experience Insights**: on Azure App Service: Java Web Application which shows the customer's experience while `working with support teams. It integrates with Cognitive Services to identify customer's sentiments and share a report in an e-mail. _(Jan 2023)_
 - **OSSum Templates**: Edge/Chrome Extension: A browser extension which generates common templates we use while working with the customers - specifically for the "Initial Response" e-mail and other follow-up e-mails. It also includes quick access to other useful tools which can make life of the Engineer easier, such as - shortcut to open diagnostic tools, directly open team to contact the customer and a direct link for softphone. _(Oct 2022)_
   > ![snapshot]({{ site.baseurl }}/assets/img/about_me/ossum_templates.png)
 
