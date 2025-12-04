@@ -1,0 +1,4 @@
+[Title]({% post_url 2022-10-05-trie-introduction %})
+
+![snapshot]({{ site.baseurl }}/assets/img/myimg.png)
+
